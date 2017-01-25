@@ -1,0 +1,4819 @@
+fileFormatVersion: 2
+guid: 6d12f868fb8dd3143a526755da651632
+timeCreated: 1480379754
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: FontsSpriteSheet_0
+    21300002: FontsSpriteSheet_1
+    21300004: FontsSpriteSheet_2
+    21300006: FontsSpriteSheet_3
+    21300008: FontsSpriteSheet_4
+    21300010: FontsSpriteSheet_5
+    21300012: FontsSpriteSheet_6
+    21300014: FontsSpriteSheet_7
+    21300016: FontsSpriteSheet_8
+    21300018: FontsSpriteSheet_9
+    21300020: FontsSpriteSheet_10
+    21300022: FontsSpriteSheet_11
+    21300024: FontsSpriteSheet_12
+    21300026: FontsSpriteSheet_13
+    21300028: FontsSpriteSheet_14
+    21300030: FontsSpriteSheet_15
+    21300032: FontsSpriteSheet_16
+    21300034: FontsSpriteSheet_17
+    21300036: FontsSpriteSheet_18
+    21300038: FontsSpriteSheet_19
+    21300040: FontsSpriteSheet_20
+    21300042: FontsSpriteSheet_21
+    21300044: FontsSpriteSheet_22
+    21300046: FontsSpriteSheet_23
+    21300048: FontsSpriteSheet_24
+    21300050: FontsSpriteSheet_25
+    21300052: FontsSpriteSheet_26
+    21300054: FontsSpriteSheet_27
+    21300056: FontsSpriteSheet_28
+    21300058: FontsSpriteSheet_29
+    21300060: FontsSpriteSheet_30
+    21300062: FontsSpriteSheet_31
+    21300064: FontsSpriteSheet_32
+    21300066: FontsSpriteSheet_33
+    21300068: FontsSpriteSheet_34
+    21300070: FontsSpriteSheet_35
+    21300072: FontsSpriteSheet_36
+    21300074: FontsSpriteSheet_37
+    21300076: FontsSpriteSheet_38
+    21300078: FontsSpriteSheet_39
+    21300080: FontsSpriteSheet_40
+    21300082: FontsSpriteSheet_41
+    21300084: FontsSpriteSheet_42
+    21300086: FontsSpriteSheet_43
+    21300088: FontsSpriteSheet_44
+    21300090: FontsSpriteSheet_45
+    21300092: FontsSpriteSheet_46
+    21300094: FontsSpriteSheet_47
+    21300096: FontsSpriteSheet_48
+    21300098: FontsSpriteSheet_49
+    21300100: FontsSpriteSheet_50
+    21300102: FontsSpriteSheet_51
+    21300104: FontsSpriteSheet_52
+    21300106: FontsSpriteSheet_53
+    21300108: FontsSpriteSheet_54
+    21300110: FontsSpriteSheet_55
+    21300112: FontsSpriteSheet_56
+    21300114: FontsSpriteSheet_57
+    21300116: FontsSpriteSheet_58
+    21300118: FontsSpriteSheet_59
+    21300120: FontsSpriteSheet_60
+    21300122: FontsSpriteSheet_61
+    21300124: FontsSpriteSheet_62
+    21300126: FontsSpriteSheet_63
+    21300128: FontsSpriteSheet_64
+    21300130: FontsSpriteSheet_65
+    21300132: FontsSpriteSheet_66
+    21300134: FontsSpriteSheet_67
+    21300136: FontsSpriteSheet_68
+    21300138: FontsSpriteSheet_69
+    21300140: FontsSpriteSheet_70
+    21300142: FontsSpriteSheet_71
+    21300144: FontsSpriteSheet_72
+    21300146: FontsSpriteSheet_73
+    21300148: FontsSpriteSheet_74
+    21300150: FontsSpriteSheet_75
+    21300152: FontsSpriteSheet_76
+    21300154: FontsSpriteSheet_77
+    21300156: FontsSpriteSheet_78
+    21300158: FontsSpriteSheet_79
+    21300160: FontsSpriteSheet_80
+    21300162: FontsSpriteSheet_81
+    21300164: FontsSpriteSheet_82
+    21300166: FontsSpriteSheet_83
+    21300168: FontsSpriteSheet_84
+    21300170: FontsSpriteSheet_85
+    21300172: FontsSpriteSheet_86
+    21300174: FontsSpriteSheet_87
+    21300176: FontsSpriteSheet_88
+    21300178: FontsSpriteSheet_89
+    21300180: FontsSpriteSheet_90
+    21300182: FontsSpriteSheet_91
+    21300184: FontsSpriteSheet_92
+    21300186: FontsSpriteSheet_93
+    21300188: FontsSpriteSheet_94
+    21300190: FontsSpriteSheet_95
+    21300192: FontsSpriteSheet_96
+    21300194: FontsSpriteSheet_97
+    21300196: FontsSpriteSheet_98
+    21300198: FontsSpriteSheet_99
+    21300200: FontsSpriteSheet_100
+    21300202: FontsSpriteSheet_101
+    21300204: FontsSpriteSheet_102
+    21300206: FontsSpriteSheet_103
+    21300208: FontsSpriteSheet_104
+    21300210: FontsSpriteSheet_105
+    21300212: FontsSpriteSheet_106
+    21300214: FontsSpriteSheet_107
+    21300216: FontsSpriteSheet_108
+    21300218: FontsSpriteSheet_109
+    21300220: FontsSpriteSheet_110
+    21300222: FontsSpriteSheet_111
+    21300224: FontsSpriteSheet_112
+    21300226: FontsSpriteSheet_113
+    21300228: FontsSpriteSheet_114
+    21300230: FontsSpriteSheet_115
+    21300232: FontsSpriteSheet_116
+    21300234: FontsSpriteSheet_117
+    21300236: FontsSpriteSheet_118
+    21300238: FontsSpriteSheet_119
+    21300240: FontsSpriteSheet_120
+    21300242: FontsSpriteSheet_121
+    21300244: FontsSpriteSheet_122
+    21300246: FontsSpriteSheet_123
+    21300248: FontsSpriteSheet_124
+    21300250: FontsSpriteSheet_125
+    21300252: FontsSpriteSheet_126
+    21300254: FontsSpriteSheet_127
+    21300256: FontsSpriteSheet_128
+    21300258: FontsSpriteSheet_129
+    21300260: FontsSpriteSheet_130
+    21300262: FontsSpriteSheet_131
+    21300264: FontsSpriteSheet_132
+    21300266: FontsSpriteSheet_133
+    21300268: FontsSpriteSheet_134
+    21300270: FontsSpriteSheet_135
+    21300272: FontsSpriteSheet_136
+    21300274: FontsSpriteSheet_137
+    21300276: FontsSpriteSheet_138
+    21300278: FontsSpriteSheet_139
+    21300280: FontsSpriteSheet_140
+    21300282: FontsSpriteSheet_141
+    21300284: FontsSpriteSheet_142
+    21300286: FontsSpriteSheet_143
+    21300288: FontsSpriteSheet_144
+    21300290: FontsSpriteSheet_145
+    21300292: FontsSpriteSheet_146
+    21300294: FontsSpriteSheet_147
+    21300296: FontsSpriteSheet_148
+    21300298: FontsSpriteSheet_149
+    21300300: FontsSpriteSheet_150
+    21300302: FontsSpriteSheet_151
+    21300304: FontsSpriteSheet_152
+    21300306: FontsSpriteSheet_153
+    21300308: FontsSpriteSheet_154
+    21300310: FontsSpriteSheet_155
+    21300312: FontsSpriteSheet_156
+    21300314: FontsSpriteSheet_157
+    21300316: FontsSpriteSheet_158
+    21300318: FontsSpriteSheet_159
+    21300320: FontsSpriteSheet_160
+    21300322: FontsSpriteSheet_161
+    21300324: FontsSpriteSheet_162
+    21300326: FontsSpriteSheet_163
+    21300328: FontsSpriteSheet_164
+    21300330: FontsSpriteSheet_165
+    21300332: FontsSpriteSheet_166
+    21300334: FontsSpriteSheet_167
+    21300336: FontsSpriteSheet_168
+    21300338: FontsSpriteSheet_169
+    21300340: FontsSpriteSheet_170
+    21300342: FontsSpriteSheet_171
+    21300344: FontsSpriteSheet_172
+    21300346: FontsSpriteSheet_173
+    21300348: FontsSpriteSheet_174
+    21300350: FontsSpriteSheet_175
+    21300352: FontsSpriteSheet_176
+    21300354: FontsSpriteSheet_177
+    21300356: FontsSpriteSheet_178
+    21300358: FontsSpriteSheet_179
+    21300360: FontsSpriteSheet_180
+    21300362: FontsSpriteSheet_181
+    21300364: FontsSpriteSheet_182
+    21300366: FontsSpriteSheet_183
+    21300368: FontsSpriteSheet_184
+    21300370: FontsSpriteSheet_185
+    21300372: FontsSpriteSheet_186
+    21300374: FontsSpriteSheet_187
+    21300376: FontsSpriteSheet_188
+    21300378: FontsSpriteSheet_189
+    21300380: FontsSpriteSheet_190
+    21300382: FontsSpriteSheet_191
+    21300384: FontsSpriteSheet_192
+    21300386: FontsSpriteSheet_193
+    21300388: FontsSpriteSheet_194
+    21300390: FontsSpriteSheet_195
+    21300392: FontsSpriteSheet_196
+    21300394: FontsSpriteSheet_197
+    21300396: FontsSpriteSheet_198
+    21300398: FontsSpriteSheet_199
+    21300400: FontsSpriteSheet_200
+    21300402: FontsSpriteSheet_201
+    21300404: FontsSpriteSheet_202
+    21300406: FontsSpriteSheet_203
+    21300408: FontsSpriteSheet_204
+    21300410: FontsSpriteSheet_205
+    21300412: FontsSpriteSheet_206
+    21300414: FontsSpriteSheet_207
+    21300416: FontsSpriteSheet_208
+    21300418: FontsSpriteSheet_209
+    21300420: FontsSpriteSheet_210
+    21300422: FontsSpriteSheet_211
+    21300424: FontsSpriteSheet_212
+    21300426: FontsSpriteSheet_213
+    21300428: FontsSpriteSheet_214
+    21300430: FontsSpriteSheet_215
+    21300432: FontsSpriteSheet_216
+    21300434: FontsSpriteSheet_217
+    21300436: FontsSpriteSheet_218
+    21300438: FontsSpriteSheet_219
+    21300440: FontsSpriteSheet_220
+    21300442: FontsSpriteSheet_221
+    21300444: FontsSpriteSheet_222
+    21300446: FontsSpriteSheet_223
+    21300448: FontsSpriteSheet_224
+    21300450: FontsSpriteSheet_225
+    21300452: FontsSpriteSheet_226
+    21300454: FontsSpriteSheet_227
+    21300456: FontsSpriteSheet_228
+    21300458: FontsSpriteSheet_229
+    21300460: FontsSpriteSheet_230
+    21300462: FontsSpriteSheet_231
+    21300464: FontsSpriteSheet_232
+    21300466: FontsSpriteSheet_233
+    21300468: FontsSpriteSheet_234
+    21300470: FontsSpriteSheet_235
+    21300472: FontsSpriteSheet_236
+    21300474: FontsSpriteSheet_237
+    21300476: FontsSpriteSheet_238
+    21300478: FontsSpriteSheet_239
+    21300480: FontsSpriteSheet_240
+    21300482: FontsSpriteSheet_241
+    21300484: FontsSpriteSheet_242
+    21300486: FontsSpriteSheet_243
+    21300488: FontsSpriteSheet_244
+    21300490: FontsSpriteSheet_245
+    21300492: FontsSpriteSheet_246
+    21300494: FontsSpriteSheet_247
+    21300496: FontsSpriteSheet_248
+    21300498: FontsSpriteSheet_249
+    21300500: FontsSpriteSheet_250
+    21300502: FontsSpriteSheet_251
+    21300504: FontsSpriteSheet_252
+    21300506: FontsSpriteSheet_253
+    21300508: FontsSpriteSheet_254
+    21300510: FontsSpriteSheet_255
+    21300512: FontsSpriteSheet_256
+    21300514: FontsSpriteSheet_257
+    21300516: FontsSpriteSheet_258
+    21300518: FontsSpriteSheet_259
+    21300520: FontsSpriteSheet_260
+    21300522: FontsSpriteSheet_261
+    21300524: FontsSpriteSheet_262
+    21300526: FontsSpriteSheet_263
+    21300528: FontsSpriteSheet_264
+    21300530: FontsSpriteSheet_265
+    21300532: FontsSpriteSheet_266
+    21300534: FontsSpriteSheet_267
+    21300536: FontsSpriteSheet_268
+    21300538: FontsSpriteSheet_269
+    21300540: FontsSpriteSheet_270
+    21300542: FontsSpriteSheet_271
+    21300544: FontsSpriteSheet_272
+    21300546: FontsSpriteSheet_273
+    21300548: FontsSpriteSheet_274
+    21300550: FontsSpriteSheet_275
+    21300552: FontsSpriteSheet_276
+    21300554: FontsSpriteSheet_277
+    21300556: FontsSpriteSheet_278
+    21300558: FontsSpriteSheet_279
+    21300560: FontsSpriteSheet_280
+    21300562: FontsSpriteSheet_281
+    21300564: FontsSpriteSheet_282
+    21300566: FontsSpriteSheet_283
+    21300568: FontsSpriteSheet_284
+    21300570: FontsSpriteSheet_285
+    21300572: FontsSpriteSheet_286
+    21300574: FontsSpriteSheet_287
+    21300576: FontsSpriteSheet_288
+    21300578: FontsSpriteSheet_289
+    21300580: FontsSpriteSheet_290
+    21300582: FontsSpriteSheet_291
+    21300584: FontsSpriteSheet_292
+    21300586: FontsSpriteSheet_293
+    21300588: FontsSpriteSheet_294
+    21300590: FontsSpriteSheet_295
+    21300592: FontsSpriteSheet_296
+    21300594: FontsSpriteSheet_297
+    21300596: FontsSpriteSheet_298
+    21300598: FontsSpriteSheet_299
+    21300600: FontsSpriteSheet_300
+    21300602: FontsSpriteSheet_301
+    21300604: FontsSpriteSheet_302
+    21300606: FontsSpriteSheet_303
+    21300608: FontsSpriteSheet_304
+    21300610: FontsSpriteSheet_305
+    21300612: FontsSpriteSheet_306
+    21300614: FontsSpriteSheet_307
+    21300616: FontsSpriteSheet_308
+    21300618: FontsSpriteSheet_309
+    21300620: FontsSpriteSheet_310
+    21300622: FontsSpriteSheet_311
+    21300624: FontsSpriteSheet_312
+    21300626: FontsSpriteSheet_313
+    21300628: FontsSpriteSheet_314
+    21300630: FontsSpriteSheet_315
+    21300632: FontsSpriteSheet_316
+    21300634: FontsSpriteSheet_317
+    21300636: FontsSpriteSheet_318
+    21300638: FontsSpriteSheet_319
+    21300640: FontsSpriteSheet_320
+    21300642: FontsSpriteSheet_321
+    21300644: FontsSpriteSheet_322
+    21300646: FontsSpriteSheet_323
+    21300648: FontsSpriteSheet_324
+    21300650: FontsSpriteSheet_325
+    21300652: FontsSpriteSheet_326
+    21300654: FontsSpriteSheet_327
+    21300656: FontsSpriteSheet_328
+    21300658: FontsSpriteSheet_329
+    21300660: FontsSpriteSheet_330
+    21300662: FontsSpriteSheet_331
+    21300664: FontsSpriteSheet_332
+    21300666: FontsSpriteSheet_333
+    21300668: FontsSpriteSheet_334
+    21300670: FontsSpriteSheet_335
+    21300672: FontsSpriteSheet_336
+    21300674: FontsSpriteSheet_337
+    21300676: FontsSpriteSheet_338
+    21300678: FontsSpriteSheet_339
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FontsSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 243
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 243
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 243
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 243
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 243
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 243
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 243
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 243
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 243
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 243
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 243
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 243
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 243
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 243
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 243
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 241
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 243
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 243
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 243
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 243
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 243
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 243
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 243
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 243
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 243
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 243
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 243
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 243
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 243
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 243
+        width: 2
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 243
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 243
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 243
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 223
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 243
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_37
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 243
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_38
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 243
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_39
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 243
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_40
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 243
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_41
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 243
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_42
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 243
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_43
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 243
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_44
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 243
+        width: 3
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_45
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 243
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_46
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 243
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_47
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 242
+        width: 4
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_48
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 242
+        width: 4
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_49
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 242
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_50
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 242
+        width: 4
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_51
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 242
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_52
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 242
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_53
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 243
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_54
+      rect:
+        serializedVersion: 2
+        x: 1274
+        y: 243
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_55
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 242
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_56
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 243
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_57
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 252
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_58
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 243
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_59
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 247
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_60
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 243
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_61
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 243
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_62
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 243
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_63
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 241
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_64
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 243
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_65
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 243
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_66
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 243
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_67
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 241
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_68
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 241
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_69
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 243
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_70
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 243
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_71
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 243
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_72
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 243
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_73
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 243
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_74
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 243
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_75
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 241
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_76
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 243
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_77
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 247
+        width: 7
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_78
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 223
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_79
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_80
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_81
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_82
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_83
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_84
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_85
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 223
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_86
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_87
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_88
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 223
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_89
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_90
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_91
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_92
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_93
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_94
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_95
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_96
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 223
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_97
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_98
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_99
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_100
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 223
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_101
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_102
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 223
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_103
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_104
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 223
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_105
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_106
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 223
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_107
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 221
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_108
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_109
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 223
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_110
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 221
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_111
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 223
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_112
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 223
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_113
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 223
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_114
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 223
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_115
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 223
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_116
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 221
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_117
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 221
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_118
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 223
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_119
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 223
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_120
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 223
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_121
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 223
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_122
+      rect:
+        serializedVersion: 2
+        x: 1438
+        y: 223
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_123
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 223
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_124
+      rect:
+        serializedVersion: 2
+        x: 1497
+        y: 223
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_125
+      rect:
+        serializedVersion: 2
+        x: 1527
+        y: 221
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_126
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 223
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_127
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_128
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 223
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_129
+      rect:
+        serializedVersion: 2
+        x: 1649
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_130
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_131
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_132
+      rect:
+        serializedVersion: 2
+        x: 1741
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_133
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_134
+      rect:
+        serializedVersion: 2
+        x: 1802
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_135
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_136
+      rect:
+        serializedVersion: 2
+        x: 1863
+        y: 223
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_137
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 205
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_138
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 205
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_139
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 205
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_140
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 205
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_141
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 205
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_142
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 205
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_143
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 205
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_144
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 205
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_145
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 205
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_146
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 205
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_147
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 205
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_148
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 205
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_149
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 205
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_150
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 205
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_151
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 214
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_152
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 205
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_153
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 206
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_154
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 206
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_155
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 203
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_156
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 205
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_157
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 184
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_158
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 185
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_159
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 185
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_160
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 185
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_161
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 185
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_162
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 185
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_163
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 185
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_164
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 185
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_165
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 185
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_166
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 185
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_167
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 185
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_168
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 185
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_169
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 185
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_170
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 184
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_171
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 185
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_172
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 185
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_173
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 185
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_174
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 185
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_175
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 185
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_176
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 185
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_177
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 185
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_178
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 184
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_179
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 185
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_180
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 185
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_181
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 185
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_182
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 185
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_183
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 185
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_184
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 185
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_185
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 185
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_186
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 185
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_187
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 185
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_188
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 182
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_189
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 185
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_190
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 185
+        width: 2
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_191
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 185
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_192
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 185
+        width: 4
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_193
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 185
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_194
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 185
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_195
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 185
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_196
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 182
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_197
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 182
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_198
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 185
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_199
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 185
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_200
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 185
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_201
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 185
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_202
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 185
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_203
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 184
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_204
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 184
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_205
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 182
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_206
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 185
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_207
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 185
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_208
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 185
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_209
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 185
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_210
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 182
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_211
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 182
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_212
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 182
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_213
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 185
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_214
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 183
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_215
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 185
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_216
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 182
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_217
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 185
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_218
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 185
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_219
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 185
+        width: 2
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_220
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 168
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_221
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 168
+        width: 4
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_222
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 185
+        width: 4
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_223
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 185
+        width: 4
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_224
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 184
+        width: 4
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_225
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 184
+        width: 5
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_226
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 182
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_227
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 185
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_228
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 183
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_229
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 185
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_230
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 190
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_231
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 185
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_232
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 191
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_233
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 188
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_234
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 187
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_235
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 169
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_236
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 169
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_237
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 169
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_238
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 169
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_239
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 169
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_240
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 169
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_241
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 169
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_242
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 169
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_243
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 169
+        width: 4
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_244
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 169
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_245
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 169
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_246
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 169
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_247
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 169
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_248
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 169
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_249
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 169
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_250
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 169
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_251
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 169
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_252
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 169
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_253
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 169
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_254
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 169
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_255
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 169
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_256
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 169
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_257
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 169
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_258
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 169
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_259
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 169
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_260
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 169
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_261
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 169
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_262
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 169
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_263
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 169
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_264
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 169
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_265
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 169
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_266
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 169
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_267
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 166
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_268
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 169
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_269
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 169
+        width: 4
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_270
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 166
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_271
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 169
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_272
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 169
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_273
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 169
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_274
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 169
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_275
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 169
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_276
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 166
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_277
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 166
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_278
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 169
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_279
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 169
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_280
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 169
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_281
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 169
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_282
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 169
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_283
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 169
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_284
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 169
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_285
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 166
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_286
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 169
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_287
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 169
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_288
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 169
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_289
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 169
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_290
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 167
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_291
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 167
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_292
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 167
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_293
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 168
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_294
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 167
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_295
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 169
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_296
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 167
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_297
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 169
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_298
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 169
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_299
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 169
+        width: 4
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_300
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 169
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_301
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 169
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_302
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 169
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_303
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 168
+        width: 5
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_304
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 168
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_305
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 167
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_306
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 169
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_307
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 167
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_308
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 169
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_309
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 174
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_310
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 169
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_311
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 176
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_312
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 166
+        width: 6
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_313
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 167
+        width: 3
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_314
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 171
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 1, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_315
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 171
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_316
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 183
+        width: 7
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_317
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 187
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_318
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 172
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_319
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 243
+        width: 3
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_320
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 241
+        width: 3
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_321
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 243
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_322
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 243
+        width: 2
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_323
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 241
+        width: 14
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_324
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 246
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_325
+      rect:
+        serializedVersion: 2
+        x: 1423
+        y: 246
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_326
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 203
+        width: 14
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_327
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 210
+        width: 12
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_328
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 208
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_329
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 243
+        width: 3
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_330
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 241
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_331
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 243
+        width: 2
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_332
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 169
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_333
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 183
+        width: 3
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_334
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 184
+        width: 2
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_335
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 185
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_336
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 183
+        width: 3
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_337
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 183
+        width: 3
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_338
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 182
+        width: 5
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FontsSpriteSheet_339
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 185
+        width: 2
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
