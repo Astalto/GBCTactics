@@ -47,11 +47,13 @@ public class CharacterStats : MonoBehaviour
 
 
             print(this.gameObject.name + " hit " + other.gameObject.name + " for " + CalculateDamage(AP, other.DEF) + " damage.");
+            StatusManager.Instance.text.text = this.gameObject.name + " hit " + other.gameObject.name + " for " + CalculateDamage(AP, other.DEF) + " damage.";
 
             //animate taking damage && attacking;
             if (other.HP <= 0)
             {
                 print(this.gameObject.name + " killed: " + other.gameObject.name);
+                StatusManager.Instance.text.text = this.gameObject.name + " killed: " + other.gameObject.name;
                 //remove other.gameobject from array;
                 other.Kill();
             }
@@ -59,6 +61,7 @@ public class CharacterStats : MonoBehaviour
             else
             {
                 print(other.gameObject.name + " has " + other.HP + " HP remaining!");
+                StatusManager.Instance.text.text = other.gameObject.name + " has " + other.HP + " HP remaining!";
             }
         }
 
