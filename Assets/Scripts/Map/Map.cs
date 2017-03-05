@@ -47,7 +47,7 @@ public class Map : singleton<Map>
 
     public Vector2 GetPosition(float Xindex, float Yindex)
     {
-        print("(" + Xindex + ", " + Yindex + ")");
+        //print("(" + Xindex + ", " + Yindex + ")");
         return m_map[(int)Xindex, (int)Yindex].gameObject.transform.position;
     }
 

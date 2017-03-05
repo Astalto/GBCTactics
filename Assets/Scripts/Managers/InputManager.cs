@@ -13,21 +13,28 @@ public class InputManager : singleton<InputManager>
 
     private void Update()
     {
-        GetDefaultInput();
+        
 
         if(GameManager.Instance.GameState == (int)GameManager.GameStates.Selecting)
         {
+            GetDefaultInput();
             GetSelectionInput();
         }
 
         else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Moving)
         {
+            GetDefaultInput();
             GetMovementInput();
         }
 
         else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Action)
         {
             GetActionInput();
+        }
+
+        else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Attacking)
+        {
+            GetEnemySelectionInput();
         }
 
     }
@@ -94,28 +101,70 @@ public class InputManager : singleton<InputManager>
 
     private void GetSelectionInput()
     {
-            if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (SelectableCharacters.Instance.SelectionIndex < SelectableCharacters.Instance.TeamSize - 1)
             {
-                if (SelectableCharacters.Instance.SelectionIndex < SelectableCharacters.Instance.TeamSize - 1)
-                {
-                    SelectableCharacters.Instance.SelectionIndex++;
-                }
-
-                else
-                {
-                    SelectableCharacters.Instance.SelectionIndex = 0;
-                }
-
-                UpdateCursorLocation();
+                SelectableCharacters.Instance.SelectionIndex++;
             }
 
-            if (Input.GetKeyDown(KeyCode.Return))
+            else
             {
-                SelectableCharacters.Instance.CharacterSelected = true;
+                SelectableCharacters.Instance.SelectionIndex = 0;
+            }
 
+            UpdateCursorLocation();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            SelectableCharacters.Instance.CharacterSelected = true;
+
+            if (!SelectableCharacters.Instance.SelectedCharacter.m_hasMoved)
+            {
                 //Set game state to moving;
                 GameManager.Instance.GameState = (int)GameManager.GameStates.Moving;
             }
+
+            else
+            {
+                //Set game state to Action;
+                GameManager.Instance.GameState = (int)GameManager.GameStates.Action;     
+            }
+
+        }
+    }
+
+    private void GetEnemySelectionInput()
+    {
+        UpdateEnemyCursorLocation();
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (EnemyCharacters.Instance.SelectionIndex < EnemyCharacters.Instance.TeamSize - 1)
+            {
+                EnemyCharacters.Instance.SelectionIndex++;
+            }
+
+            else
+            {
+                EnemyCharacters.Instance.SelectionIndex = 0;
+            }
+
+            UpdateEnemyCursorLocation();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            EnemyCharacters.Instance.CharacterSelected = true;
+
+            //Attack enemy
+            SelectableCharacters.Instance.SelectedCharacter.GetComponent<CharacterStats>().AttackTarget(EnemyCharacters.Instance.SelectedCharacter.GetComponent<CharacterStats>());
+
+            GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
+
+
+        }
     }
 
     private void GetMovementInput()
@@ -129,6 +178,9 @@ public class InputManager : singleton<InputManager>
                 if (Input.GetKeyDown(KeyCode.Return) && SelectableCharacters.Instance.SelectedCharacter.m_CurrentLocation != SelectableCharacters.Instance.SelectedCharacter.m_Destination)
                 {
                     SelectableCharacters.Instance.SelectedCharacter.LightPath(SelectableCharacters.Instance.SelectedCharacter.m_CurrentLocation);
+
+                    //enable action select; (BEFORE MOVEMENT)
+                    //GameManager.Instance.GameState = (int)GameManager.GameStates.Action;
                 }
             }
         }
@@ -136,6 +188,52 @@ public class InputManager : singleton<InputManager>
 
     private void GetActionInput()
     {
+        //State should me Action
+        if(GameManager.Instance.GameState == (int)GameManager.GameStates.Action)
+        {
+            if(Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                //Move up untill at the top of the menu(i.e. highlight a different option
+                MenuManager.Instance.CyclePreviousAction();
+            }
+
+            if(Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                //Move down untill the same as top.
+                MenuManager.Instance.CycleNextAction();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                //Enter the menu that has been chosen,
+                //if attack, run the attack code, and change state to Animating
+                //else if items, display possible items. (seperate menu)
+                //else if spells, display possible spells. (Seperate menu)
+                //else if cancel, close menu
+
+                if(MenuManager.Instance.ActionIndex == (int)MenuManager.ActionChoice.Attack)
+                {
+                    print("Action chosen: attack");
+
+                    GameManager.Instance.GameState = (int)GameManager.GameStates.Attacking;
+                }
+
+                else if (MenuManager.Instance.ActionIndex == (int)MenuManager.ActionChoice.Cancel)
+                {
+                    print("Action chosen: cancel");
+
+                    //Deselect character
+                    SelectableCharacters.Instance.SelectedCharacter.m_isSelected = false;
+                    SelectableCharacters.Instance.CharacterSelected = false;
+
+                    //Set game state to selecting
+                    GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
+                }
+
+                //Close the UI menu
+                MenuManager.Instance.CloseActionMenu();
+            }
+        }
 
     }
 
@@ -143,6 +241,12 @@ public class InputManager : singleton<InputManager>
     {
         Map.Instance.DeselectTile();
         Map.Instance.SelectedTile = SelectableCharacters.Instance.Team[SelectableCharacters.Instance.SelectionIndex].m_CurrentLocation;
+    }
+
+    private void UpdateEnemyCursorLocation()
+    {
+        Map.Instance.DeselectTile();
+        Map.Instance.SelectedTile = EnemyCharacters.Instance.Team[EnemyCharacters.Instance.SelectionIndex].m_CurrentLocation;
     }
 
 

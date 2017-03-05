@@ -1,13 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/// <summary>
-/// This scrip contains the functionality to allow the user to select his units.
-/// As it is specifically for selecting, the enemy team will not utilize this script.
-/// </summary>
+public class EnemyCharacters : singleton<EnemyCharacters> {
 
-public class SelectableCharacters : singleton<SelectableCharacters>
-{
+    [Header("Team Information")]
     public int TeamSize;
 
     public MoveableCharacter[] Team;
@@ -25,17 +21,17 @@ public class SelectableCharacters : singleton<SelectableCharacters>
 
         for (int i = 0; i < TeamSize; i++)
         {
-            Team[i] = GameObject.Find("PlayerMember" + i).GetComponent<MoveableCharacter>();
+            Team[i] = GameObject.Find("Enemy" + i).GetComponent<MoveableCharacter>();
         }
     }
 
     void Update()
     {
-        if(m_characterSelected)
+        if (m_characterSelected)
         {
             //Toggle Team[selectionIndex].isSelected;
             Team[m_selectionIndex].m_isSelected = true;
-            print("TeamMember Selected " + Team[m_selectionIndex].name);
+            print("Enemy Selected: " + Team[m_selectionIndex].name);
         }
 
         else
@@ -48,4 +44,5 @@ public class SelectableCharacters : singleton<SelectableCharacters>
     {
         SelectedCharacter = Team[m_selectionIndex];
     }
+
 }

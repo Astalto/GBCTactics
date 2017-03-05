@@ -54,7 +54,7 @@ public class MoveableCharacter : MonoBehaviour
     public void LightPath(Vector2 coord)
     {
         Map.Instance.MAP[(int)coord.x, (int)coord.y].m_lightUp = true;
-        Debug.Log(coord + " has been lit up.");
+        //Debug.Log(coord + " has been lit up.");
 
         if (coord.x < m_Destination.x)
         {
@@ -147,7 +147,7 @@ public class MoveableCharacter : MonoBehaviour
 
             m_CurrentLocation.x--;
 
-            print("Moving up, current location updated to:" + m_CurrentLocation);
+            //print("Moving up, current location updated to:" + m_CurrentLocation);
         }
 
         //Update below;
@@ -155,7 +155,7 @@ public class MoveableCharacter : MonoBehaviour
         {
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
             m_CurrentLocation.x++;
-            print("Moving down, current location updated to:" + m_CurrentLocation);
+            //print("Moving down, current location updated to:" + m_CurrentLocation);
         }
 
         //Update right;
@@ -163,7 +163,7 @@ public class MoveableCharacter : MonoBehaviour
         {
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
             m_CurrentLocation.y++;
-            print("Moving right, current location updated to:" + m_CurrentLocation);
+            //print("Moving right, current location updated to:" + m_CurrentLocation);
         }
 
         //Update left;
@@ -171,7 +171,7 @@ public class MoveableCharacter : MonoBehaviour
         {
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
             m_CurrentLocation.y--;
-            print("Moving left, current location updated to:" + m_CurrentLocation);
+            //print("Moving left, current location updated to:" + m_CurrentLocation);
         }
 
         if(m_CurrentLocation == m_Destination)
@@ -182,16 +182,19 @@ public class MoveableCharacter : MonoBehaviour
             //disable move;
             ToggleMoving(false);
 
-            //enable action select;
-            //GameManager.Instance.GameState = (int)GameManager.GameStates.Action;
+            //enable action select; (AFTER MOVEMENT)
+            GameManager.Instance.GameState = (int)GameManager.GameStates.Action;
 
             //TEMPORARY::set gamestate to selecting;
-            GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
+            //GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
 
             //deselect character
             m_isSelected = false;
             m_movingRight = m_movingLeft = m_movingUp = m_movingDown = false;
             SelectableCharacters.Instance.CharacterSelected = false;
+
+            //ARRIVED AT DESTINATION set hasmoved to tru
+            m_hasMoved = true;
         }
     }
 

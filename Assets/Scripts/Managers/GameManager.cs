@@ -16,7 +16,8 @@ public class GameManager : singleton<GameManager>
         Selecting = 0,
         Moving = 1,
         Action = 2,
-        Animating = 3,
+        Attacking = 3,
+        Animating = 4,
     };
 
 
@@ -28,5 +29,10 @@ public class GameManager : singleton<GameManager>
     private void Start()
     {
         m_currentState = (int)GameStates.Selecting;
+    }
+
+    private void Update()
+    {
+        print(m_currentState);
     }
 }
