@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Character\AIMovement.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStats.cs" />
+    <Compile Include="Assets\Scripts\Character\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\Character\MoveableCharacter.cs" />
     <Compile Include="Assets\Scripts\Character\SelectableCharacters.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />

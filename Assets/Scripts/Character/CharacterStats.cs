@@ -46,7 +46,9 @@ public class CharacterStats : MonoBehaviour
     {
         //Play death animation if necessary
         //remove character from field;
-        Destroy(this.gameObject);
+        this.GetComponent<MoveableCharacter>().m_isSelectable = false;
+        this.GetComponent<MoveableCharacter>().m_isSelected = false;
+        this.gameObject.SetActive(false);
     }
 
     private int CalculateDamage(int Attack, int EnemyDefense)
@@ -77,12 +79,6 @@ public class CharacterStats : MonoBehaviour
                 print("INRANGE BOTTOM");
                 return true;
             }
-
-            else
-            {
-                print("NOT INRANGE");
-                return false;
-            }
         }
 
         else if(TargetLocation.y == AttackerLocation.y)
@@ -100,14 +96,49 @@ public class CharacterStats : MonoBehaviour
                 print("INRANGE RIGHT");
                 return true;
             }
+        }
 
-            else
+        //If the Target's X AND Y are not equal to the attacker one of two possibilities:
+        //(1)  Target is not in range
+        //(2)  Target is not aligned in the cardinal direction, possibly in a diagonal to the attacker
+        //If the second case is true, its also true the Target X and Y will be different from the attacker
+        //Hence why if the X AND Y don't match, we still none the less check if the target is in range horizontally AND vertically
+        else if (TargetLocation.x != AttackerLocation.x && TargetLocation.y != AttackerLocation.y)
+        {
+            if (TargetLocation.x > AttackerLocation.x - (blockDistance * this.RNG) && TargetLocation.x < AttackerLocation.x 
+                && TargetLocation.y < AttackerLocation.y + (blockDistance * this.RNG) && TargetLocation.y > AttackerLocation.y)
             {
-                print("NOT INRANGE");
-                return false;
+                //If it is in range left and in range top, we know diagonally its up left
+                print("INRANGE TOP LEFT");
+                return true;
+            }
+
+            else if (TargetLocation.x > AttackerLocation.x - (blockDistance * this.RNG) && TargetLocation.x < AttackerLocation.x 
+                && TargetLocation.y > AttackerLocation.y - (blockDistance * this.RNG) && TargetLocation.y < AttackerLocation.y)
+            {
+                //Bottom left
+                print("INRANGE BOTTOM LEFT");
+                return true;
+            }
+
+            else if (TargetLocation.x < AttackerLocation.x + (blockDistance * this.RNG) && TargetLocation.x > AttackerLocation.x 
+                && TargetLocation.y < AttackerLocation.y + (blockDistance * this.RNG) && TargetLocation.y > AttackerLocation.y)
+            {
+                //Top right
+                print("INRANGE TOP RIGHT");
+                return true;
+            }
+
+            else if (TargetLocation.x > AttackerLocation.x - (blockDistance * this.RNG) && TargetLocation.x < AttackerLocation.x 
+                && TargetLocation.y > AttackerLocation.y - (blockDistance * this.RNG) && TargetLocation.y < AttackerLocation.y)
+            {
+                //Bottom right
+                print("INRANGE BOTTOM RIGHT");
+                return true;
             }
         }
 
+        print("NOT INRANGE");
         return false;
     }
 }
