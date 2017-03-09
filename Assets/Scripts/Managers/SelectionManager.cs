@@ -10,7 +10,7 @@ public class SelectionManager : singleton<SelectionManager>
 
 
 
-    private void Start()
+    private void OnEnable()
     {
         PlayerTeam = GameObject.Find("PlayerTeam").GetComponent<SelectableCharacters>();
         EnemyTeam = GameObject.Find("EnemyTeam").GetComponent<SelectableCharacters>();

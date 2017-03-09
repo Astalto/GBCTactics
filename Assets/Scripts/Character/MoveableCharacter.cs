@@ -149,8 +149,6 @@ public class MoveableCharacter : MonoBehaviour
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
 
             m_CurrentLocation.x--;
-
-            //print("Moving up, current location updated to:" + m_CurrentLocation);
         }
 
         //Update below;
@@ -158,7 +156,6 @@ public class MoveableCharacter : MonoBehaviour
         {
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
             m_CurrentLocation.x++;
-            //print("Moving down, current location updated to:" + m_CurrentLocation);
         }
 
         //Update right;
@@ -166,7 +163,6 @@ public class MoveableCharacter : MonoBehaviour
         {
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
             m_CurrentLocation.y++;
-            //print("Moving right, current location updated to:" + m_CurrentLocation);
         }
 
         //Update left;
@@ -174,7 +170,6 @@ public class MoveableCharacter : MonoBehaviour
         {
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
             m_CurrentLocation.y--;
-            //print("Moving left, current location updated to:" + m_CurrentLocation);
         }
 
         if(m_CurrentLocation == m_Destination)

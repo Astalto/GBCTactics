@@ -247,11 +247,6 @@ public class InputManager : singleton<InputManager>
         Map.Instance.SelectedTile = unit.m_CurrentLocation;
     }
 
-    private void UpdateEnemyCursorLocation()
-    {
-        Map.Instance.DeselectTile();
-        Map.Instance.SelectedTile = EnemyCharacters.Instance.Team[EnemyCharacters.Instance.SelectionIndex].m_CurrentLocation;
-    }
 
 
 }
