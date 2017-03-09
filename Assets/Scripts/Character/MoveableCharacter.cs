@@ -86,6 +86,7 @@ public class MoveableCharacter : MonoBehaviour
         else
         {
             ToggleMoving(true);
+            SelectionManager.Instance.log.AddEvent(this.gameObject.name + " moving to: " + m_Destination);
         }
         
     }

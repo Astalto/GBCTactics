@@ -156,6 +156,8 @@ public class InputManager : singleton<InputManager>
             CharacterStats target = eChars.Team[eChars.SelectionIndex].GetComponent<CharacterStats>();
             CharacterStats attacker = pChars.Team[pChars.SelectionIndex].GetComponent<CharacterStats>();
 
+            SelectionManager.Instance.log.AddEvent(attacker.gameObject.name + " attacking: " + target.gameObject.name);
+
             eChars.Team[eChars.SelectionIndex].m_isSelected = true;
 
             //Attack enemy
@@ -182,7 +184,6 @@ public class InputManager : singleton<InputManager>
                 if (Input.GetKeyDown(KeyCode.Return) && s.m_CurrentLocation != s.m_Destination)
                 {
                     s.LightPath(s.m_CurrentLocation);
-
                     //enable action select; (BEFORE MOVEMENT)
                     //GameManager.Instance.GameState = (int)GameManager.GameStates.Action;
                 }

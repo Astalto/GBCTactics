@@ -50,7 +50,7 @@ public class SelectableCharacters : MonoBehaviour
             //Toggle Team[selectionIndex].isSelected;
             
             Team[m_selectionIndex].m_isSelected = true;
-            //print("TeamMember Selected " + Team[m_selectionIndex].name);
+            //SelectionManager.Instance.log.AddEvent("TeamMember selected: " + Team[m_selectionIndex].gameObject.name);
 
             if (!Team[m_selectionIndex].m_isSelectable)
             {

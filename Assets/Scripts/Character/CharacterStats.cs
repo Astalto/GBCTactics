@@ -15,7 +15,7 @@ public class CharacterStats : MonoBehaviour
     public MoveableCharacter m_target;
 
     //Reference to the eventLog to add strings to the log, for visual display of results to the player
-    private EventLog logOfEvents;
+    private EventLog EventLogger;
 
     public int AP { get { return m_AttackPower; } }
     public int HP { get { return m_HealthPoints; } set { m_HealthPoints = value; } }
@@ -24,6 +24,11 @@ public class CharacterStats : MonoBehaviour
 
     //could add crit, speed, weapon bonus, attack range
 
+    public void Start()
+    {
+        EventLogger = SelectionManager.Instance.log;
+    }
+
     public void AttackTarget(CharacterStats other)
     {
         m_target = other.GetComponent<MoveableCharacter>();
@@ -31,16 +36,18 @@ public class CharacterStats : MonoBehaviour
         if (other.HP > 0 && TargetInRange())
         {
             other.HP -= CalculateDamage(AP, other.DEF);
-            logOfEvents.AddEvent(this.gameObject.name + " hit " + other.gameObject.name + " for " + CalculateDamage(AP, other.DEF) + " damage.");
+
+            EventLogger.AddEvent(this.gameObject.name + " hit " + other.gameObject.name + " for " + CalculateDamage(AP, other.DEF) + " damage.");
             //animate taking damage && attacking;
+
             if (other.HP <= 0)
             {
-                logOfEvents.AddEvent(this.gameObject.name + " killed: " + other.gameObject.name);
+                EventLogger.AddEvent(this.gameObject.name + " killed: " + other.gameObject.name);
                 other.Kill();
             }
             else
             {
-                logOfEvents.AddEvent(other.gameObject.name + " has " + other.HP + " HP remaining!");
+                EventLogger.AddEvent(other.gameObject.name + " has " + other.HP + " HP remaining!");
             }
         }
     }
@@ -142,11 +149,9 @@ public class CharacterStats : MonoBehaviour
         }
 
         print("NOT INRANGE");
+        EventLogger.AddEvent(m_target.gameObject.name + " is not in range of " + this.gameObject.name);
+        EventLogger.AddEvent(this.gameObject.name + "'s turn is complete.");
         return false;
     }
 
-    private void Awake()
-    {
-        logOfEvents = GameObject.FindGameObjectWithTag("EventLog").GetComponent<EventLog>();
-    }
 }
