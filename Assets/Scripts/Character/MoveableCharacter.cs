@@ -13,8 +13,11 @@ public class MoveableCharacter : MonoBehaviour
     public float m_speed;
     public Vector3 m_direction;
 
+    public bool m_isSelectable;
     public bool m_isSelected;
+
     public bool m_hasMoved;
+    public bool m_hasAttacked;
     public bool m_moving;
 
     public bool m_movingUp;
@@ -191,7 +194,7 @@ public class MoveableCharacter : MonoBehaviour
             //deselect character
             m_isSelected = false;
             m_movingRight = m_movingLeft = m_movingUp = m_movingDown = false;
-            SelectableCharacters.Instance.CharacterSelected = false;
+            //SelectionManager.Instance.DeSelectCharacter();
 
             //ARRIVED AT DESTINATION set hasmoved to tru
             m_hasMoved = true;

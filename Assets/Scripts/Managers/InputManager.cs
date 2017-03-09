@@ -37,6 +37,11 @@ public class InputManager : singleton<InputManager>
             GetEnemySelectionInput();
         }
 
+        else if(GameManager.Instance.GameState == (int)GameManager.GameStates.AIMove)
+        {
+            GetDefaultInput();
+        }
+
     }
 
     private void GetDefaultInput()
@@ -103,33 +108,31 @@ public class InputManager : singleton<InputManager>
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (SelectableCharacters.Instance.SelectionIndex < SelectableCharacters.Instance.TeamSize - 1)
-            {
-                SelectableCharacters.Instance.SelectionIndex++;
-            }
+            SelectionManager.Instance.SelectNextUnit(SelectionManager.Instance.PlayerTeam);
 
-            else
-            {
-                SelectableCharacters.Instance.SelectionIndex = 0;
-            }
-
-            UpdateCursorLocation();
+            UpdateCursorLocation(SelectionManager.Instance.PlayerTeam);
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SelectableCharacters.Instance.CharacterSelected = true;
+            SelectableCharacters pChars = SelectionManager.Instance.PlayerTeam;
+            pChars.CharacterSelected = true;
 
-            if (!SelectableCharacters.Instance.SelectedCharacter.m_hasMoved)
+            if (!pChars.SelectedCharacter.m_hasMoved)
             {
                 //Set game state to moving;
                 GameManager.Instance.GameState = (int)GameManager.GameStates.Moving;
             }
 
-            else
+            else if (!pChars.SelectedCharacter.m_hasAttacked)
             {
                 //Set game state to Action;
                 GameManager.Instance.GameState = (int)GameManager.GameStates.Action;     
+            }
+
+            else
+            {
+                pChars.CharacterSelected = false;
             }
 
         }
@@ -137,33 +140,32 @@ public class InputManager : singleton<InputManager>
 
     private void GetEnemySelectionInput()
     {
-        UpdateEnemyCursorLocation();
-
+        //UpdateEnemyCursorLocation();
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (EnemyCharacters.Instance.SelectionIndex < EnemyCharacters.Instance.TeamSize - 1)
-            {
-                EnemyCharacters.Instance.SelectionIndex++;
-            }
+            SelectionManager.Instance.SelectNextUnit(SelectionManager.Instance.EnemyTeam);
 
-            else
-            {
-                EnemyCharacters.Instance.SelectionIndex = 0;
-            }
-
-            UpdateEnemyCursorLocation();
+            UpdateCursorLocation(SelectionManager.Instance.EnemyTeam);
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            EnemyCharacters.Instance.CharacterSelected = true;
+            SelectableCharacters eChars = SelectionManager.Instance.EnemyTeam;
+            SelectableCharacters pChars = SelectionManager.Instance.PlayerTeam;
+
+            CharacterStats target = eChars.Team[eChars.SelectionIndex].GetComponent<CharacterStats>();
+            CharacterStats attacker = pChars.Team[pChars.SelectionIndex].GetComponent<CharacterStats>();
+
+            eChars.Team[eChars.SelectionIndex].m_isSelected = true;
 
             //Attack enemy
-            SelectableCharacters.Instance.SelectedCharacter.GetComponent<CharacterStats>().AttackTarget(EnemyCharacters.Instance.SelectedCharacter.GetComponent<CharacterStats>());
+            attacker.AttackTarget(target);
+
+            pChars.Team[pChars.SelectionIndex].m_hasAttacked = true;
 
             GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
 
-
+            UpdateCursorLocation(pChars);
         }
     }
 
@@ -173,11 +175,13 @@ public class InputManager : singleton<InputManager>
         //State should be Moving;
         if (GameManager.Instance.GameState == (int)GameManager.GameStates.Moving)
         {
-            if (!SelectableCharacters.Instance.SelectedCharacter.m_moving)
+            MoveableCharacter s = SelectionManager.Instance.PlayerTeam.SelectedCharacter;
+
+            if (!s.m_moving)
             {
-                if (Input.GetKeyDown(KeyCode.Return) && SelectableCharacters.Instance.SelectedCharacter.m_CurrentLocation != SelectableCharacters.Instance.SelectedCharacter.m_Destination)
+                if (Input.GetKeyDown(KeyCode.Return) && s.m_CurrentLocation != s.m_Destination)
                 {
-                    SelectableCharacters.Instance.SelectedCharacter.LightPath(SelectableCharacters.Instance.SelectedCharacter.m_CurrentLocation);
+                    s.LightPath(s.m_CurrentLocation);
 
                     //enable action select; (BEFORE MOVEMENT)
                     //GameManager.Instance.GameState = (int)GameManager.GameStates.Action;
@@ -213,18 +217,17 @@ public class InputManager : singleton<InputManager>
 
                 if(MenuManager.Instance.ActionIndex == (int)MenuManager.ActionChoice.Attack)
                 {
-                    print("Action chosen: attack");
+                    //print("Action chosen: attack");
 
                     GameManager.Instance.GameState = (int)GameManager.GameStates.Attacking;
                 }
 
                 else if (MenuManager.Instance.ActionIndex == (int)MenuManager.ActionChoice.Cancel)
                 {
-                    print("Action chosen: cancel");
+                    //print("Action chosen: cancel");
 
                     //Deselect character
-                    SelectableCharacters.Instance.SelectedCharacter.m_isSelected = false;
-                    SelectableCharacters.Instance.CharacterSelected = false;
+                    SelectionManager.Instance.DeSelectCharacter(SelectionManager.Instance.PlayerTeam);
 
                     //Set game state to selecting
                     GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
@@ -234,13 +237,14 @@ public class InputManager : singleton<InputManager>
                 MenuManager.Instance.CloseActionMenu();
             }
         }
-
     }
 
-    private void UpdateCursorLocation()
+    private void UpdateCursorLocation(SelectableCharacters s)
     {
+        MoveableCharacter unit = s.Team[s.SelectionIndex];
+
         Map.Instance.DeselectTile();
-        Map.Instance.SelectedTile = SelectableCharacters.Instance.Team[SelectableCharacters.Instance.SelectionIndex].m_CurrentLocation;
+        Map.Instance.SelectedTile = unit.m_CurrentLocation;
     }
 
     private void UpdateEnemyCursorLocation()

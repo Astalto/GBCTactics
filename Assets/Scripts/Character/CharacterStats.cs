@@ -7,6 +7,9 @@ public class CharacterStats : MonoBehaviour
     public int m_AttackPower;
     public int m_HealthPoints;
     public int m_DefensePower;
+    public int m_AttackRange;
+
+    public int blockDistance = 4;
 
     [Header("Target Info")]
     public MoveableCharacter m_target;
@@ -14,6 +17,7 @@ public class CharacterStats : MonoBehaviour
     public int AP { get { return m_AttackPower; } }
     public int HP { get { return m_HealthPoints; } set { m_HealthPoints = value; } }
     public int DEF { get { return m_DefensePower; } }
+    public int RNG { get { return m_AttackRange; } }
 
     //could add crit, speed, weapon bonus, attack range
 
@@ -21,58 +25,28 @@ public class CharacterStats : MonoBehaviour
     {
         m_target = other.GetComponent<MoveableCharacter>();
 
-        if (other.HP > 0 && TargetInRange() )
+        if (other.HP > 0 && TargetInRange())
         {
-        
-            if(this.name.Contains("Player"))
-            {
-                /*GameObject[] tempArray = new GameObject[EnemyCharacters.Instance.TeamSize - 1];
-                //GameObject tempGO;
-
-                for(int i = 0; i < tempArray.Length + 1; i++ )
-                {
-                    if(EnemyCharacters.Instance.Team[i])
-                    {
-                        
-                    }
-
-                    else
-                    {
-                        //tempArray = EnemyCharacters.Instance.Team[i].gameObject;
-                    }
-                }*/
-            }
-
             other.HP -= CalculateDamage(AP, other.DEF);
-
-
             print(this.gameObject.name + " hit " + other.gameObject.name + " for " + CalculateDamage(AP, other.DEF) + " damage.");
-            StatusManager.Instance.text.text = this.gameObject.name + " hit " + other.gameObject.name + " for " + CalculateDamage(AP, other.DEF) + " damage.";
-
             //animate taking damage && attacking;
             if (other.HP <= 0)
             {
                 print(this.gameObject.name + " killed: " + other.gameObject.name);
-                StatusManager.Instance.text.text = this.gameObject.name + " killed: " + other.gameObject.name;
-                //remove other.gameobject from array;
                 other.Kill();
             }
-
             else
             {
                 print(other.gameObject.name + " has " + other.HP + " HP remaining!");
-                StatusManager.Instance.text.text = other.gameObject.name + " has " + other.HP + " HP remaining!";
             }
         }
-
-        m_target = null;
     }
 
     public void Kill()
     {
         //Play death animation if necessary
         //remove character from field;
-        this.gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
 
     private int CalculateDamage(int Attack, int EnemyDefense)
@@ -88,11 +62,50 @@ public class CharacterStats : MonoBehaviour
         Vector2 TargetLocation = Map.Instance.GetPosition(TargetLocIndex.x, TargetLocIndex.y);
         Vector2 AttackerLocation = Map.Instance.GetPosition(AttackerLocIndex.x, AttackerLocIndex.y);
 
-        if(TargetLocation.x >= AttackerLocation.x - 1) // - RANGE
+        if(TargetLocation.x == AttackerLocation.x)
         {
-            //check to the left
-            //if above is true, target is withn range
-            return true;
+            if (TargetLocation.y < AttackerLocation.y + (blockDistance * this.RNG) && TargetLocation.y > AttackerLocation.y)
+            {
+                //TOP
+                print("INRANGE TOP");
+                return true;
+            }
+
+            else if (TargetLocation.y > AttackerLocation.y - (blockDistance * this.RNG) && TargetLocation.y < AttackerLocation.y)
+            {
+                //Bottom
+                print("INRANGE BOTTOM");
+                return true;
+            }
+
+            else
+            {
+                print("NOT INRANGE");
+                return false;
+            }
+        }
+
+        else if(TargetLocation.y == AttackerLocation.y)
+        {
+            if(TargetLocation.x > AttackerLocation.x - (blockDistance * this.RNG) && TargetLocation.x < AttackerLocation.x)
+            {
+                //left
+                print("INRANGE LEFT");
+                return true;
+            }
+
+            else if(TargetLocation.x < AttackerLocation.x + (blockDistance * this.RNG) && TargetLocation.x > AttackerLocation.x)
+            {
+                //right
+                print("INRANGE RIGHT");
+                return true;
+            }
+
+            else
+            {
+                print("NOT INRANGE");
+                return false;
+            }
         }
 
         return false;

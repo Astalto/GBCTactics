@@ -18,13 +18,14 @@ public class GameManager : singleton<GameManager>
         Action = 2,
         Attacking = 3,
         Animating = 4,
+        AIMove = 5,
     };
 
 
     private int m_roundCount;
     private int m_currentState;
 
-    public int GameState { get { return m_currentState; } set { m_currentState = value; } }
+    public int GameState { get { return m_currentState; } set { m_currentState = value; print("Game State: " + m_currentState); } }
 
     private void Start()
     {
@@ -33,6 +34,6 @@ public class GameManager : singleton<GameManager>
 
     private void Update()
     {
-        print(m_currentState);
+        //print(m_currentState);
     }
 }
