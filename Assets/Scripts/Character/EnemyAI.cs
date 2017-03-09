@@ -32,12 +32,12 @@ public class EnemyAI : MonoBehaviour
             //Iterate through the entire team, generating random coordinates
             for (int i = 0; i < aiList.TeamSize; i++)
             {
-                if(!aiList.Team[i].gameObject.activeInHierarchy)
-                {
-                    i++;
-                }
+                //if(!aiList.Team[i].gameObject.activeInHierarchy)
+                //{
+                //    i++;
+                //}
                 //First check if the unit at the current index can move
-                else if (!aiList.Team[i].m_hasMoved)
+                if (!aiList.Team[i].m_hasMoved)
                 {
                     //Generate a random X and Y
                     //Since the map is hardcoded as a 15x9 Map we generate an X from 0-14, and a y from 0 - 8
@@ -53,10 +53,10 @@ public class EnemyAI : MonoBehaviour
                     aiList.Team[i].GetComponent<MoveableCharacter>().m_moving = true;
                 }
 
-                if(i == aiList.TeamSize - 1 && aiList.Team[i].m_hasMoved)
+                if (i == aiList.TeamSize - 1 && aiList.Team[i].m_hasMoved)
                 {
-                //TURN IS OVER
-                GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
+                    //TURN IS OVER
+                    GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
                 }
             }
             //Once that is done, we set aiTurn = false
