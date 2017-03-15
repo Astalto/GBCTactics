@@ -11,40 +11,62 @@ using System.Collections;
 public class InputManager : singleton<InputManager>
 {
     private bool m_selectingUnit, m_selectingTile, m_selectingAction;
+<<<<<<< HEAD
     private Text stateText;
 
     private void Start()
     {
         stateText = GameObject.FindGameObjectWithTag("CurrentState").GetComponent<Text>();
+=======
+    private Text stateNotifier;
+    
+    private void Start()
+    {
+        stateNotifier = GameObject.FindGameObjectWithTag("StateNotifier").GetComponent<Text>();
+>>>>>>> 5441021dc6652775af3ea55f34817cc2bc7e1842
     }
 
     private void Update()
     {
-        
-
         if(GameManager.Instance.GameState == (int)GameManager.GameStates.Selecting)
         {
+<<<<<<< HEAD
             stateText.text = "Selecting";
+=======
+            stateNotifier.text = "Selecting A Unit";
+>>>>>>> 5441021dc6652775af3ea55f34817cc2bc7e1842
             GetDefaultInput();
             GetSelectionInput();
         }
 
         else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Moving)
         {
+<<<<<<< HEAD
             stateText.text = "Moving";
+=======
+            stateNotifier.text = "Moving A Unit";
+>>>>>>> 5441021dc6652775af3ea55f34817cc2bc7e1842
             GetDefaultInput();
             GetMovementInput();
         }
 
         else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Action)
         {
+<<<<<<< HEAD
             stateText.text = "Pending Action";
+=======
+            stateNotifier.text = "Performing Action";
+>>>>>>> 5441021dc6652775af3ea55f34817cc2bc7e1842
             GetActionInput();
         }
 
         else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Attacking)
         {
+<<<<<<< HEAD
             stateText.text = "Attacking";
+=======
+            stateNotifier.text = "Selecting An Attack Target";
+>>>>>>> 5441021dc6652775af3ea55f34817cc2bc7e1842
             GetEnemySelectionInput();
         }
 
