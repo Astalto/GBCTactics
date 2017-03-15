@@ -36,7 +36,11 @@ public class CharacterStats : MonoBehaviour
             if (other.HP <= 0)
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 //EventLogger.AddEvent(this.gameObject.name + " killed: " + other.gameObject.name);
+=======
+                logOfEvents.AddEvent(this.gameObject.name + " killed: " + other.gameObject.name);
+>>>>>>> 37061aa92e8020365b0d2f4f51df1ef976e1efce
 =======
                 logOfEvents.AddEvent(this.gameObject.name + " killed: " + other.gameObject.name);
 >>>>>>> 37061aa92e8020365b0d2f4f51df1ef976e1efce
