@@ -11,43 +11,68 @@ using System.Collections;
 public class InputManager : singleton<InputManager>
 {
     private bool m_selectingUnit, m_selectingTile, m_selectingAction;
+<<<<<<< HEAD
+    private Text stateText;
+
+    private void Start()
+    {
+        stateText = GameObject.FindGameObjectWithTag("CurrentState").GetComponent<Text>();
+=======
     private Text stateNotifier;
     
     private void Start()
     {
         stateNotifier = GameObject.FindGameObjectWithTag("StateNotifier").GetComponent<Text>();
+>>>>>>> 5441021dc6652775af3ea55f34817cc2bc7e1842
     }
 
     private void Update()
     {
         if(GameManager.Instance.GameState == (int)GameManager.GameStates.Selecting)
         {
+<<<<<<< HEAD
+            stateText.text = "Selecting";
+=======
             stateNotifier.text = "Selecting A Unit";
+>>>>>>> 5441021dc6652775af3ea55f34817cc2bc7e1842
             GetDefaultInput();
             GetSelectionInput();
         }
 
         else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Moving)
         {
+<<<<<<< HEAD
+            stateText.text = "Moving";
+=======
             stateNotifier.text = "Moving A Unit";
+>>>>>>> 5441021dc6652775af3ea55f34817cc2bc7e1842
             GetDefaultInput();
             GetMovementInput();
         }
 
         else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Action)
         {
+<<<<<<< HEAD
+            stateText.text = "Pending Action";
+=======
             stateNotifier.text = "Performing Action";
+>>>>>>> 5441021dc6652775af3ea55f34817cc2bc7e1842
             GetActionInput();
         }
 
         else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Attacking)
         {
+<<<<<<< HEAD
+            stateText.text = "Attacking";
+=======
             stateNotifier.text = "Selecting An Attack Target";
+>>>>>>> 5441021dc6652775af3ea55f34817cc2bc7e1842
             GetEnemySelectionInput();
         }
 
         else if(GameManager.Instance.GameState == (int)GameManager.GameStates.AIMove)
         {
+            stateText.text = "";
             GetDefaultInput();
         }
 
@@ -115,7 +140,15 @@ public class InputManager : singleton<InputManager>
 
     private void GetSelectionInput()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Tab))
+        {
+            SelectionManager.Instance.SelectPreviousUnit(SelectionManager.Instance.PlayerTeam);
+
+            UpdateCursorLocation(SelectionManager.Instance.PlayerTeam);
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Tab))
         {
             SelectionManager.Instance.SelectNextUnit(SelectionManager.Instance.PlayerTeam);
 
@@ -150,12 +183,21 @@ public class InputManager : singleton<InputManager>
     private void GetEnemySelectionInput()
     {
         //UpdateEnemyCursorLocation();
-        if (Input.GetKeyDown(KeyCode.Tab))
+
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Tab))
+        {
+            SelectionManager.Instance.SelectPreviousUnit(SelectionManager.Instance.EnemyTeam);
+
+            UpdateCursorLocation(SelectionManager.Instance.EnemyTeam);
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Tab))
         {
             SelectionManager.Instance.SelectNextUnit(SelectionManager.Instance.EnemyTeam);
 
             UpdateCursorLocation(SelectionManager.Instance.EnemyTeam);
         }
+
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -164,8 +206,6 @@ public class InputManager : singleton<InputManager>
 
             CharacterStats target = eChars.Team[eChars.SelectionIndex].GetComponent<CharacterStats>();
             CharacterStats attacker = pChars.Team[pChars.SelectionIndex].GetComponent<CharacterStats>();
-
-            SelectionManager.Instance.log.AddEvent(attacker.gameObject.name + " attacking: " + target.gameObject.name);
 
             eChars.Team[eChars.SelectionIndex].m_isSelected = true;
 
@@ -192,9 +232,24 @@ public class InputManager : singleton<InputManager>
             {
                 if (Input.GetKeyDown(KeyCode.Return) && s.m_CurrentLocation != s.m_Destination)
                 {
+<<<<<<< HEAD
+                    if (!Map.Instance.MAP[(int)s.m_Destination.x, (int)s.m_Destination.y].m_isOccupied)
+                    {
+                        s.LightPath(s.m_CurrentLocation);
+                        //enable action select; (BEFORE MOVEMENT)
+                        //GameManager.Instance.GameState = (int)GameManager.GameStates.Action;
+                    }
+
+                    else
+                    {
+                        print("Tile occupied, please select a different tile!");
+                    }
+=======
                     s.LightPath(s.m_CurrentLocation);
+
                     //enable action select; (BEFORE MOVEMENT)
                     //GameManager.Instance.GameState = (int)GameManager.GameStates.Action;
+>>>>>>> 37061aa92e8020365b0d2f4f51df1ef976e1efce
                 }
             }
         }

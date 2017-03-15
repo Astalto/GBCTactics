@@ -5,20 +5,16 @@ using System.Collections;
 public class EventLog : MonoBehaviour {
 
     private List<string> listOfEvents = new List<string>();
-    private string printOut = "";
+    private string guiText = "";
 
     public int maxLines = 7;
 
 	void OnGUI()
     {
         GUI.Label(new Rect(0, Screen.height - (Screen.height / 4), Screen.width,
-            Screen.height / 4), printOut, GUI.skin.textArea);
+            Screen.height / 4), guiText, GUI.skin.textArea);
     }
 
-    //TODO//
-    //somehow add color to the text based on what is hapneing
-    //i.e attacking = red
-    //  healing = green
     public void AddEvent(string eventString)
     {
         listOfEvents.Add(eventString);
@@ -28,12 +24,16 @@ public class EventLog : MonoBehaviour {
             listOfEvents.RemoveAt(0);
         }
 
-        printOut = "";
+        guiText = "";
 
         int newLineCounter = 0;
 
         foreach (string logEvent in listOfEvents)
         {
+<<<<<<< HEAD
+            guiText += logEvent;
+            guiText += "\n";
+=======
             newLineCounter++;
             printOut += logEvent;
             printOut += "\n";
@@ -46,6 +46,7 @@ public class EventLog : MonoBehaviour {
                 //Reset the counter
                 newLineCounter = 0;
             }
+>>>>>>> 5441021dc6652775af3ea55f34817cc2bc7e1842
         }
     }
 }

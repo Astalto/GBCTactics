@@ -11,6 +11,9 @@ public class MapPiece : MonoBehaviour
     public bool m_isSelected;
     public bool m_lightUp;
 
+    public bool m_isOccupied;
+    public GameObject m_isOccupiedBy;
+
     public Vector4 m_deselectedColor;
     public Vector4 m_selectedColor;
     public Vector4 m_pathingColor;

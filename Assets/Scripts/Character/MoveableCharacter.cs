@@ -45,6 +45,9 @@ public class MoveableCharacter : MonoBehaviour
                 UpdateDestination();
             }
         }
+
+        UpdateMapOccupationVariables();
+        
     }
 
     //Private functions
@@ -52,6 +55,9 @@ public class MoveableCharacter : MonoBehaviour
     {
         this.transform.position = Map.Instance.GetPosition(m_SpawnCell.x, m_SpawnCell.y);
         Map.Instance.SelectedTile = m_CurrentLocation = m_SpawnCell;
+        Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied = true;
+        Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupiedBy = this.gameObject;
+
     }
 
     public void LightPath(Vector2 coord)
@@ -86,7 +92,6 @@ public class MoveableCharacter : MonoBehaviour
         else
         {
             ToggleMoving(true);
-            SelectionManager.Instance.log.AddEvent(this.gameObject.name + " moving to: " + m_Destination);
         }
         
     }
@@ -148,14 +153,20 @@ public class MoveableCharacter : MonoBehaviour
         if(m_movingUp && this.transform.position.y >= m_surroundingTilePositions[0].y)
         {
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupiedBy = null;
 
             m_CurrentLocation.x--;
+            
+
         }
 
         //Update below;
         if(m_movingDown && this.transform.position.y <= m_surroundingTilePositions[1].y)
         {
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupiedBy = null;
             m_CurrentLocation.x++;
         }
 
@@ -163,6 +174,8 @@ public class MoveableCharacter : MonoBehaviour
         if(m_movingRight && this.transform.position.x >= m_surroundingTilePositions[2].x)
         {
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupiedBy = null;
             m_CurrentLocation.y++;
         }
 
@@ -170,10 +183,16 @@ public class MoveableCharacter : MonoBehaviour
         if(m_movingLeft && this.transform.position.x <= m_surroundingTilePositions[3].x)
         {
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupiedBy = null;
+
             m_CurrentLocation.y--;
         }
 
-        if(m_CurrentLocation == m_Destination)
+        Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied = true;
+        Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupiedBy = this.gameObject;
+
+        if (m_CurrentLocation == m_Destination)
         {
             //Unlight destination
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
@@ -219,6 +238,17 @@ public class MoveableCharacter : MonoBehaviour
         if (m_CurrentLocation.y >= 1)
         {
             m_surroundingTilePositions[3] = Map.Instance.GetPosition(m_CurrentLocation.x, m_CurrentLocation.y - 1);
+        }
+    }
+
+    void UpdateMapOccupationVariables()
+    {
+        bool CurrentMapPieceStatus = Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied;
+
+        if (!CurrentMapPieceStatus)
+        {
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied = true;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupiedBy = this.gameObject;
         }
     }
 

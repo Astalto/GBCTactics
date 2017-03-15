@@ -2,7 +2,7 @@
 using System.Collections;
 
 /// <summary>
-/// This scrip contains the functionality to allow the user to select his units.
+/// This script contains the functionality to allow the user to select his units.
 /// As it is specifically for selecting players, the enemy team will not utilize this script.
 /// </summary>
 
@@ -50,7 +50,7 @@ public class SelectableCharacters : MonoBehaviour
             //Toggle Team[selectionIndex].isSelected;
             
             Team[m_selectionIndex].m_isSelected = true;
-            //SelectionManager.Instance.log.AddEvent("TeamMember selected: " + Team[m_selectionIndex].gameObject.name);
+            //print("TeamMember Selected " + Team[m_selectionIndex].name);
 
             if (!Team[m_selectionIndex].m_isSelectable)
             {
