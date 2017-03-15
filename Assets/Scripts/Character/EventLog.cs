@@ -5,14 +5,14 @@ using System.Collections;
 public class EventLog : MonoBehaviour {
 
     private List<string> listOfEvents = new List<string>();
-    private string guiText = "";
+    private string printOut = "";
 
     public int maxLines = 7;
 
 	void OnGUI()
     {
         GUI.Label(new Rect(0, Screen.height - (Screen.height / 4), Screen.width,
-            Screen.height / 4), guiText, GUI.skin.textArea);
+            Screen.height / 4), printOut, GUI.skin.textArea);
     }
 
     public void AddEvent(string eventString)
@@ -24,16 +24,10 @@ public class EventLog : MonoBehaviour {
             listOfEvents.RemoveAt(0);
         }
 
-        guiText = "";
-
         int newLineCounter = 0;
 
         foreach (string logEvent in listOfEvents)
         {
-<<<<<<< HEAD
-            guiText += logEvent;
-            guiText += "\n";
-=======
             newLineCounter++;
             printOut += logEvent;
             printOut += "\n";
@@ -46,7 +40,6 @@ public class EventLog : MonoBehaviour {
                 //Reset the counter
                 newLineCounter = 0;
             }
->>>>>>> 5441021dc6652775af3ea55f34817cc2bc7e1842
         }
     }
 }
