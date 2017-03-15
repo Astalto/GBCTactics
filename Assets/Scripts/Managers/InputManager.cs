@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 /// <summary>
@@ -10,30 +11,38 @@ using System.Collections;
 public class InputManager : singleton<InputManager>
 {
     private bool m_selectingUnit, m_selectingTile, m_selectingAction;
+    private Text stateNotifier;
+    
+    private void Start()
+    {
+        stateNotifier = GameObject.FindGameObjectWithTag("StateNotifier").GetComponent<Text>();
+    }
 
     private void Update()
     {
-        
-
         if(GameManager.Instance.GameState == (int)GameManager.GameStates.Selecting)
         {
+            stateNotifier.text = "Selecting A Unit";
             GetDefaultInput();
             GetSelectionInput();
         }
 
         else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Moving)
         {
+            stateNotifier.text = "Moving A Unit";
             GetDefaultInput();
             GetMovementInput();
         }
 
         else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Action)
         {
+            stateNotifier.text = "Performing Action";
             GetActionInput();
         }
 
         else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Attacking)
         {
+            stateNotifier.text = "Selecting An Attack Target";
             GetEnemySelectionInput();
         }
 
