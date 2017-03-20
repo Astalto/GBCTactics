@@ -18,13 +18,13 @@ public class Map : singleton<Map>
     public MapPiece[,] MAP { get { return m_map; } }
     public Vector2 SelectedTile { get { return m_currentSelection; } set { m_currentSelection = value; } }
 
-    
+
     //MonoBehaviors
     private void OnEnable()
     {
         m_map = new MapPiece[Rows, Columns];
 
-        for(int i = 0; i < Rows; i++)
+        for (int i = 0; i < Rows; i++)
         {
             for (int j = 0; j < Columns; j++)
             {

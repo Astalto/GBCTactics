@@ -8,6 +8,8 @@ public class SelectionManager : singleton<SelectionManager>
     public SelectableCharacters PlayerTeam;
     public SelectableCharacters EnemyTeam;
 
+    public EventLog log;
+
 
 
     private void OnEnable()
@@ -17,6 +19,9 @@ public class SelectionManager : singleton<SelectionManager>
 
         PlayerTeam.IsPlayerTeam = true;
         EnemyTeam.IsPlayerTeam = false;
+
+
+        log = GameObject.FindGameObjectWithTag("EventLog").GetComponent<EventLog>();
     }
 
     public void SelectNextUnit(SelectableCharacters Team)

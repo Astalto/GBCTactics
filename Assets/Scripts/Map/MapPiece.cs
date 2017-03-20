@@ -11,9 +11,6 @@ public class MapPiece : MonoBehaviour
     public bool m_isSelected;
     public bool m_lightUp;
 
-    public bool m_isOccupied;
-    public GameObject m_isOccupiedBy;
-
     public Vector4 m_deselectedColor;
     public Vector4 m_selectedColor;
     public Vector4 m_pathingColor;
@@ -47,7 +44,7 @@ public class MapPiece : MonoBehaviour
             m_spriteRenderer.color = m_selectedColor;
         }
 
-        else if(m_lightUp)
+        else if (m_lightUp)
         {
             m_spriteRenderer.color = m_pathingColor;
         }

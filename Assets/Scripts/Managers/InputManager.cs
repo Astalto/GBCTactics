@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 
 /// <summary>
@@ -11,42 +10,34 @@ using System.Collections;
 public class InputManager : singleton<InputManager>
 {
     private bool m_selectingUnit, m_selectingTile, m_selectingAction;
-    private Text stateNotifier;
-    
-    private void Start()
-    {
-        stateNotifier = GameObject.FindGameObjectWithTag("StateNotifier").GetComponent<Text>();
-    }
 
     private void Update()
     {
-        if(GameManager.Instance.GameState == (int)GameManager.GameStates.Selecting)
+
+
+        if (GameManager.Instance.GameState == (int)GameManager.GameStates.Selecting)
         {
-            stateNotifier.text = "Selecting A Unit";
             GetDefaultInput();
             GetSelectionInput();
         }
 
-        else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Moving)
+        else if (GameManager.Instance.GameState == (int)GameManager.GameStates.Moving)
         {
-            stateNotifier.text = "Moving A Unit";
             GetDefaultInput();
             GetMovementInput();
         }
 
-        else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Action)
+        else if (GameManager.Instance.GameState == (int)GameManager.GameStates.Action)
         {
-            stateNotifier.text = "Performing Action";
             GetActionInput();
         }
 
-        else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Attacking)
+        else if (GameManager.Instance.GameState == (int)GameManager.GameStates.Attacking)
         {
-            stateNotifier.text = "Selecting An Attack Target";
             GetEnemySelectionInput();
         }
 
-        else if(GameManager.Instance.GameState == (int)GameManager.GameStates.AIMove)
+        else if (GameManager.Instance.GameState == (int)GameManager.GameStates.AIMove)
         {
             GetDefaultInput();
         }
@@ -115,15 +106,7 @@ public class InputManager : singleton<InputManager>
 
     private void GetSelectionInput()
     {
-
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Tab))
-        {
-            SelectionManager.Instance.SelectPreviousUnit(SelectionManager.Instance.PlayerTeam);
-
-            UpdateCursorLocation(SelectionManager.Instance.PlayerTeam);
-        }
-
-        else if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             SelectionManager.Instance.SelectNextUnit(SelectionManager.Instance.PlayerTeam);
 
@@ -144,7 +127,7 @@ public class InputManager : singleton<InputManager>
             else if (!pChars.SelectedCharacter.m_hasAttacked)
             {
                 //Set game state to Action;
-                GameManager.Instance.GameState = (int)GameManager.GameStates.Action;     
+                GameManager.Instance.GameState = (int)GameManager.GameStates.Action;
             }
 
             else
@@ -158,21 +141,12 @@ public class InputManager : singleton<InputManager>
     private void GetEnemySelectionInput()
     {
         //UpdateEnemyCursorLocation();
-
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Tab))
-        {
-            SelectionManager.Instance.SelectPreviousUnit(SelectionManager.Instance.EnemyTeam);
-
-            UpdateCursorLocation(SelectionManager.Instance.EnemyTeam);
-        }
-
-        else if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             SelectionManager.Instance.SelectNextUnit(SelectionManager.Instance.EnemyTeam);
 
             UpdateCursorLocation(SelectionManager.Instance.EnemyTeam);
         }
-
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -181,6 +155,8 @@ public class InputManager : singleton<InputManager>
 
             CharacterStats target = eChars.Team[eChars.SelectionIndex].GetComponent<CharacterStats>();
             CharacterStats attacker = pChars.Team[pChars.SelectionIndex].GetComponent<CharacterStats>();
+
+            SelectionManager.Instance.log.AddEvent(attacker.gameObject.name + " attacking: " + target.gameObject.name);
 
             eChars.Team[eChars.SelectionIndex].m_isSelected = true;
 
@@ -207,18 +183,9 @@ public class InputManager : singleton<InputManager>
             {
                 if (Input.GetKeyDown(KeyCode.Return) && s.m_CurrentLocation != s.m_Destination)
                 {
-                    if (!Map.Instance.MAP[(int)s.m_Destination.x, (int)s.m_Destination.y].m_isOccupied)
-                    {
-                        s.LightPath(s.m_CurrentLocation);
-                        //enable action select; (BEFORE MOVEMENT)
-                        //GameManager.Instance.GameState = (int)GameManager.GameStates.Action;
-                    }
-
-                    else
-                    {
-                        print("Tile occupied, please select a different tile!");
-                    }
-
+                    s.LightPath(s.m_CurrentLocation);
+                    //enable action select; (BEFORE MOVEMENT)
+                    //GameManager.Instance.GameState = (int)GameManager.GameStates.Action;
                 }
             }
         }
@@ -227,15 +194,15 @@ public class InputManager : singleton<InputManager>
     private void GetActionInput()
     {
         //State should me Action
-        if(GameManager.Instance.GameState == (int)GameManager.GameStates.Action)
+        if (GameManager.Instance.GameState == (int)GameManager.GameStates.Action)
         {
-            if(Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 //Move up untill at the top of the menu(i.e. highlight a different option
                 MenuManager.Instance.CyclePreviousAction();
             }
 
-            if(Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 //Move down untill the same as top.
                 MenuManager.Instance.CycleNextAction();
@@ -249,7 +216,7 @@ public class InputManager : singleton<InputManager>
                 //else if spells, display possible spells. (Seperate menu)
                 //else if cancel, close menu
 
-                if(MenuManager.Instance.ActionIndex == (int)MenuManager.ActionChoice.Attack)
+                if (MenuManager.Instance.ActionIndex == (int)MenuManager.ActionChoice.Attack)
                 {
                     //print("Action chosen: attack");
 

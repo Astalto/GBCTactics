@@ -17,14 +17,14 @@ public class EnemyAI : MonoBehaviour
     private int randNumX;
     private int randNumY;
 
-	void Start()
+    void Start()
     {
         //Set to false on startup, the player will always go first
         aiTurn = false;
         aiList = SelectionManager.Instance.EnemyTeam;
     }
-	
-	void Update ()
+
+    void Update()
     {
         //We first check if we are allowed to move
         if (GameManager.Instance.GameState == (int)GameManager.GameStates.AIMove)
@@ -62,5 +62,5 @@ public class EnemyAI : MonoBehaviour
             //Once that is done, we set aiTurn = false
             aiTurn = false;
         }
-	}
+    }
 }

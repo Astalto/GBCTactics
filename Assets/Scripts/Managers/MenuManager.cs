@@ -29,7 +29,7 @@ public class MenuManager : singleton<MenuManager>
 
     private void Start()
     {
-        
+
         ActionMenu = GameObject.Find("ActionMenu");
 
         Actions[0] = AttackAction = GameObject.FindWithTag("Action_Attack").GetComponent<Image>();
@@ -47,7 +47,7 @@ public class MenuManager : singleton<MenuManager>
 
     private void Update()
     {
-        if(GameManager.Instance.GameState == (int)GameManager.GameStates.Action && !ActionMenu.activeInHierarchy)
+        if (GameManager.Instance.GameState == (int)GameManager.GameStates.Action && !ActionMenu.activeInHierarchy)
         {
             OpenActionMenu();
         }
@@ -70,7 +70,7 @@ public class MenuManager : singleton<MenuManager>
     {
         DeselectAction();
 
-        if(ActionIndex < Actions.Length - 1)
+        if (ActionIndex < Actions.Length - 1)
         {
             ActionIndex++;
         }

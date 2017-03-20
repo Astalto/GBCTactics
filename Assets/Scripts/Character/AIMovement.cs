@@ -27,12 +27,12 @@ public class AIMovement : MonoBehaviour
 
     private void Update()
     {
-        if(GameManager.Instance.GameState == (int)GameManager.GameStates.AIMove)
+        if (GameManager.Instance.GameState == (int)GameManager.GameStates.AIMove)
         {
             //Set target for EnemyTeam.Team[i] to FindclosestTarget();
             //Move to (FindClosestTarget(Enemyteam.Team[i].m_currentPos;
             //Attaack target
-            for(int i = 0; i < PlayerTeam.TeamSize; i++)
+            for (int i = 0; i < PlayerTeam.TeamSize; i++)
             {
                 //SET TARGET
                 current = EnemyTeam.Team[i].GetComponent<CharacterStats>();

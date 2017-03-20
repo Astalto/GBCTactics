@@ -2,7 +2,7 @@
 using System.Collections;
 
 /// <summary>
-/// This script contains the functionality to allow the user to select his units.
+/// This scrip contains the functionality to allow the user to select his units.
 /// As it is specifically for selecting players, the enemy team will not utilize this script.
 /// </summary>
 
@@ -18,7 +18,7 @@ public class SelectableCharacters : MonoBehaviour
     public bool m_isPlayerTeam;
     private bool m_characterSelected;
 
-    public bool IsPlayerTeam { get { return m_isPlayerTeam; }  set { m_isPlayerTeam = value; } }
+    public bool IsPlayerTeam { get { return m_isPlayerTeam; } set { m_isPlayerTeam = value; } }
     public bool CharacterSelected { set { m_characterSelected = value; } }
     public int SelectionIndex { get { return m_selectionIndex; } set { m_selectionIndex = value; } }
 
@@ -45,12 +45,12 @@ public class SelectableCharacters : MonoBehaviour
 
     void Update()
     {
-        if(m_characterSelected)
+        if (m_characterSelected)
         {
             //Toggle Team[selectionIndex].isSelected;
-            
+
             Team[m_selectionIndex].m_isSelected = true;
-            //print("TeamMember Selected " + Team[m_selectionIndex].name);
+            //SelectionManager.Instance.log.AddEvent("TeamMember selected: " + Team[m_selectionIndex].gameObject.name);
 
             if (!Team[m_selectionIndex].m_isSelectable)
             {
@@ -87,7 +87,7 @@ public class SelectableCharacters : MonoBehaviour
 
     public void DecrementSelectionIndex()
     {
-        if(SelectionIndex > 0)
+        if (SelectionIndex > 0)
         {
             SelectionIndex--;
         }
@@ -100,9 +100,9 @@ public class SelectableCharacters : MonoBehaviour
 
     private void RemoveInactiveCharacters()
     {
-        for(int i = 0; i < TeamSize; i++)
+        for (int i = 0; i < TeamSize; i++)
         {
-            if(Team[i].m_hasMoved && Team[i].m_hasAttacked)
+            if (Team[i].m_hasMoved && Team[i].m_hasAttacked)
             {
                 Team[i].m_isSelectable = false;
                 MoveableCharacter t = Team[i];
@@ -110,7 +110,7 @@ public class SelectableCharacters : MonoBehaviour
                 Team[TeamSize - 1] = t;
                 TeamSize--;
 
-                if(TeamSize <= 0)
+                if (TeamSize <= 0)
                 {
                     //Round is over;
                     //reset player for next round;
