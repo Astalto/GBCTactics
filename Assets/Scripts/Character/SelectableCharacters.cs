@@ -22,25 +22,32 @@ public class SelectableCharacters : MonoBehaviour
     public bool CharacterSelected { set { m_characterSelected = value; } }
     public int SelectionIndex { get { return m_selectionIndex; } set { m_selectionIndex = value; } }
 
-    void Start()
+    public void Initialize()
     {
         Team = new MoveableCharacter[TeamSize];
 
-        if (IsPlayerTeam)
+        if(!IsPlayerTeam)
         {
             for (int i = 0; i < TeamSize; i++)
             {
-                Team[i] = GameObject.Find("PlayerMember" + i).GetComponent<MoveableCharacter>();
+                Team[i] = GameObject.Find("Enemy" + i).GetComponent<MoveableCharacter>();
+                Team[i].Initialize();
             }
+
         }
 
         else
         {
             for (int i = 0; i < TeamSize; i++)
             {
-                Team[i] = GameObject.Find("Enemy" + i).GetComponent<MoveableCharacter>();
+                Team[i] = GameObject.Find("PlayerMember" + i).GetComponent<MoveableCharacter>();
+                Team[i].Initialize();
             }
+
+            Map.Instance.SelectedTile = Team[0].m_SpawnCell;
         }
+
+
     }
 
     void Update()
@@ -49,8 +56,11 @@ public class SelectableCharacters : MonoBehaviour
         {
             //Toggle Team[selectionIndex].isSelected;
 
-            Team[m_selectionIndex].m_isSelected = true;
-            //SelectionManager.Instance.log.AddEvent("TeamMember selected: " + Team[m_selectionIndex].gameObject.name);
+            if (IsPlayerTeam)
+            {
+                Team[m_selectionIndex].m_isSelected = true;
+                //SelectionManager.Instance.log.AddEvent("TeamMember selected: " + Team[m_selectionIndex].gameObject.name);
+            }
 
             if (!Team[m_selectionIndex].m_isSelectable)
             {
@@ -104,6 +114,7 @@ public class SelectableCharacters : MonoBehaviour
         {
             if (Team[i].m_hasMoved && Team[i].m_hasAttacked)
             {
+                Team[i].GetComponent<SpriteRenderer>().color = Color.grey;
                 Team[i].m_isSelectable = false;
                 MoveableCharacter t = Team[i];
                 Team[i] = Team[TeamSize - 1];

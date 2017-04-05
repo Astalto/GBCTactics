@@ -37,6 +37,7 @@ public class Map : singleton<Map>
     private void Update()
     {
         LightCurrentTile();
+
     }
 
     //Public functions

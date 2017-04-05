@@ -26,7 +26,12 @@ public class MoveableCharacter : MonoBehaviour
     public bool m_movingRight;
 
     //MonoBehavior
-    private void Start()
+    //private void Start()
+    //{
+    //    MoveToSpawn();
+    //}
+
+    public void Initialize()
     {
         MoveToSpawn();
     }
@@ -50,6 +55,7 @@ public class MoveableCharacter : MonoBehaviour
     //Private functions
     private void MoveToSpawn()
     {
+        print("Moving TO:" + m_SpawnCell);
         this.transform.position = Map.Instance.GetPosition(m_SpawnCell.x, m_SpawnCell.y);
         Map.Instance.SelectedTile = m_CurrentLocation = m_SpawnCell;
     }

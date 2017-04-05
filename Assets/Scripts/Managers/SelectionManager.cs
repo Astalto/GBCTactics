@@ -20,6 +20,9 @@ public class SelectionManager : singleton<SelectionManager>
         PlayerTeam.IsPlayerTeam = true;
         EnemyTeam.IsPlayerTeam = false;
 
+        EnemyTeam.Initialize();
+        PlayerTeam.Initialize();
+
 
         log = GameObject.FindGameObjectWithTag("EventLog").GetComponent<EventLog>();
     }
