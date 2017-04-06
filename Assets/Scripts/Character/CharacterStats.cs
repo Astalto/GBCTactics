@@ -20,7 +20,7 @@ public class CharacterStats : MonoBehaviour
     public int AP { get { return m_AttackPower; } }
     public int HP { get { return m_HealthPoints; } set { m_HealthPoints = value; } }
     public int DEF { get { return m_DefensePower; } }
-    public int RNG { get { return m_AttackRange; } }
+    public int RANGE { get { return m_AttackRange; } }
 
     //could add crit, speed, weapon bonus, attack range
 
@@ -79,34 +79,34 @@ public class CharacterStats : MonoBehaviour
 
         if (TargetLocation.x == AttackerLocation.x)
         {
-            if (TargetLocation.y < AttackerLocation.y + (blockDistance * this.RNG) && TargetLocation.y > AttackerLocation.y)
+            if (TargetLocation.y < AttackerLocation.y + (blockDistance * this.RANGE) && TargetLocation.y > AttackerLocation.y)
             {
                 //TOP
-                print("INRANGE TOP");
+                //print("INRANGE TOP");
                 return true;
             }
 
-            else if (TargetLocation.y > AttackerLocation.y - (blockDistance * this.RNG) && TargetLocation.y < AttackerLocation.y)
+            else if (TargetLocation.y > AttackerLocation.y - (blockDistance * this.RANGE) && TargetLocation.y < AttackerLocation.y)
             {
                 //Bottom
-                print("INRANGE BOTTOM");
+                //print("INRANGE BOTTOM");
                 return true;
             }
         }
 
         else if (TargetLocation.y == AttackerLocation.y)
         {
-            if (TargetLocation.x > AttackerLocation.x - (blockDistance * this.RNG) && TargetLocation.x < AttackerLocation.x)
+            if (TargetLocation.x > AttackerLocation.x - (blockDistance * this.RANGE) && TargetLocation.x < AttackerLocation.x)
             {
                 //left
-                print("INRANGE LEFT");
+                //print("INRANGE LEFT");
                 return true;
             }
 
-            else if (TargetLocation.x < AttackerLocation.x + (blockDistance * this.RNG) && TargetLocation.x > AttackerLocation.x)
+            else if (TargetLocation.x < AttackerLocation.x + (blockDistance * this.RANGE) && TargetLocation.x > AttackerLocation.x)
             {
                 //right
-                print("INRANGE RIGHT");
+                //print("INRANGE RIGHT");
                 return true;
             }
         }
@@ -118,40 +118,40 @@ public class CharacterStats : MonoBehaviour
         //Hence why if the X AND Y don't match, we still none the less check if the target is in range horizontally AND vertically
         else if (TargetLocation.x != AttackerLocation.x && TargetLocation.y != AttackerLocation.y)
         {
-            if (TargetLocation.x > AttackerLocation.x - (blockDistance * this.RNG) && TargetLocation.x < AttackerLocation.x
-                && TargetLocation.y < AttackerLocation.y + (blockDistance * this.RNG) && TargetLocation.y > AttackerLocation.y)
+            if (TargetLocation.x > AttackerLocation.x - (blockDistance * this.RANGE) && TargetLocation.x < AttackerLocation.x
+                && TargetLocation.y < AttackerLocation.y + (blockDistance * this.RANGE) && TargetLocation.y > AttackerLocation.y)
             {
                 //If it is in range left and in range top, we know diagonally its up left
-                print("INRANGE TOP LEFT");
+                //print("INRANGE TOP LEFT");
                 return true;
             }
 
-            else if (TargetLocation.x > AttackerLocation.x - (blockDistance * this.RNG) && TargetLocation.x < AttackerLocation.x
-                && TargetLocation.y > AttackerLocation.y - (blockDistance * this.RNG) && TargetLocation.y < AttackerLocation.y)
+            else if (TargetLocation.x > AttackerLocation.x - (blockDistance * this.RANGE) && TargetLocation.x < AttackerLocation.x
+                && TargetLocation.y > AttackerLocation.y - (blockDistance * this.RANGE) && TargetLocation.y < AttackerLocation.y)
             {
                 //Bottom left
-                print("INRANGE BOTTOM LEFT");
+                //print("INRANGE BOTTOM LEFT");
                 return true;
             }
 
-            else if (TargetLocation.x < AttackerLocation.x + (blockDistance * this.RNG) && TargetLocation.x > AttackerLocation.x
-                && TargetLocation.y < AttackerLocation.y + (blockDistance * this.RNG) && TargetLocation.y > AttackerLocation.y)
+            else if (TargetLocation.x < AttackerLocation.x + (blockDistance * this.RANGE) && TargetLocation.x > AttackerLocation.x
+                && TargetLocation.y < AttackerLocation.y + (blockDistance * this.RANGE) && TargetLocation.y > AttackerLocation.y)
             {
                 //Top right
-                print("INRANGE TOP RIGHT");
+                //print("INRANGE TOP RIGHT");
                 return true;
             }
 
-            else if (TargetLocation.x > AttackerLocation.x - (blockDistance * this.RNG) && TargetLocation.x < AttackerLocation.x
-                && TargetLocation.y > AttackerLocation.y - (blockDistance * this.RNG) && TargetLocation.y < AttackerLocation.y)
+            else if (TargetLocation.x > AttackerLocation.x - (blockDistance * this.RANGE) && TargetLocation.x < AttackerLocation.x
+                && TargetLocation.y > AttackerLocation.y - (blockDistance * this.RANGE) && TargetLocation.y < AttackerLocation.y)
             {
                 //Bottom right
-                print("INRANGE BOTTOM RIGHT");
+                //print("INRANGE BOTTOM RIGHT");
                 return true;
             }
         }
 
-        print("NOT INRANGE");
+        //print("NOT INRANGE");
         EventLogger.AddEvent(m_target.gameObject.name + " is not in range of " + this.gameObject.name);
         EventLogger.AddEvent(this.gameObject.name + "'s turn is complete.");
         return false;

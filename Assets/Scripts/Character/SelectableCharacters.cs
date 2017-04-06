@@ -126,6 +126,8 @@ public class SelectableCharacters : MonoBehaviour
                     Team[TeamSize - 1] = t;
                     TeamSize--;
 
+                    SelectionManager.Instance.log.AddEvent(SelectionManager.Instance.PlayerTeam.SelectedCharacter.name + "'s turn is complete.");
+
                     if (TeamSize <= 0)
                     {
                         //Round is over;

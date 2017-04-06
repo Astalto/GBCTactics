@@ -65,9 +65,12 @@ public class MapPiece : MonoBehaviour
         }
 
         else if (m_isOccupied && m_occupiedBy.m_isSelected)
-        { 
+        {
             //print("Selected character preforming action");
-            m_spriteRenderer.color = m_playerSelectedColor;
+            if (!m_occupiedBy.m_isEnemy)
+            {
+                m_spriteRenderer.color = m_playerSelectedColor;
+            }
         }
 
         else if (Map.Instance.LastSelected == m_occupiedBy)

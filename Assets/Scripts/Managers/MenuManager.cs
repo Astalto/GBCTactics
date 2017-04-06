@@ -7,18 +7,14 @@ public class MenuManager : singleton<MenuManager>
     public enum ActionChoice
     {
         Attack = 0,
-        Item = 1,
-        Spell = 2,
+        Abilities = 1,
+        End_Turn = 2,
         Cancel = 3,
     };
 
 
     [Header("Action Menu")]
     public GameObject ActionMenu;
-    public Image AttackAction;
-    public Image ItemAction;
-    public Image SpellAction;
-    public Image CancelAction;
 
     [Header("Selection")]
     public Image[] Actions = new Image[4];
@@ -29,20 +25,10 @@ public class MenuManager : singleton<MenuManager>
 
     private void Start()
     {
-
-        ActionMenu = GameObject.Find("ActionMenu");
-
-        Actions[0] = AttackAction = GameObject.FindWithTag("Action_Attack").GetComponent<Image>();
-        Actions[1] = ItemAction = GameObject.FindWithTag("Action_Item").GetComponent<Image>();
-        Actions[2] = SpellAction = GameObject.FindWithTag("Action_Spell").GetComponent<Image>();
-        Actions[3] = CancelAction = GameObject.FindWithTag("Action_Cancel").GetComponent<Image>();
-
-
         if (ActionMenu != null)
         {
             CloseActionMenu();
         }
-
     }
 
     private void Update()

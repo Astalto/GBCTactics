@@ -46,10 +46,10 @@ public class InputManager : singleton<InputManager>
             GetEnemySelectionInput();
         }
 
-        else if (GameManager.Instance.GameState == (int)GameManager.GameStates.AIMove && !m_AIMoving)
+        else if (GameManager.Instance.GameState == (int)GameManager.GameStates.AIMove)
         {
             stateText.text = "AI Turn";
-            StartCoroutine(SimulateAI());
+            //StartCoroutine(SimulateAI());
         }
 
     }
@@ -202,15 +202,15 @@ public class InputManager : singleton<InputManager>
         //State should be Moving;
         if (GameManager.Instance.GameState == (int)GameManager.GameStates.Moving)
         {
-            MoveableCharacter selectionManager = SelectionManager.Instance.PlayerTeam.SelectedCharacter;
+            MoveableCharacter selectedCharacter = SelectionManager.Instance.PlayerTeam.SelectedCharacter;
 
-            if (!selectionManager.m_moving)
+            if (!selectedCharacter.m_moving)
             {
-                if (Input.GetKeyDown(KeyCode.Return) && selectionManager.m_CurrentLocation != selectionManager.m_Destination)
+                if (Input.GetKeyDown(KeyCode.Return) && selectedCharacter.m_CurrentLocation != selectedCharacter.m_Destination)
                 {
-                    if(!Map.Instance.MAP[(int)selectionManager.m_Destination.x, (int)selectionManager.m_Destination.y].m_isOccupied)
+                    if(!Map.Instance.MAP[(int)selectedCharacter.m_Destination.x, (int)selectedCharacter.m_Destination.y].m_isOccupied)
                     {
-                        selectionManager.LightPath(selectionManager.m_CurrentLocation);
+                        selectedCharacter.LightPath(selectedCharacter.m_CurrentLocation);
                     }
 
                     else
@@ -246,8 +246,8 @@ public class InputManager : singleton<InputManager>
             {
                 //Enter the menu that has been chosen,
                 //if attack, run the attack code, and change state to Animating
-                //else if items, display possible items. (seperate menu)
-                //else if spells, display possible spells. (Seperate menu)
+                //else if abilites, display possible abilites. (Seperate menu)
+                //else if end_turn, end the characters turn. (seperate menu)
                 //else if cancel, close menu
 
                 if (MenuManager.Instance.ActionIndex == (int)MenuManager.ActionChoice.Attack)
@@ -257,25 +257,45 @@ public class InputManager : singleton<InputManager>
 
                     GameManager.Instance.GameState = (int)GameManager.GameStates.Attacking;
 
+                    Vector2 index;
                     //highlight current selected enemy character;
-                    Map.Instance.m_currentSelection = SelectionManager.Instance.EnemyTeam.SelectedCharacter.m_CurrentLocation;
+                    index = SelectionManager.Instance.EnemyTeam.SelectedCharacter.m_CurrentLocation;
+                    Map.Instance.m_currentSelection = index;
 
-                    SelectionManager.Instance.DeSelectCharacter(SelectionManager.Instance.PlayerTeam);
+                    if (!Map.Instance.MAP[(int)index.x, (int)index.y].m_isOccupied)
+                    {
+                        do
+                        {
+                            SelectionManager.Instance.EnemyTeam.IncremenetSelectionIndex();
+                            index = SelectionManager.Instance.EnemyTeam.SelectedCharacter.m_CurrentLocation;
+                            Map.Instance.m_currentSelection = index;
+
+                        } while (Map.Instance.MAP[(int)index.x, (int)index.y].m_isOccupied);
+                    }
+
+                }
+
+                else if( MenuManager.Instance.ActionIndex == (int)MenuManager.ActionChoice.End_Turn)
+                {
+                    //set the current playerchar's has_attacked to true;
+                    SelectionManager.Instance.PlayerTeam.SelectedCharacter.m_hasAttacked = true;
+
+                    //set the gamestate back to selecting;
+                    GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
+
+                    
                 }
 
                 else if (MenuManager.Instance.ActionIndex == (int)MenuManager.ActionChoice.Cancel)
                 {
                     //print("Action chosen: cancel");
 
-                    MoveableCharacter selectionManager = SelectionManager.Instance.PlayerTeam.SelectedCharacter;
-
-                    //Map.Instance.LastSelected = Map.Instance.MAP[(int)selectionManager.m_CurrentLocation.x, (int)selectionManager.m_CurrentLocation.y].m_occupiedBy;
-                    //Deselect character
-                    SelectionManager.Instance.DeSelectCharacter(SelectionManager.Instance.PlayerTeam);
-
                     //Set game state to selecting
                     GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
                 }
+
+                //Deselect character
+                SelectionManager.Instance.DeSelectCharacter(SelectionManager.Instance.PlayerTeam);
 
                 //Close the UI menu
                 MenuManager.Instance.CloseActionMenu();

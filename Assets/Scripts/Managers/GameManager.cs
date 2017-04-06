@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// This script will keep track of the gamestates:
@@ -29,11 +30,29 @@ public class GameManager : singleton<GameManager>
 
     private void Start()
     {
-        m_currentState = (int)GameStates.Selecting;
+        m_currentState = (int)GameStates.AIMove;
     }
 
     private void Update()
     {
         //print(m_currentState);
     }
+
+    public void EndAITurn(List<MoveableCharacter> EnemyTeam)
+    {
+        for(int i = 0; i < EnemyTeam.Count; i++)
+        {
+            EnemyTeam[i].m_hasMoved = false;
+        }
+
+        //set gamestate to 0 (selecting)
+        GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
+
+        //invoke the reset team function;
+        SelectionManager.Instance.PlayerTeam.ResetTeam();
+    
+
+
+    }
+
 }

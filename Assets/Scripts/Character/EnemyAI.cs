@@ -1,16 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyAI : MonoBehaviour
 {
 
     //Reference to the EnemyCharacters class since it holds an array storing the AI characters
-    public SelectableCharacters aiList;
-
-    //Boolean to hold whether the AI's turn has started
-    //Left public so that the code overseeing the player's turn will manually set this to true once all player characters have moved
-    //This indicates to the AI that it can start
-    public bool aiTurn; //CAN determine if it's AI"S turn by checking the GAMESTATE
+    public List<MoveableCharacter> Enemies;
+    public MoveableCharacter[] EnemyTeam;
 
     //Variables that hold the random X and Y coordinates
     //We use this to generate a random tile on the map to select
@@ -19,9 +16,12 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
-        //Set to false on startup, the player will always go first
-        aiTurn = false;
-        aiList = SelectionManager.Instance.EnemyTeam;
+        EnemyTeam = SelectionManager.Instance.EnemyTeam.Team; 
+
+        for (int i = 0; i < EnemyTeam.Length; i++)
+        {
+            Enemies.Add(EnemyTeam[i]);
+        }
     }
 
     void Update()
@@ -30,37 +30,58 @@ public class EnemyAI : MonoBehaviour
         if (GameManager.Instance.GameState == (int)GameManager.GameStates.AIMove)
         {
             //Iterate through the entire team, generating random coordinates
-            for (int i = 0; i < aiList.TeamSize; i++)
+            for (int i = 0; i < Enemies.Count; i++)
             {
-                //if(!aiList.Team[i].gameObject.activeInHierarchy)
-                //{
-                //    i++;
-                //}
-                //First check if the unit at the current index can move
-                if (!aiList.Team[i].m_hasMoved)
+                //if an enemy is dead, remove them from the list
+                if(!Enemies[i].m_isSelectable)
                 {
-                    //Generate a random X and Y
-                    //Since the map is hardcoded as a 15x9 Map we generate an X from 0-14, and a y from 0 - 8
-                    randNumX = (int)Random.Range(0, 8);
-                    randNumY = (int)Random.Range(0, 14);
-
-                    //Move the unit to Map[randNumX, randNumY]
-                    //Get a reference to the moveable character script so we can
-                    //Set the m_destination
-                    //Invoke the MoveToDestinationMethod
-                    aiList.Team[i].GetComponent<MoveableCharacter>().m_Destination = new Vector2(randNumX, randNumY);
-                    aiList.Team[i].GetComponent<MoveableCharacter>().m_isSelected = true;
-                    aiList.Team[i].GetComponent<MoveableCharacter>().m_moving = true;
+                    Enemies.RemoveAt(i);
                 }
 
-                if (i == aiList.TeamSize - 1 && aiList.Team[i].m_hasMoved)
+                //Check if the unit at the current index can move
+                //check if the previous unit has moved, if they have then move this unit
+                if (i == 0)
+                {
+                    if (!Enemies[i].m_moving && !Enemies[i].m_hasMoved)
+                    {
+                        ExecuteMove(Enemies[i]);
+                    }
+                }
+
+                else if (Enemies[i - 1].m_hasMoved)
+                {
+                    if (!Enemies[i].m_moving && !Enemies[i].m_hasMoved)
+                    {
+                        ExecuteMove(Enemies[i]);
+                    }
+                }
+
+                if (i == Enemies.Count - 1 && Enemies[Enemies.Count - 1].m_hasMoved)
                 {
                     //TURN IS OVER
-                    GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
+                    print("Turn over!");
+                    GameManager.Instance.EndAITurn(Enemies);
                 }
             }
-            //Once that is done, we set aiTurn = false
-            aiTurn = false;
         }
+    }
+
+    public void ExecuteMove(MoveableCharacter Enemy)
+    {
+        //Generate a random X and Y
+        //Since the map is hardcoded as a 9x15 Map we generate an X from 0 - 8, and a Y from 0-14
+        //loop until a non occupied tile is found;
+        do
+        {
+            randNumX = (int)Random.Range(0, 8);
+            randNumY = (int)Random.Range(0, 14);
+        } while (Map.Instance.MAP[randNumX, randNumY].m_isOccupied);
+
+        //Move the unit to Map[randNumX, randNumY]
+        //Set the m_destination
+        //Invoke the MoveToDestinationMethod
+        Enemy.m_Destination = new Vector2(randNumX, randNumY);
+        Enemy.m_isSelected = true;
+        Enemy.m_moving = true;
     }
 }

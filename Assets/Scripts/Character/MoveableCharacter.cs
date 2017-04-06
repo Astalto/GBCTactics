@@ -25,6 +25,8 @@ public class MoveableCharacter : MonoBehaviour
     public bool m_movingLeft;
     public bool m_movingRight;
 
+    public bool m_isEnemy;
+
     //MonoBehavior
     //private void Start()
     //{
@@ -226,8 +228,11 @@ public class MoveableCharacter : MonoBehaviour
             //disable move;
             ToggleMoving(false);
 
-            //enable action select; (AFTER MOVEMENT)
-            GameManager.Instance.GameState = (int)GameManager.GameStates.Action;
+            if (!m_isEnemy)
+            {
+                //enable action select; (AFTER MOVEMENT)
+                GameManager.Instance.GameState = (int)GameManager.GameStates.Action;
+            }
 
             //TEMPORARY::set gamestate to selecting;
             //GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
