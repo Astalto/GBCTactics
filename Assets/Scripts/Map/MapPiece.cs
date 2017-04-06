@@ -51,12 +51,7 @@ public class MapPiece : MonoBehaviour
         {
             m_spriteRenderer.color = m_pathingColor;
         }
-
-        else if (m_)
-        {
-
-        }
-
+        
         else
         {
             m_spriteRenderer.color = m_deselectedColor;
