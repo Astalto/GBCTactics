@@ -253,8 +253,14 @@ public class InputManager : singleton<InputManager>
                 if (MenuManager.Instance.ActionIndex == (int)MenuManager.ActionChoice.Attack)
                 {
                     //print("Action chosen: attack");
+                    //SelectionManager.Instance.PlayerTeam.SelectedCharacter.GetComponent<AnimationController>().m_animator.SetTrigger("Attacking");
 
                     GameManager.Instance.GameState = (int)GameManager.GameStates.Attacking;
+
+                    //highlight current selected enemy character;
+                    Map.Instance.m_currentSelection = SelectionManager.Instance.EnemyTeam.SelectedCharacter.m_CurrentLocation;
+
+                    SelectionManager.Instance.DeSelectCharacter(SelectionManager.Instance.PlayerTeam);
                 }
 
                 else if (MenuManager.Instance.ActionIndex == (int)MenuManager.ActionChoice.Cancel)

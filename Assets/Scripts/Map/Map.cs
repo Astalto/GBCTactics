@@ -41,7 +41,7 @@ public class Map : singleton<Map>
     {
         LightCurrentTile();
 
-        print(LastSelected);
+        //print(LastSelected);
         if (m_map[(int)m_currentSelection.x, (int)m_currentSelection.y].m_occupiedBy != null)
         {
             LastSelected = m_map[(int)m_currentSelection.x, (int)m_currentSelection.y].m_occupiedBy;

@@ -38,6 +38,13 @@ public class MapPiece : MonoBehaviour
     private void Update()
     {
         SetColor();
+
+
+        if(m_occupiedBy != null && m_occupiedBy.GetComponent<CharacterStats>().HP < 0)
+        {
+            m_occupiedBy = null;
+            m_isOccupied = false;
+        }
     }
 
 

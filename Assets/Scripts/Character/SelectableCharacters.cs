@@ -16,6 +16,7 @@ public class SelectableCharacters : MonoBehaviour
     public MoveableCharacter SelectedCharacter;
 
     public bool m_isPlayerTeam;
+    [SerializeField]
     private bool m_characterSelected;
 
     public bool IsPlayerTeam { get { return m_isPlayerTeam; } set { m_isPlayerTeam = value; } }
@@ -66,6 +67,8 @@ public class SelectableCharacters : MonoBehaviour
             {
                 Team[m_selectionIndex].m_isSelected = false;
                 IncremenetSelectionIndex();
+                SetCurrentSelectedCharacter();
+                print("!selectable.....");
             }
         }
 
@@ -110,33 +113,51 @@ public class SelectableCharacters : MonoBehaviour
 
     private void RemoveInactiveCharacters()
     {
-        for (int i = 0; i < TeamSize; i++)
+        if (TeamSize > 0)
         {
-            if (Team[i].m_hasMoved && Team[i].m_hasAttacked)
+            for (int i = 0; i < TeamSize; i++)
             {
-                Team[i].GetComponent<SpriteRenderer>().color = Color.grey;
-                Team[i].m_isSelectable = false;
-                MoveableCharacter t = Team[i];
-                Team[i] = Team[TeamSize - 1];
-                Team[TeamSize - 1] = t;
-                TeamSize--;
-
-                if (TeamSize <= 0)
+                if (Team[i].m_hasMoved && Team[i].m_hasAttacked || Team[i].GetComponent<CharacterStats>().HP < 0)
                 {
-                    //Round is over;
-                    //reset player for next round;
-                    //IF A UNIT IS DEAD DON"T RESET THEM//
-                    for (int j = 0; j < 4; j++)
+                    Team[i].GetComponent<SpriteRenderer>().color = Color.grey;
+                    Team[i].m_isSelectable = false;
+                    MoveableCharacter t = Team[i];
+                    Team[i] = Team[TeamSize - 1];
+                    Team[TeamSize - 1] = t;
+                    TeamSize--;
+
+                    if (TeamSize <= 0)
                     {
-                        Team[j].m_isSelectable = true;
-                        Team[j].m_hasMoved = false;
-                        Team[j].m_hasAttacked = false;
+                        //Round is over;
+                        //reset player for next round;
+                        //IF A UNIT IS DEAD DON"T RESET THEM//
+                        for (int j = 0; j < 4; j++)
+                        {
+                            Team[j].m_isSelectable = true;
+                            Team[j].m_hasMoved = false;
+                            Team[j].m_hasAttacked = false;
+                        }
+
+                        TeamSize = 4;
+
+                        GameManager.Instance.GameState = (int)GameManager.GameStates.AIMove;
                     }
-
-                    TeamSize = 4;
-
-                    GameManager.Instance.GameState = (int)GameManager.GameStates.AIMove;
                 }
+            }
+        }
+
+        else
+        {
+            if(!m_isPlayerTeam)
+            {
+                //player wins
+                //enemy team is dead
+            }
+
+            else
+            {
+                //player lose
+                //playerteam is dead
             }
         }
 
