@@ -47,7 +47,7 @@ public class InputManager : singleton<InputManager>
     private void GetDefaultInput()
     {
         //Get a reference to the current selcted tile in the map
-        print(Map.Instance.SelectedTile);
+        //print(Map.Instance.SelectedTile);
         Vector2 currentTile = Map.Instance.SelectedTile;
 
         //Adjust the x or y value based on player input.

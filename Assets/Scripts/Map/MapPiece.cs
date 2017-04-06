@@ -11,12 +11,14 @@ public class MapPiece : MonoBehaviour
     public bool m_isSelected;
     public bool m_lightUp;
 
-    public Vector4 m_deselectedColor;
-    public Vector4 m_selectedColor;
-    public Vector4 m_pathingColor;
-    public Vector4 m_playerSelectedColor;
+    public Color m_deselectedColor;
+    public Color m_selectedColor;
+    public Color m_pathingColor;
+    public Color m_playerSelectedColor;
 
+    public bool m_isOccupied;
     public MoveableCharacter m_occupiedBy;
+    
 
     //Use later in the project (possibly to represent wether the player can move a unit or not);
     //public Vector4 m_movableColor;
@@ -52,9 +54,9 @@ public class MapPiece : MonoBehaviour
             m_spriteRenderer.color = m_pathingColor;
         }
 
-        else if (m_)
+        else if(m_isOccupied && m_occupiedBy.m_isSelected)
         {
-
+            m_spriteRenderer.color = m_playerSelectedColor;
         }
 
         else
