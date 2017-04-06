@@ -53,12 +53,16 @@ public class MapPiece : MonoBehaviour
         {
             m_spriteRenderer.color = m_pathingColor;
         }
+<<<<<<< HEAD
 
         else if(m_isOccupied && m_occupiedBy.m_isSelected)
         {
             m_spriteRenderer.color = m_playerSelectedColor;
         }
 
+=======
+        
+>>>>>>> 92c4ea686df5cbf6b80d63d4cda80b5869018a63
         else
         {
             m_spriteRenderer.color = m_deselectedColor;
