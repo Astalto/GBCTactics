@@ -15,6 +15,7 @@ public class MapPiece : MonoBehaviour
     public Color m_selectedColor;
     public Color m_pathingColor;
     public Color m_playerSelectedColor;
+    public Color m_lastSelectedColor;
 
     public bool m_isOccupied;
     public MoveableCharacter m_occupiedBy;
@@ -46,25 +47,30 @@ public class MapPiece : MonoBehaviour
         //Used for changing the colors of the tiles based on boolean values;
         if (m_isSelected)
         {
+            //print("Character selected");
             m_spriteRenderer.color = m_selectedColor;
         }
 
         else if (m_lightUp)
         {
+            //print("Path lit");
             m_spriteRenderer.color = m_pathingColor;
         }
-<<<<<<< HEAD
 
-        else if(m_isOccupied && m_occupiedBy.m_isSelected)
-        {
+        else if (m_isOccupied && m_occupiedBy.m_isSelected)
+        { 
+            //print("Selected character preforming action");
             m_spriteRenderer.color = m_playerSelectedColor;
         }
 
-=======
-        
->>>>>>> 92c4ea686df5cbf6b80d63d4cda80b5869018a63
+        else if (Map.Instance.LastSelected == m_occupiedBy)
+        {
+            m_spriteRenderer.color = m_lastSelectedColor;
+        }
+
         else
         {
+            //print("deselected");
             m_spriteRenderer.color = m_deselectedColor;
         }
     }

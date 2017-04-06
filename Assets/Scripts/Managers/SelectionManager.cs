@@ -23,6 +23,7 @@ public class SelectionManager : singleton<SelectionManager>
         EnemyTeam.Initialize();
         PlayerTeam.Initialize();
 
+        
 
         log = GameObject.FindGameObjectWithTag("EventLog").GetComponent<EventLog>();
     }

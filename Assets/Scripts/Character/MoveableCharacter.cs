@@ -50,14 +50,19 @@ public class MoveableCharacter : MonoBehaviour
                 UpdateDestination();
             }
         }
+
+        UpdateMapOccupationVariables();
     }
 
     //Private functions
     private void MoveToSpawn()
     {
-        print("Moving TO:" + m_SpawnCell);
+        //print("Moving TO:" + m_SpawnCell);
         this.transform.position = Map.Instance.GetPosition(m_SpawnCell.x, m_SpawnCell.y);
         Map.Instance.SelectedTile = m_CurrentLocation = m_SpawnCell;
+
+        Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied = true;
+        Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_occupiedBy = this;
     }
 
     public void LightPath(Vector2 coord)
@@ -113,17 +118,18 @@ public class MoveableCharacter : MonoBehaviour
 
         m_movingUp = m_movingDown = m_movingRight = m_movingLeft = false;
 
-        if (m_CurrentLocation.x > m_Destination.x)
+        if (m_CurrentLocation.x > m_Destination.x && !m_movingUp)
         {
             //Destination coordinate is higher on grid
             m_direction = Vector3.up;
             m_movingUp = true;
         }
 
-        else if (m_CurrentLocation.x < m_Destination.x)
+        else if (m_CurrentLocation.x < m_Destination.x && !m_movingDown)
         {
             //Destination coordinate is lower on grid
             m_direction = Vector3.down;
+            //this.transform.position = new Vector3(transform.position.x, Map.Instance.GetPosition(m_Destination.x, m_Destination.y).y, transform.position.z);
             m_movingDown = true;
         }
 
@@ -150,34 +156,67 @@ public class MoveableCharacter : MonoBehaviour
     private void UpdateLocation()
     {
         GetCurrentTilePositions();
+
+        Vector2 NewPosition;
+
         //Update above;
-        if (m_movingUp && this.transform.position.y >= m_surroundingTilePositions[0].y)
+        if (m_movingUp && this.transform.position.y > m_surroundingTilePositions[0].y)
         {
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_occupiedBy = null;
 
             m_CurrentLocation.x--;
+
+            NewPosition = Map.Instance.GetPosition(m_CurrentLocation.x, m_CurrentLocation.y);
+
+            this.transform.position = new Vector3(transform.position.x, NewPosition.y, transform.position.z);
         }
 
         //Update below;
-        if (m_movingDown && this.transform.position.y <= m_surroundingTilePositions[1].y)
+        if (m_movingDown && this.transform.position.y < m_surroundingTilePositions[1].y)
         {
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_occupiedBy = null;
+
             m_CurrentLocation.x++;
+
+            NewPosition = Map.Instance.GetPosition(m_CurrentLocation.x, m_CurrentLocation.y);
+
+            this.transform.position = new Vector3(transform.position.x, NewPosition.y, transform.position.z);
         }
 
         //Update right;
-        if (m_movingRight && this.transform.position.x >= m_surroundingTilePositions[2].x)
+        if (m_movingRight && this.transform.position.x > m_surroundingTilePositions[2].x)
         {
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_occupiedBy = null;
+
             m_CurrentLocation.y++;
+
+            NewPosition = Map.Instance.GetPosition(m_CurrentLocation.x, m_CurrentLocation.y);
+
+            this.transform.position = new Vector3(NewPosition.x, transform.position.y, transform.position.z);
         }
 
         //Update left;
-        if (m_movingLeft && this.transform.position.x <= m_surroundingTilePositions[3].x)
+        if (m_movingLeft && this.transform.position.x < m_surroundingTilePositions[3].x)
         {
             Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_lightUp = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied = false;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_occupiedBy = null;
+
             m_CurrentLocation.y--;
+
+            NewPosition = Map.Instance.GetPosition(m_CurrentLocation.x, m_CurrentLocation.y);
+
+            this.transform.position = new Vector3(NewPosition.x, transform.position.y, transform.position.z);
         }
+
+        Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied = false;
+        Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_occupiedBy = null;
 
         if (m_CurrentLocation == m_Destination)
         {
@@ -200,6 +239,21 @@ public class MoveableCharacter : MonoBehaviour
 
             //ARRIVED AT DESTINATION set hasmoved to tru
             m_hasMoved = true;
+
+            NewPosition = Map.Instance.GetPosition(m_Destination.x, m_Destination.y);
+
+            this.transform.position = new Vector3(NewPosition.x, NewPosition.y, transform.position.z);
+        }
+    }
+
+    private void UpdateMapOccupationVariables()
+    {
+        bool CurrentMapPieceStatus = Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied;
+
+        if(!CurrentMapPieceStatus)
+        {
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_isOccupied = true;
+            Map.Instance.MAP[(int)m_CurrentLocation.x, (int)m_CurrentLocation.y].m_occupiedBy = this;
         }
     }
 

@@ -18,6 +18,8 @@ public class Map : singleton<Map>
     public MapPiece[,] MAP { get { return m_map; } }
     public Vector2 SelectedTile { get { return m_currentSelection; } set { m_currentSelection = value; } }
 
+    public MoveableCharacter LastSelected;
+
 
     //MonoBehaviors
     private void OnEnable()
@@ -32,11 +34,18 @@ public class Map : singleton<Map>
                 //print("Map (" + i + ", " + j + ") Set to:" + m_map[i, j].name);
             }
         }
+        
     }
 
     private void Update()
     {
         LightCurrentTile();
+
+        print(LastSelected);
+        if (m_map[(int)m_currentSelection.x, (int)m_currentSelection.y].m_occupiedBy != null)
+        {
+            LastSelected = m_map[(int)m_currentSelection.x, (int)m_currentSelection.y].m_occupiedBy;
+        }
 
     }
 

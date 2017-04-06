@@ -10,10 +10,10 @@ using System.Collections;
 
 public class InputManager : singleton<InputManager>
 {
-    private bool m_selectingUnit, m_selectingTile, m_selectingAction;
+    private bool m_selectingUnit, m_selectingTile, m_selectingAction, m_AIMoving;
     private Text stateText;
 
-    private void Awake()
+    private void OnEnable()
     {
         stateText = GameObject.FindGameObjectWithTag("StateNotifier").GetComponent<Text>();
     }
@@ -46,10 +46,10 @@ public class InputManager : singleton<InputManager>
             GetEnemySelectionInput();
         }
 
-        else if (GameManager.Instance.GameState == (int)GameManager.GameStates.AIMove)
+        else if (GameManager.Instance.GameState == (int)GameManager.GameStates.AIMove && !m_AIMoving)
         {
             stateText.text = "AI Turn";
-            GetDefaultInput();
+            StartCoroutine(SimulateAI());
         }
 
     }
@@ -117,6 +117,13 @@ public class InputManager : singleton<InputManager>
 
     private void GetSelectionInput()
     {
+        if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Tab))
+        {
+            SelectionManager.Instance.SelectPreviousUnit(SelectionManager.Instance.PlayerTeam);
+
+            UpdateCursorLocation(SelectionManager.Instance.PlayerTeam);
+        }
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             SelectionManager.Instance.SelectNextUnit(SelectionManager.Instance.PlayerTeam);
@@ -152,6 +159,13 @@ public class InputManager : singleton<InputManager>
     private void GetEnemySelectionInput()
     {
         //UpdateEnemyCursorLocation();
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Tab))
+        {
+            SelectionManager.Instance.SelectPreviousUnit(SelectionManager.Instance.EnemyTeam);
+
+            UpdateCursorLocation(SelectionManager.Instance.EnemyTeam);
+        }
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             SelectionManager.Instance.SelectNextUnit(SelectionManager.Instance.EnemyTeam);
@@ -188,13 +202,22 @@ public class InputManager : singleton<InputManager>
         //State should be Moving;
         if (GameManager.Instance.GameState == (int)GameManager.GameStates.Moving)
         {
-            MoveableCharacter s = SelectionManager.Instance.PlayerTeam.SelectedCharacter;
+            MoveableCharacter selectionManager = SelectionManager.Instance.PlayerTeam.SelectedCharacter;
 
-            if (!s.m_moving)
+            if (!selectionManager.m_moving)
             {
-                if (Input.GetKeyDown(KeyCode.Return) && s.m_CurrentLocation != s.m_Destination)
+                if (Input.GetKeyDown(KeyCode.Return) && selectionManager.m_CurrentLocation != selectionManager.m_Destination)
                 {
-                    s.LightPath(s.m_CurrentLocation);
+                    if(!Map.Instance.MAP[(int)selectionManager.m_Destination.x, (int)selectionManager.m_Destination.y].m_isOccupied)
+                    {
+                        selectionManager.LightPath(selectionManager.m_CurrentLocation);
+                    }
+
+                    else
+                    {
+                        SelectionManager.Instance.log.AddEvent("Tile occupied, please select a diferent tile!");
+                    }
+
                     //enable action select; (BEFORE MOVEMENT)
                     //GameManager.Instance.GameState = (int)GameManager.GameStates.Action;
                 }
@@ -238,6 +261,9 @@ public class InputManager : singleton<InputManager>
                 {
                     //print("Action chosen: cancel");
 
+                    MoveableCharacter selectionManager = SelectionManager.Instance.PlayerTeam.SelectedCharacter;
+
+                    //Map.Instance.LastSelected = Map.Instance.MAP[(int)selectionManager.m_CurrentLocation.x, (int)selectionManager.m_CurrentLocation.y].m_occupiedBy;
                     //Deselect character
                     SelectionManager.Instance.DeSelectCharacter(SelectionManager.Instance.PlayerTeam);
 
@@ -259,6 +285,13 @@ public class InputManager : singleton<InputManager>
         Map.Instance.SelectedTile = unit.m_CurrentLocation;
     }
 
+    private IEnumerator SimulateAI()
+    {
+        m_AIMoving = true;
+        yield return new WaitForSeconds(2);
+        SelectionManager.Instance.PlayerTeam.ResetTeam();
+        GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
+    }
 
 
 }

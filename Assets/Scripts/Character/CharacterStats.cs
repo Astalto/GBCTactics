@@ -40,6 +40,9 @@ public class CharacterStats : MonoBehaviour
             EventLogger.AddEvent(this.gameObject.name + " hit " + other.gameObject.name + " for " + CalculateDamage(AP, other.DEF) + " damage.");
             //animate taking damage && attacking;
 
+            m_target.m_isSelected = false;
+            GetComponent<MoveableCharacter>().m_isSelected = false;
+
             if (other.HP <= 0)
             {
                 EventLogger.AddEvent(this.gameObject.name + " killed: " + other.gameObject.name);

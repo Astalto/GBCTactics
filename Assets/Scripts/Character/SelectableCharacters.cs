@@ -142,4 +142,15 @@ public class SelectableCharacters : MonoBehaviour
 
     }
 
+
+    public void ResetTeam()
+    {
+        for(int i = 0; i < TeamSize; i++)
+        {
+            if (Team[i].m_isSelectable && Team[i].GetComponent<CharacterStats>().HP > 0)
+            {
+                Team[i].GetComponent<SpriteRenderer>().color = Color.white;
+            }
+        }
+    }
 }
