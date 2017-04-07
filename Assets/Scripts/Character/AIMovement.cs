@@ -44,7 +44,7 @@ public class AIMovement : MonoBehaviour
                 EnemyTeam.Team[i].m_moving = true;
 
                 //ATTACK TARGET
-                current.AttackTarget(current.m_target.GetComponent<CharacterStats>());
+                current.AttackTarget(current.m_target.GetComponent<CharacterStats>(), 0);
             }
 
         }

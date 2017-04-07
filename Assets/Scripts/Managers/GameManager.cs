@@ -7,7 +7,11 @@ using System.Collections.Generic;
 /// Selecting character
 /// Moving character
 /// Doing action with character
+/// Attacking with character
 /// Animating character
+/// Executing AI turns
+/// Displaying, resetting & executing game over
+/// initializing stuffs during game Initialization (first round)
 /// </summary>
 
 public class GameManager : singleton<GameManager>
@@ -24,8 +28,8 @@ public class GameManager : singleton<GameManager>
         Initialize = 7,
     };
 
-
-    private int m_roundCount;
+    //might use later, for additional feedback on gameover
+    //private int m_roundCount;
     private int m_currentState;
 
     public int GameState { get { return m_currentState; } set { m_currentState = value; print("Game State: " + m_currentState); } }

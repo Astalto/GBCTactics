@@ -100,10 +100,25 @@ public class EnemyAI : MonoBehaviour
     public void ExecuteMove(MoveableCharacter Enemy)
     {
         //FOR LATER
+        //PseudoCode:
         //find the nearest player through a recursive function;
         //Move to that nearest player
         //attack that nearest player
         //end this enemies turn;
+
+        //Check if there are still players to attack;
+        if (Players.Count <= 0)
+        {
+            //if not,
+            //Gameover! AI wins!
+            //GameManager.Instance.DoGameOver("You lost!");
+        }
+
+        else
+        {
+            //if there are run the algorithm.
+        }
+
 
 
         //FOR NOW

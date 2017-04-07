@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// This script is used to get player input in the various stages (GameStates) of the game.
@@ -14,6 +15,8 @@ public class InputManager : singleton<InputManager>
     private Text m_stateText;
 
     public Text StateText { get { return m_stateText; } }
+
+    public Text[] AbilityText = new Text[3];
 
     private void OnEnable()
     {
@@ -193,7 +196,7 @@ public class InputManager : singleton<InputManager>
             eChars.Team[eChars.SelectionIndex].m_isSelected = true;
 
             //Attack enemy
-            attacker.AttackTarget(target);
+            attacker.AttackTarget(target, 0);
 
             pChars.Team[pChars.SelectionIndex].m_hasAttacked = true;
 
@@ -282,7 +285,18 @@ public class InputManager : singleton<InputManager>
 
                 }
 
-                else if( ActionMenuManager.Instance.ActionIndex == (int)ActionMenuManager.ActionChoice.End_Turn)
+                else if (ActionMenuManager.Instance.ActionIndex == (int)ActionMenuManager.ActionChoice.Abilities)
+                {
+                    List<Ability> abilities = SelectionManager.Instance.PlayerTeam.SelectedCharacter.GetComponent<CharacterStats>().Abilities;
+                    for (int i = 0; i < AbilityText.Length; i++)
+                    {
+                        AbilityText[i].text = abilities[i].Name;
+                    }
+
+
+                }
+
+                else if ( ActionMenuManager.Instance.ActionIndex == (int)ActionMenuManager.ActionChoice.End_Turn)
                 {
                     //set the current playerchar's has_attacked to true;
                     SelectionManager.Instance.PlayerTeam.SelectedCharacter.m_hasAttacked = true;

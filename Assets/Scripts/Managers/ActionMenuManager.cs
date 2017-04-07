@@ -16,11 +16,24 @@ public class ActionMenuManager : singleton<ActionMenuManager>
     [Header("Action Menu")]
     public GameObject ActionMenu;
 
-    [Header("Selection")]
+    [Header("AbilityMenu")]
+    public GameObject AbilityMenu;
+
+    [Header("Action Selection")]
     public Image[] Actions = new Image[4];
     public int ActionIndex;
+
+    [Header("AbilitySelection")]
+    public Image[] Abilities = new Image[3];
+    public int AbilityIndex;
+
+    [Header("Colors")]
     public Color DefaultColor;
     public Color HighlightColor;
+
+    public Color DefaultAbilityColor;
+    public Color HighlightAbilityColor;
+
 
 
     private void Start()
@@ -46,15 +59,28 @@ public class ActionMenuManager : singleton<ActionMenuManager>
 
     public void CloseActionMenu()
     {
-        DeselectAction();
+        DeselectAction(Actions[ActionIndex]);
         ActionIndex = 0;
-        HighlightSelectedAction();
+        HighlightAction(Actions[ActionIndex]);
         ActionMenu.SetActive(false);
+    }
+
+    public void OpenAbilityMenu()
+    {
+        AbilityMenu.SetActive(true);
+    }
+
+    public void CloseAbilityMenu()
+    {
+        DeselectAction(Abilities[AbilityIndex]);
+        ActionIndex = 0;
+        HighlightAction(Abilities [AbilityIndex]);
+        AbilityMenu.SetActive(false);
     }
 
     public void CycleNextAction()
     {
-        DeselectAction();
+        DeselectAction(Actions[ActionIndex]);
 
         if (ActionIndex < Actions.Length - 1)
         {
@@ -66,12 +92,12 @@ public class ActionMenuManager : singleton<ActionMenuManager>
             ActionIndex = 0;
         }
 
-        HighlightSelectedAction();
+        HighlightAction(Actions[ActionIndex]);
     }
 
     public void CyclePreviousAction()
     {
-        DeselectAction();
+        DeselectAction(Actions[ActionIndex]);
 
         if (ActionIndex > 0)
         {
@@ -83,17 +109,62 @@ public class ActionMenuManager : singleton<ActionMenuManager>
             ActionIndex = Actions.Length - 1;
         }
 
-        HighlightSelectedAction();
+        HighlightAction(Actions[ActionIndex]);
     }
 
-    public void DeselectAction()
+    public void CycleNextAbility()
     {
-        Actions[ActionIndex].color = DefaultColor;
+        DeselectAction(Actions[AbilityIndex]);
+
+        if (AbilityIndex < Actions.Length - 1)
+        {
+            AbilityIndex++;
+        }
+
+        else
+        {
+            AbilityIndex = 0;
+        }
+
+        HighlightAction(Actions[AbilityIndex]);
     }
 
-    public void HighlightSelectedAction()
+    public void CyclePreviousAbility()
     {
-        Actions[ActionIndex].color = HighlightColor;
+        DeselectAction(Abilities[AbilityIndex]);
+
+        if (ActionIndex > 0)
+        {
+            AbilityIndex--;
+        }
+
+        else
+        {
+            AbilityIndex = Abilities.Length - 1;
+        }
+
+        HighlightAction(Abilities[AbilityIndex]);
+    }
+
+    public void DeselectAction(Image i)
+    {
+        i.color = DefaultColor;
+    }
+
+    public void HighlightAction(Image i)
+    {
+        i.color = HighlightColor;
+    }
+
+
+    public void DeselectAbility(Image i)
+    {
+        i.color = DefaultAbilityColor;
+    }
+
+    public void HighlightAbility(Image i)
+    {
+        i.color = HighlightAbilityColor;
     }
 
 }
