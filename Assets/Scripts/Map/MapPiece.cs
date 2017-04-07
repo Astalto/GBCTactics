@@ -37,18 +37,29 @@ public class MapPiece : MonoBehaviour
 
     private void Update()
     {
-        SetColor();
-
-
-        if(m_occupiedBy != null && m_occupiedBy.GetComponent<CharacterStats>().HP < 0)
+        if (GameManager.Instance.GameState != (int)GameManager.GameStates.Initialize && GameManager.Instance.GameState != (int)GameManager.GameStates.GameOver)
         {
-            m_occupiedBy = null;
-            m_isOccupied = false;
+            SetColor();
+
+
+            if (m_occupiedBy != null && m_occupiedBy.GetComponent<CharacterStats>().HP < 0)
+            {
+                m_occupiedBy = null;
+                m_isOccupied = false;
+            }
         }
     }
 
 
     //Public Functions
+    public void Initialize()
+    {
+        m_occupiedBy = null;
+        m_isOccupied = false;
+        m_isSelected = false;
+        m_lightUp = false;
+    }
+
     public void SetColor()
     {
         //Used for changing the colors of the tiles based on boolean values;

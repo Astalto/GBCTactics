@@ -9,6 +9,7 @@ using System.Collections;
 public class SelectableCharacters : MonoBehaviour
 {
     [Header("Team Information")]
+    public int DefaultTeamSize;
     public int TeamSize;
 
     public MoveableCharacter[] Team;
@@ -25,7 +26,8 @@ public class SelectableCharacters : MonoBehaviour
 
     public void Initialize()
     {
-        Team = new MoveableCharacter[TeamSize];
+        TeamSize = DefaultTeamSize;
+        Team = new MoveableCharacter[DefaultTeamSize];
 
         if(!IsPlayerTeam)
         {
@@ -53,31 +55,34 @@ public class SelectableCharacters : MonoBehaviour
 
     void Update()
     {
-        if (m_characterSelected)
+        if (GameManager.Instance.GameState != (int)GameManager.GameStates.Initialize && GameManager.Instance.GameState != (int)GameManager.GameStates.GameOver)
         {
-            //Toggle Team[selectionIndex].isSelected;
-
-            if (IsPlayerTeam)
+            if (m_characterSelected)
             {
-                Team[m_selectionIndex].m_isSelected = true;
-                //SelectionManager.Instance.log.AddEvent("TeamMember selected: " + Team[m_selectionIndex].gameObject.name);
+                //Toggle Team[selectionIndex].isSelected;
+
+                if (IsPlayerTeam)
+                {
+                    Team[m_selectionIndex].m_isSelected = true;
+                    //SelectionManager.Instance.log.AddEvent("TeamMember selected: " + Team[m_selectionIndex].gameObject.name);
+                }
+
+                if (!Team[m_selectionIndex].m_isSelectable)
+                {
+                    Team[m_selectionIndex].m_isSelected = false;
+                    IncremenetSelectionIndex();
+                    SetCurrentSelectedCharacter();
+                    print("!selectable.....");
+                }
             }
 
-            if (!Team[m_selectionIndex].m_isSelectable)
+            else
             {
-                Team[m_selectionIndex].m_isSelected = false;
-                IncremenetSelectionIndex();
                 SetCurrentSelectedCharacter();
-                print("!selectable.....");
             }
-        }
 
-        else
-        {
-            SetCurrentSelectedCharacter();
+            RemoveInactiveCharacters();
         }
-
-        RemoveInactiveCharacters();
     }
 
     void SetCurrentSelectedCharacter()
@@ -113,7 +118,7 @@ public class SelectableCharacters : MonoBehaviour
 
     private void RemoveInactiveCharacters()
     {
-        if (TeamSize > 0)
+        if (TeamSize > 0 && CheckForEnemies())
         {
             for (int i = 0; i < TeamSize; i++)
             {
@@ -126,7 +131,7 @@ public class SelectableCharacters : MonoBehaviour
                     Team[TeamSize - 1] = t;
                     TeamSize--;
 
-                    SelectionManager.Instance.log.AddEvent(SelectionManager.Instance.PlayerTeam.SelectedCharacter.name + "'s turn is complete.");
+                    //SelectionManager.Instance.log.AddEvent(SelectionManager.Instance.PlayerTeam.SelectedCharacter.name + "'s turn is complete.");
 
                     if (TeamSize <= 0)
                     {
@@ -142,7 +147,10 @@ public class SelectableCharacters : MonoBehaviour
 
                         TeamSize = 4;
 
-                        GameManager.Instance.GameState = (int)GameManager.GameStates.AIMove;
+                        if (m_isPlayerTeam)
+                        {
+                            GameManager.Instance.GameState = (int)GameManager.GameStates.AIMove;
+                        }
                     }
                 }
             }
@@ -150,21 +158,31 @@ public class SelectableCharacters : MonoBehaviour
 
         else
         {
-            if(!m_isPlayerTeam)
-            {
-                //player wins
-                //enemy team is dead
-            }
+            //GameOver
+            //GAME OVER
+            print("YOU WIN");
 
-            else
-            {
-                //player lose
-                //playerteam is dead
-            }
+            //set the gamestate to GameOver;
+            GameManager.Instance.GameState = (int)GameManager.GameStates.GameOver;
+
+            //Invoke the game over function
+            GameManager.Instance.DoGameOver("You Win!");
+
         }
 
     }
 
+
+    private bool CheckForEnemies()
+    {
+        //do a simple count check for enemies;
+        if(SelectionManager.Instance.EnemyTeam.GetComponent<EnemyAI>().Enemies.Count > 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
 
     public void ResetTeam()
     {
@@ -173,6 +191,37 @@ public class SelectableCharacters : MonoBehaviour
             if (Team[i].m_isSelectable && Team[i].GetComponent<CharacterStats>().HP > 0)
             {
                 Team[i].GetComponent<SpriteRenderer>().color = Color.white;
+            }
+
+            if(GameManager.Instance.GameState == (int)GameManager.GameStates.GameOver)
+            {
+                //reset the teamsize;
+                TeamSize = DefaultTeamSize;
+
+                //reset the spritecolors
+                Team[i].GetComponent<SpriteRenderer>().color = Color.white;
+
+                //if it's the gameoverstate either the game is just staring or a new round is starting;
+                CharacterStats statsReference = Team[i].GetComponent<CharacterStats>();
+
+                //if a character is disabled, re-enable it;
+                if (!Team[i].gameObject.activeInHierarchy)
+                {
+                    Team[i].gameObject.SetActive(true);
+                }
+
+                //Reset all character booleans to their default states
+                Team[i].m_isSelectable = true; //selectable true
+                Team[i].m_hasMoved = Team[i].m_hasAttacked = Team[i].m_moving = Team[i].m_movingUp = Team[i].m_movingDown = Team[i].m_movingLeft = Team[i].m_movingRight = false; //the rest false
+                
+                //reset character's HP;
+                statsReference.HP = statsReference.MaxHP;
+
+                //reset the selection indexes
+                m_selectionIndex = 0;
+
+                print("reset Member: " + i + " for new round!");
+
             }
         }
     }

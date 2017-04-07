@@ -10,46 +10,53 @@ using System.Collections;
 
 public class InputManager : singleton<InputManager>
 {
-    private bool m_selectingUnit, m_selectingTile, m_selectingAction, m_AIMoving;
-    private Text stateText;
+    private bool m_selectingUnit, m_selectingTile, m_selectingAction;
+    private Text m_stateText;
+
+    public Text StateText { get { return m_stateText; } }
 
     private void OnEnable()
     {
-        stateText = GameObject.FindGameObjectWithTag("StateNotifier").GetComponent<Text>();
+        m_stateText = GameObject.FindGameObjectWithTag("StateNotifier").GetComponent<Text>();
     }
 
     private void Update()
     {
         if (GameManager.Instance.GameState == (int)GameManager.GameStates.Selecting)
         {
-            stateText.text = "Selecting a unit";
+            m_stateText.text = "Selecting a unit";
             GetDefaultInput();
             GetSelectionInput();
         }
 
         else if (GameManager.Instance.GameState == (int)GameManager.GameStates.Moving)
         {
-            stateText.text = "Moving a unit";
+            m_stateText.text = "Moving a unit";
             GetDefaultInput();
             GetMovementInput();
         }
 
         else if (GameManager.Instance.GameState == (int)GameManager.GameStates.Action)
         {
-            stateText.text = "Pending unit action";
+            m_stateText.text = "Pending unit action";
             GetActionInput();
         }
 
         else if (GameManager.Instance.GameState == (int)GameManager.GameStates.Attacking)
         {
-            stateText.text = "Selecting Attack Target";
+            m_stateText.text = "Selecting Attack Target";
             GetEnemySelectionInput();
         }
 
         else if (GameManager.Instance.GameState == (int)GameManager.GameStates.AIMove)
         {
-            stateText.text = "AI Turn";
+            m_stateText.text = "AI Turn";
             //StartCoroutine(SimulateAI());
+        }
+
+        else if(GameManager.Instance.GameState == (int)GameManager.GameStates.GameOver)
+        {
+            m_stateText.text = "Game Complete!";
         }
 
     }
@@ -233,13 +240,13 @@ public class InputManager : singleton<InputManager>
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 //Move up untill at the top of the menu(i.e. highlight a different option
-                MenuManager.Instance.CyclePreviousAction();
+                ActionMenuManager.Instance.CyclePreviousAction();
             }
 
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 //Move down untill the same as top.
-                MenuManager.Instance.CycleNextAction();
+                ActionMenuManager.Instance.CycleNextAction();
             }
 
             if (Input.GetKeyDown(KeyCode.Return))
@@ -250,7 +257,7 @@ public class InputManager : singleton<InputManager>
                 //else if end_turn, end the characters turn. (seperate menu)
                 //else if cancel, close menu
 
-                if (MenuManager.Instance.ActionIndex == (int)MenuManager.ActionChoice.Attack)
+                if (ActionMenuManager.Instance.ActionIndex == (int)ActionMenuManager.ActionChoice.Attack)
                 {
                     //print("Action chosen: attack");
                     //SelectionManager.Instance.PlayerTeam.SelectedCharacter.GetComponent<AnimationController>().m_animator.SetTrigger("Attacking");
@@ -275,7 +282,7 @@ public class InputManager : singleton<InputManager>
 
                 }
 
-                else if( MenuManager.Instance.ActionIndex == (int)MenuManager.ActionChoice.End_Turn)
+                else if( ActionMenuManager.Instance.ActionIndex == (int)ActionMenuManager.ActionChoice.End_Turn)
                 {
                     //set the current playerchar's has_attacked to true;
                     SelectionManager.Instance.PlayerTeam.SelectedCharacter.m_hasAttacked = true;
@@ -286,7 +293,7 @@ public class InputManager : singleton<InputManager>
                     
                 }
 
-                else if (MenuManager.Instance.ActionIndex == (int)MenuManager.ActionChoice.Cancel)
+                else if (ActionMenuManager.Instance.ActionIndex == (int)ActionMenuManager.ActionChoice.Cancel)
                 {
                     //print("Action chosen: cancel");
 
@@ -298,7 +305,7 @@ public class InputManager : singleton<InputManager>
                 SelectionManager.Instance.DeSelectCharacter(SelectionManager.Instance.PlayerTeam);
 
                 //Close the UI menu
-                MenuManager.Instance.CloseActionMenu();
+                ActionMenuManager.Instance.CloseActionMenu();
             }
         }
     }
@@ -310,14 +317,5 @@ public class InputManager : singleton<InputManager>
         Map.Instance.DeselectTile();
         Map.Instance.SelectedTile = unit.m_CurrentLocation;
     }
-
-    private IEnumerator SimulateAI()
-    {
-        m_AIMoving = true;
-        yield return new WaitForSeconds(2);
-        SelectionManager.Instance.PlayerTeam.ResetTeam();
-        GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
-    }
-
 
 }

@@ -73,15 +73,15 @@
     <Compile Include="Assets\Scripts\Character\EventLog.cs" />
     <Compile Include="Assets\Scripts\Character\MoveableCharacter.cs" />
     <Compile Include="Assets\Scripts\Character\SelectableCharacters.cs" />
+    <Compile Include="Assets\Scripts\Managers\ActionMenuManager.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\MenuManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\MenuManagement.cs" />
     <Compile Include="Assets\Scripts\Managers\SelectionManager.cs" />
     <Compile Include="Assets\Scripts\Managers\StatusManager.cs" />
     <Compile Include="Assets\Scripts\Map\Map.cs" />
     <Compile Include="Assets\Scripts\Map\MapPiece.cs" />
     <Compile Include="Assets\Scripts\Utilities\singleton.cs" />
-    <Compile Include="Assets\SourceTreeTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

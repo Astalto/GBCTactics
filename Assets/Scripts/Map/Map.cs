@@ -14,7 +14,6 @@ public class Map : singleton<Map>
     public MapPiece[,] m_map;
     public Vector2 m_currentSelection;
 
-
     public MapPiece[,] MAP { get { return m_map; } }
     public Vector2 SelectedTile { get { return m_currentSelection; } set { m_currentSelection = value; } }
 
@@ -39,12 +38,15 @@ public class Map : singleton<Map>
 
     private void Update()
     {
-        LightCurrentTile();
-
-        //print(LastSelected);
-        if (m_map[(int)m_currentSelection.x, (int)m_currentSelection.y].m_occupiedBy != null)
+        if (GameManager.Instance.GameState != (int)GameManager.GameStates.Initialize && GameManager.Instance.GameState != (int)GameManager.GameStates.GameOver)
         {
-            LastSelected = m_map[(int)m_currentSelection.x, (int)m_currentSelection.y].m_occupiedBy;
+            LightCurrentTile();
+
+            //print(LastSelected);
+            if (m_map[(int)m_currentSelection.x, (int)m_currentSelection.y].m_occupiedBy != null)
+            {
+                LastSelected = m_map[(int)m_currentSelection.x, (int)m_currentSelection.y].m_occupiedBy;
+            }
         }
 
     }
@@ -64,6 +66,17 @@ public class Map : singleton<Map>
     private void LightCurrentTile()
     {
         m_map[(int)m_currentSelection.x, (int)m_currentSelection.y].m_isSelected = true;
+    }
+
+    public void InitializePieces()
+    {
+        for (int i = 0; i < Rows; i++)
+        {
+            for (int j = 0; j < Columns; j++)
+            {
+                m_map[i, j].Initialize();
+            }
+        }
     }
 
 }

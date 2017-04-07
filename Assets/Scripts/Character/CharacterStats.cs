@@ -4,10 +4,16 @@ using System.Collections;
 public class CharacterStats : MonoBehaviour
 {
     [Header("Stats")]
-    public int m_AttackPower;
-    public int m_HealthPoints;
-    public int m_DefensePower;
-    public int m_AttackRange;
+    [SerializeField]
+    private int m_AttackPower;
+    [SerializeField]
+    private int m_MaxHealthPoints;
+    [SerializeField]
+    private int m_HealthPoints;
+    [SerializeField]
+    private int m_DefensePower;
+    [SerializeField]
+    private int m_AttackRange;
 
     public int blockDistance = 4;
 
@@ -18,6 +24,7 @@ public class CharacterStats : MonoBehaviour
     private EventLog EventLogger;
 
     public int AP { get { return m_AttackPower; } }
+    public int MaxHP { get { return m_MaxHealthPoints; } }
     public int HP { get { return m_HealthPoints; } set { m_HealthPoints = value; } }
     public int DEF { get { return m_DefensePower; } }
     public int RANGE { get { return m_AttackRange; } }
@@ -153,7 +160,7 @@ public class CharacterStats : MonoBehaviour
 
         //print("NOT INRANGE");
         EventLogger.AddEvent(m_target.gameObject.name + " is not in range of " + this.gameObject.name);
-        EventLogger.AddEvent(this.gameObject.name + "'s turn is complete.");
+        //EventLogger.AddEvent(this.gameObject.name + "'s turn is complete.");
         return false;
     }
 

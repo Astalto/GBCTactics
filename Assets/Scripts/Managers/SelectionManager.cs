@@ -10,8 +10,6 @@ public class SelectionManager : singleton<SelectionManager>
 
     public EventLog log;
 
-
-
     private void OnEnable()
     {
         PlayerTeam = GameObject.Find("PlayerTeam").GetComponent<SelectableCharacters>();
@@ -20,12 +18,31 @@ public class SelectionManager : singleton<SelectionManager>
         PlayerTeam.IsPlayerTeam = true;
         EnemyTeam.IsPlayerTeam = false;
 
+        log = GameObject.FindGameObjectWithTag("EventLog").GetComponent<EventLog>();
+    }
+
+    public void Iniitialize()
+    {
+        if (GameManager.Instance.GameState == (int)GameManager.GameStates.Initialize)
+        {
+            //if it is the first time running th game,
+            //Initialize them first;
+            EnemyTeam.Initialize();
+            PlayerTeam.Initialize();
+
+            EnemyTeam.ResetTeam();
+            PlayerTeam.ResetTeam();
+
+            return;
+        }
+
+        //otherwise, reset the teams first;
+        EnemyTeam.ResetTeam();
+        PlayerTeam.ResetTeam();
+
         EnemyTeam.Initialize();
         PlayerTeam.Initialize();
 
-        
-
-        log = GameObject.FindGameObjectWithTag("EventLog").GetComponent<EventLog>();
     }
 
     public void SelectNextUnit(SelectableCharacters Team)

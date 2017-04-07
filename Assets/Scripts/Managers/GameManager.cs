@@ -20,6 +20,8 @@ public class GameManager : singleton<GameManager>
         Attacking = 3,
         Animating = 4,
         AIMove = 5,
+        GameOver = 6,
+        Initialize = 7,
     };
 
 
@@ -30,17 +32,12 @@ public class GameManager : singleton<GameManager>
 
     private void Start()
     {
-        m_currentState = (int)GameStates.AIMove;
-    }
-
-    private void Update()
-    {
-        //print(m_currentState);
+        m_currentState = (int)GameStates.Initialize;
     }
 
     public void EndAITurn(List<MoveableCharacter> EnemyTeam)
     {
-        for(int i = 0; i < EnemyTeam.Count; i++)
+        for (int i = 0; i < EnemyTeam.Count; i++)
         {
             EnemyTeam[i].m_hasMoved = false;
         }
@@ -50,9 +47,31 @@ public class GameManager : singleton<GameManager>
 
         //invoke the reset team function;
         SelectionManager.Instance.PlayerTeam.ResetTeam();
-    
+    }
 
+    public void DoGameOver(string gameOverText)
+    {
+        print("GameComplete: " + gameOverText);
 
+        MenuManagement.Instance.DisplayGameOver(gameOverText);
+    }
+
+    public void InitializeNewGame()
+    {
+        //Initialize the message log;
+        SelectionManager.Instance.log.Initialize();
+
+        //Initialize the map
+        Map.Instance.InitializePieces();
+
+        //Initialize the selection manager
+        SelectionManager.Instance.Iniitialize();
+
+        //Initiialize the ai;
+        SelectionManager.Instance.EnemyTeam.GetComponent<EnemyAI>().Initialize();
+
+        //Set the game state to 0 (selecting)
+        GameState = (int)GameStates.Selecting;
     }
 
 }
