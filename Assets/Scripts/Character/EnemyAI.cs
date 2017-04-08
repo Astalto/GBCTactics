@@ -11,9 +11,14 @@ public class EnemyAI : MonoBehaviour
     public List<MoveableCharacter> Players;
 
     //still need the reference to the array so that we can convert it into a list.
-    //private because the inspector doesn't need to see.
+    //public so that inspector can see the process,
+    //set to private later because the inspector doesn't need to see.
+    [Header("Character Teams")]
     private MoveableCharacter[] EnemyTeam;
     private MoveableCharacter[] PlayerTeam;
+
+    [Header("Individual Characters")]
+    public CharacterStats current;
 
     //Variables that hold the random X and Y coordinates
     //We use this to generate a random tile on the map to select
@@ -116,9 +121,28 @@ public class EnemyAI : MonoBehaviour
 
         else
         {
+            /*
             //if there are run the algorithm.
-        }
+            //Set target for EnemyTeam.Team[i] to FindclosestTarget();
+            //Move to (FindClosestTarget(Enemyteam.Team[i].m_currentPos;
+            //Attaack target
+            for (int i = 0; i < PlayerTeam.Length; i++)
+            {
+                //SET TARGET
+                current = EnemyTeam[i].GetComponent<CharacterStats>();
+                current.m_target = FindClosestTarget(EnemyTeam[i].m_CurrentLocation);
 
+                //MOVE TO TARGET
+                EnemyTeam[i].m_Destination = current.m_target.m_CurrentLocation;
+                EnemyTeam[i].m_isSelected = true;
+                EnemyTeam[i].m_moving = true;
+
+                //ATTACK TARGET
+                current.AttackTarget(current.m_target.GetComponent<CharacterStats>(), 0);
+            }
+            */
+
+        }
 
 
         //FOR NOW
@@ -133,9 +157,18 @@ public class EnemyAI : MonoBehaviour
 
         //Move the unit to Map[randNumX, randNumY]
         //Set the m_destination
-        //Invoke the MoveToDestinationMethod
+        //Invoke the MoveToDestinationMethod by settting the destination, and m_isSelected + m_moving to true;
         Enemy.m_Destination = new Vector2(randNumX, randNumY);
         Enemy.m_isSelected = true;
         Enemy.m_moving = true;
+    }
+
+    private MoveableCharacter FindClosestTarget(Vector2 StartLocation)
+    {
+        //count the steps to each player character;
+        //return the smallest value of steps;
+
+
+        return Players[0].GetComponent<MoveableCharacter>();
     }
 }

@@ -16,8 +16,6 @@ public class InputManager : singleton<InputManager>
 
     public Text StateText { get { return m_stateText; } }
 
-    public Text[] AbilityText = new Text[3];
-
     private void OnEnable()
     {
         m_stateText = GameObject.FindGameObjectWithTag("StateNotifier").GetComponent<Text>();
@@ -28,14 +26,13 @@ public class InputManager : singleton<InputManager>
         if (GameManager.Instance.GameState == (int)GameManager.GameStates.Selecting)
         {
             m_stateText.text = "Selecting a unit";
-            GetDefaultInput();
             GetSelectionInput();
         }
 
         else if (GameManager.Instance.GameState == (int)GameManager.GameStates.Moving)
         {
             m_stateText.text = "Moving a unit";
-            GetDefaultInput();
+            GetMapInput();
             GetMovementInput();
         }
 
@@ -45,26 +42,38 @@ public class InputManager : singleton<InputManager>
             GetActionInput();
         }
 
+        else if(GameManager.Instance.GameState == (int)GameManager.GameStates.Ability)
+        {
+            m_stateText.text = "Selecting ability";
+            GetAbilityInput();
+        }
+
         else if (GameManager.Instance.GameState == (int)GameManager.GameStates.Attacking)
         {
-            m_stateText.text = "Selecting Attack Target";
+            m_stateText.text = "Selecting a target.";
+            GetEnemySelectionInput();
+        }
+
+        else if (GameManager.Instance.GameState == (int)GameManager.GameStates.Cast)
+        {
+            m_stateText.text = "Selecting a target.";
             GetEnemySelectionInput();
         }
 
         else if (GameManager.Instance.GameState == (int)GameManager.GameStates.AIMove)
         {
-            m_stateText.text = "AI Turn";
+            m_stateText.text = "AI turn";
             //StartCoroutine(SimulateAI());
         }
 
         else if(GameManager.Instance.GameState == (int)GameManager.GameStates.GameOver)
         {
-            m_stateText.text = "Game Complete!";
+            m_stateText.text = "Game complete!";
         }
 
     }
 
-    private void GetDefaultInput()
+    private void GetMapInput()
     {
         //Get a reference to the current selcted tile in the map
         //print(Map.Instance.SelectedTile);
@@ -195,14 +204,27 @@ public class InputManager : singleton<InputManager>
 
             eChars.Team[eChars.SelectionIndex].m_isSelected = true;
 
-            //Attack enemy
-            attacker.AttackTarget(target, 0);
+            if (ActionMenuManager.Instance.AbilityMenu.activeInHierarchy)
+            {
+                //Attack enemy with ability dmg
+                attacker.AttackTarget(target, 1);
+            }
+
+            else
+            {
+                //Attack enemy with weapon dmg
+                attacker.AttackTarget(target, 0);
+            }
 
             pChars.Team[pChars.SelectionIndex].m_hasAttacked = true;
 
             GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
 
             UpdateCursorLocation(pChars);
+
+            ActionMenuManager.Instance.CloseAbilityMenu();
+            ActionMenuManager.Instance.CloseActionMenu();
+
         }
     }
 
@@ -287,16 +309,15 @@ public class InputManager : singleton<InputManager>
 
                 else if (ActionMenuManager.Instance.ActionIndex == (int)ActionMenuManager.ActionChoice.Abilities)
                 {
-                    List<Ability> abilities = SelectionManager.Instance.PlayerTeam.SelectedCharacter.GetComponent<CharacterStats>().Abilities;
-                    for (int i = 0; i < AbilityText.Length; i++)
-                    {
-                        AbilityText[i].text = abilities[i].Name;
-                    }
+                    ActionMenuManager.Instance.SetAbilityText(SelectionManager.Instance.PlayerTeam.SelectedCharacter.GetComponent<CharacterStats>().Abilities);
 
+                    ActionMenuManager.Instance.OpenAbilityMenu();
+
+                    GameManager.Instance.GameState = (int)GameManager.GameStates.Ability;
 
                 }
 
-                else if ( ActionMenuManager.Instance.ActionIndex == (int)ActionMenuManager.ActionChoice.End_Turn)
+                else if (ActionMenuManager.Instance.ActionIndex == (int)ActionMenuManager.ActionChoice.End_Turn)
                 {
                     //set the current playerchar's has_attacked to true;
                     SelectionManager.Instance.PlayerTeam.SelectedCharacter.m_hasAttacked = true;
@@ -304,7 +325,7 @@ public class InputManager : singleton<InputManager>
                     //set the gamestate back to selecting;
                     GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
 
-                    
+
                 }
 
                 else if (ActionMenuManager.Instance.ActionIndex == (int)ActionMenuManager.ActionChoice.Cancel)
@@ -319,8 +340,49 @@ public class InputManager : singleton<InputManager>
                 SelectionManager.Instance.DeSelectCharacter(SelectionManager.Instance.PlayerTeam);
 
                 //Close the UI menu
-                ActionMenuManager.Instance.CloseActionMenu();
+                if (GameManager.Instance.GameState != (int)GameManager.GameStates.Ability)
+                {
+                    ActionMenuManager.Instance.CloseActionMenu();
+                }
             }
+        }
+    }
+
+    public void GetAbilityInput()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            //Move up untill at the top of the menu(i.e. highlight a different option
+            ActionMenuManager.Instance.CyclePreviousAbility();
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            //Move down untill the same as top.
+            ActionMenuManager.Instance.CycleNextAbility();
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+
+            Vector2 index;
+            //highlight current selected enemy character;
+            index = SelectionManager.Instance.EnemyTeam.SelectedCharacter.m_CurrentLocation;
+            Map.Instance.m_currentSelection = index;
+
+            if (!Map.Instance.MAP[(int)index.x, (int)index.y].m_isOccupied)
+            {
+                do
+                {
+                    SelectionManager.Instance.EnemyTeam.IncremenetSelectionIndex();
+                    index = SelectionManager.Instance.EnemyTeam.SelectedCharacter.m_CurrentLocation;
+                    Map.Instance.m_currentSelection = index;
+
+                } while (Map.Instance.MAP[(int)index.x, (int)index.y].m_isOccupied);
+            }
+
+            GameManager.Instance.GameState = (int)GameManager.GameStates.Cast;
         }
     }
 

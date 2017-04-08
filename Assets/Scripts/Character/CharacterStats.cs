@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class CharacterStats : MonoBehaviour
 {
@@ -24,7 +25,12 @@ public class CharacterStats : MonoBehaviour
     [SerializeField]
     private int m_AttackRange;
     [SerializeField]
+    private int m_AbilityRange;
+    [SerializeField]
     private int m_MoveRange;
+
+    public Slider HealthBar;
+    
 
     public int blockDistance = 4;
 
@@ -48,12 +54,17 @@ public class CharacterStats : MonoBehaviour
     public int RANGE { get { return m_AttackRange; } }
     public int MOVERANGE { get { return m_MoveRange; } }
 
-    //could add crit, speed, weapon bonus, attack range
+    //could add crit, speed, weapon bonus
 
     public void Start()
     {
         EventLogger = SelectionManager.Instance.log;
-        
+        HealthBar.maxValue = MaxHP;
+    }
+
+    public void Update()
+    {
+        HealthBar.value = m_HealthPoints;
     }
 
     public void AttackTarget(CharacterStats other, int attackType)
@@ -63,10 +74,12 @@ public class CharacterStats : MonoBehaviour
         switch (attackType)
         {
             case 0:
-                if (other.HP > 0 && TargetInRange() && attackType == 0)
+                if (other.HP > 0 && TargetInRange(attackType))
                 {
+                    print("Attacking with weapon");
                     other.HP -= CalculateDamage(ATTPOW, other.DEF);
 
+                    //SET DMG TEXT TO CalculateDamage(ATTPOW, other.DEF);
                     EventLogger.AddEvent(this.gameObject.name + " hit " + other.gameObject.name + " for " + CalculateDamage(ATTPOW, other.DEF) + " damage.");
                     //animate taking damage && attacking;
 
@@ -84,12 +97,22 @@ public class CharacterStats : MonoBehaviour
                     }
                 }
 
+                else
+                {
+
+                }
+
                 break;
             case 1:
-                if (other.HP > 0 && TargetInRange() && attackType == 0)
+                if (other.HP > 0 && TargetInRange(attackType))
                 {
+                    print("Attacking with ability");
+                    //if this has enough ap, do the attack; otherwise let the user know that they don't have enough and go back to ability selection state;
+                    m_AbilityPower = Abilities[ActionMenuManager.Instance.AbilityIndex].Damage;
+
                     other.HP -= CalculateDamage(ABPOW, other.MDEF);
 
+                    //SET DMG TEXT TO CalculateDamage(ATTPOW, other.DEF);
                     EventLogger.AddEvent(this.gameObject.name + " hit " + other.gameObject.name + " for " + CalculateDamage(ABPOW, other.MDEF) + " damage.");
                     //animate taking damage && attacking;
 
@@ -105,6 +128,8 @@ public class CharacterStats : MonoBehaviour
                     {
                         EventLogger.AddEvent(other.gameObject.name + " has " + other.HP + " HP remaining!");
                     }
+
+                    m_AbilityPoints -= Abilities[ActionMenuManager.Instance.AbilityIndex].Cost;
                 }
                 break;
         }
@@ -128,8 +153,20 @@ public class CharacterStats : MonoBehaviour
         return Attack - EnemyDefense;
     }
 
-    private bool TargetInRange()
+    private bool TargetInRange(int attackType)
     {
+
+        int RangeToCheck;
+
+        if(attackType == 0)
+        {
+            RangeToCheck = m_AttackRange;
+        }
+
+        else
+        {
+            RangeToCheck = m_AbilityRange;
+        }
         Vector2 TargetLocIndex = m_target.m_CurrentLocation;
         Vector2 AttackerLocIndex = this.GetComponent<MoveableCharacter>().m_CurrentLocation;
 
@@ -138,14 +175,14 @@ public class CharacterStats : MonoBehaviour
 
         if (TargetLocation.x == AttackerLocation.x)
         {
-            if (TargetLocation.y < AttackerLocation.y + (blockDistance * this.RANGE) && TargetLocation.y > AttackerLocation.y)
+            if (TargetLocation.y < AttackerLocation.y + (blockDistance * RangeToCheck) && TargetLocation.y > AttackerLocation.y)
             {
                 //TOP
                 //print("INRANGE TOP");
                 return true;
             }
 
-            else if (TargetLocation.y > AttackerLocation.y - (blockDistance * this.RANGE) && TargetLocation.y < AttackerLocation.y)
+            else if (TargetLocation.y > AttackerLocation.y - (blockDistance * RangeToCheck) && TargetLocation.y < AttackerLocation.y)
             {
                 //Bottom
                 //print("INRANGE BOTTOM");
@@ -155,14 +192,14 @@ public class CharacterStats : MonoBehaviour
 
         else if (TargetLocation.y == AttackerLocation.y)
         {
-            if (TargetLocation.x > AttackerLocation.x - (blockDistance * this.RANGE) && TargetLocation.x < AttackerLocation.x)
+            if (TargetLocation.x > AttackerLocation.x - (blockDistance * RangeToCheck) && TargetLocation.x < AttackerLocation.x)
             {
                 //left
                 //print("INRANGE LEFT");
                 return true;
             }
 
-            else if (TargetLocation.x < AttackerLocation.x + (blockDistance * this.RANGE) && TargetLocation.x > AttackerLocation.x)
+            else if (TargetLocation.x < AttackerLocation.x + (blockDistance * RangeToCheck) && TargetLocation.x > AttackerLocation.x)
             {
                 //right
                 //print("INRANGE RIGHT");
@@ -177,32 +214,32 @@ public class CharacterStats : MonoBehaviour
         //Hence why if the X AND Y don't match, we still none the less check if the target is in range horizontally AND vertically
         else if (TargetLocation.x != AttackerLocation.x && TargetLocation.y != AttackerLocation.y)
         {
-            if (TargetLocation.x > AttackerLocation.x - (blockDistance * this.RANGE) && TargetLocation.x < AttackerLocation.x
-                && TargetLocation.y < AttackerLocation.y + (blockDistance * this.RANGE) && TargetLocation.y > AttackerLocation.y)
+            if (TargetLocation.x > AttackerLocation.x - (blockDistance * RangeToCheck) && TargetLocation.x < AttackerLocation.x
+                && TargetLocation.y < AttackerLocation.y + (blockDistance * RangeToCheck) && TargetLocation.y > AttackerLocation.y)
             {
                 //If it is in range left and in range top, we know diagonally its up left
                 //print("INRANGE TOP LEFT");
                 return true;
             }
 
-            else if (TargetLocation.x > AttackerLocation.x - (blockDistance * this.RANGE) && TargetLocation.x < AttackerLocation.x
-                && TargetLocation.y > AttackerLocation.y - (blockDistance * this.RANGE) && TargetLocation.y < AttackerLocation.y)
+            else if (TargetLocation.x > AttackerLocation.x - (blockDistance * RangeToCheck) && TargetLocation.x < AttackerLocation.x
+                && TargetLocation.y > AttackerLocation.y - (blockDistance * RangeToCheck) && TargetLocation.y < AttackerLocation.y)
             {
                 //Bottom left
                 //print("INRANGE BOTTOM LEFT");
                 return true;
             }
 
-            else if (TargetLocation.x < AttackerLocation.x + (blockDistance * this.RANGE) && TargetLocation.x > AttackerLocation.x
-                && TargetLocation.y < AttackerLocation.y + (blockDistance * this.RANGE) && TargetLocation.y > AttackerLocation.y)
+            else if (TargetLocation.x < AttackerLocation.x + (blockDistance * RangeToCheck) && TargetLocation.x > AttackerLocation.x
+                && TargetLocation.y < AttackerLocation.y + (blockDistance * RangeToCheck) && TargetLocation.y > AttackerLocation.y)
             {
                 //Top right
                 //print("INRANGE TOP RIGHT");
                 return true;
             }
 
-            else if (TargetLocation.x > AttackerLocation.x - (blockDistance * this.RANGE) && TargetLocation.x < AttackerLocation.x
-                && TargetLocation.y > AttackerLocation.y - (blockDistance * this.RANGE) && TargetLocation.y < AttackerLocation.y)
+            else if (TargetLocation.x > AttackerLocation.x - (blockDistance * RangeToCheck) && TargetLocation.x < AttackerLocation.x
+                && TargetLocation.y > AttackerLocation.y - (blockDistance * RangeToCheck) && TargetLocation.y < AttackerLocation.y)
             {
                 //Bottom right
                 //print("INRANGE BOTTOM RIGHT");
@@ -213,6 +250,8 @@ public class CharacterStats : MonoBehaviour
         //print("NOT INRANGE");
         EventLogger.AddEvent(m_target.gameObject.name + " is not in range of " + this.gameObject.name);
         //EventLogger.AddEvent(this.gameObject.name + "'s turn is complete.");
+        m_target.m_isSelected = false;
+        GetComponent<MoveableCharacter>().m_isSelected = false;
         return false;
     }
 

@@ -18,14 +18,15 @@ public class GameManager : singleton<GameManager>
 {
     public enum GameStates
     {
-        Selecting = 0,
-        Moving = 1,
-        Action = 2,
-        Attacking = 3,
-        Animating = 4,
-        AIMove = 5,
-        GameOver = 6,
-        Initialize = 7,
+        Initialize = 0,
+        Selecting = 1,
+        Moving = 2,
+        Action = 3,
+        Attacking = 4,
+        Ability = 5,
+        Cast = 6,
+        AIMove = 7,
+        GameOver = 8,
     };
 
     //might use later, for additional feedback on gameover
@@ -46,8 +47,8 @@ public class GameManager : singleton<GameManager>
             EnemyTeam[i].m_hasMoved = false;
         }
 
-        //set gamestate to 0 (selecting)
-        GameManager.Instance.GameState = (int)GameManager.GameStates.Selecting;
+        //set gamestate to 1 (selecting)
+        GameState = (int)GameStates.Selecting;
 
         //invoke the reset team function;
         SelectionManager.Instance.PlayerTeam.ResetTeam();
@@ -74,7 +75,7 @@ public class GameManager : singleton<GameManager>
         //Initiialize the ai;
         SelectionManager.Instance.EnemyTeam.GetComponent<EnemyAI>().Initialize();
 
-        //Set the game state to 0 (selecting)
+        //Set the game state to 1 (selecting)
         GameState = (int)GameStates.Selecting;
     }
 

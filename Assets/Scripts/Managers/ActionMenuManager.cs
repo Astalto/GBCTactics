@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class ActionMenuManager : singleton<ActionMenuManager>
 {
@@ -11,6 +12,13 @@ public class ActionMenuManager : singleton<ActionMenuManager>
         End_Turn = 2,
         Cancel = 3,
     };
+
+    public enum AbilityChoice
+    {
+        Ability1 = 0,
+        Ability2 = 1,
+        Ability3 = 2,
+    }
 
 
     [Header("Action Menu")]
@@ -24,6 +32,9 @@ public class ActionMenuManager : singleton<ActionMenuManager>
     public int ActionIndex;
 
     [Header("AbilitySelection")]
+    public Text[] AbilityText = new Text[3];
+    public Text[] CostText = new Text[3];
+    public Text[] DamageText = new Text[3];
     public Image[] Abilities = new Image[3];
     public int AbilityIndex;
 
@@ -41,6 +52,11 @@ public class ActionMenuManager : singleton<ActionMenuManager>
         if (ActionMenu != null)
         {
             CloseActionMenu();
+        }
+
+        if(AbilityMenu != null)
+        {
+            CloseAbilityMenu();
         }
     }
 
@@ -72,9 +88,9 @@ public class ActionMenuManager : singleton<ActionMenuManager>
 
     public void CloseAbilityMenu()
     {
-        DeselectAction(Abilities[AbilityIndex]);
-        ActionIndex = 0;
-        HighlightAction(Abilities [AbilityIndex]);
+        DeselectAbility(Abilities[AbilityIndex]);
+        AbilityIndex = 0;
+        HighlightAbility(Abilities [AbilityIndex]);
         AbilityMenu.SetActive(false);
     }
 
@@ -114,9 +130,9 @@ public class ActionMenuManager : singleton<ActionMenuManager>
 
     public void CycleNextAbility()
     {
-        DeselectAction(Actions[AbilityIndex]);
+        DeselectAbility(Abilities[AbilityIndex]);
 
-        if (AbilityIndex < Actions.Length - 1)
+        if (AbilityIndex < Abilities.Length - 1)
         {
             AbilityIndex++;
         }
@@ -126,14 +142,14 @@ public class ActionMenuManager : singleton<ActionMenuManager>
             AbilityIndex = 0;
         }
 
-        HighlightAction(Actions[AbilityIndex]);
+        HighlightAbility(Abilities[AbilityIndex]);
     }
 
     public void CyclePreviousAbility()
     {
-        DeselectAction(Abilities[AbilityIndex]);
+        DeselectAbility(Abilities[AbilityIndex]);
 
-        if (ActionIndex > 0)
+        if (AbilityIndex > 0)
         {
             AbilityIndex--;
         }
@@ -143,7 +159,7 @@ public class ActionMenuManager : singleton<ActionMenuManager>
             AbilityIndex = Abilities.Length - 1;
         }
 
-        HighlightAction(Abilities[AbilityIndex]);
+        HighlightAbility(Abilities[AbilityIndex]);
     }
 
     public void DeselectAction(Image i)
@@ -166,5 +182,18 @@ public class ActionMenuManager : singleton<ActionMenuManager>
     {
         i.color = HighlightAbilityColor;
     }
+
+    public void SetAbilityText(List<Ability> playerAbilities)
+    {
+        
+        for (int i = 0; i < Abilities.Length; i++)
+        {
+            AbilityText[i].text = playerAbilities[i].Name;
+            CostText[i].text = "Cost: " + playerAbilities[i].Cost;
+            DamageText[i].text = "Damage: " + playerAbilities[i].Damage;
+            
+        }
+    }
+    
 
 }
