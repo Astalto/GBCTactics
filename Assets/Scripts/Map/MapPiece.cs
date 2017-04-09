@@ -15,7 +15,6 @@ public class MapPiece : MonoBehaviour
     public Color m_selectedColor;
     public Color m_pathingColor;
     public Color m_playerSelectedColor;
-    public Color m_lastSelectedColor;
 
     public bool m_isOccupied;
     public MoveableCharacter m_occupiedBy;
@@ -82,11 +81,6 @@ public class MapPiece : MonoBehaviour
             {
                 m_spriteRenderer.color = m_playerSelectedColor;
             }
-        }
-
-        else if (Map.Instance.LastSelected == m_occupiedBy)
-        {
-            m_spriteRenderer.color = m_lastSelectedColor;
         }
 
         else
