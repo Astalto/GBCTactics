@@ -87,6 +87,7 @@ public class InputManager : singleton<InputManager>
             Map.Instance.MAP[(int)currentTile.x, (int)currentTile.y].m_isSelected = false;
 
             if (Map.Instance.SelectedTile.x - 1 >= 0)
+                //&& SelectionManager.Instance.PlayerTeam.SelectedCharacter.CheckMoveRange(new Vector2(Map.Instance.SelectedTile.x - 1, Map.Instance.SelectedTile.y)))
             {
                 currentTile.x--;
             }
@@ -99,6 +100,7 @@ public class InputManager : singleton<InputManager>
             Map.Instance.MAP[(int)currentTile.x, (int)currentTile.y].m_isSelected = false;
 
             if (Map.Instance.m_currentSelection.x + 1 < Map.Instance.Rows)
+                //&& SelectionManager.Instance.PlayerTeam.SelectedCharacter.CheckMoveRange(new Vector2(Map.Instance.SelectedTile.x + 1, Map.Instance.SelectedTile.y)))
             {
                 currentTile.x++;
             }
@@ -110,6 +112,7 @@ public class InputManager : singleton<InputManager>
             Map.Instance.MAP[(int)currentTile.x, (int)currentTile.y].m_isSelected = false;
 
             if (Map.Instance.m_currentSelection.y + 1 < Map.Instance.Columns)
+                //&& SelectionManager.Instance.PlayerTeam.SelectedCharacter.CheckMoveRange(new Vector2(Map.Instance.SelectedTile.x, Map.Instance.SelectedTile.y + 1)))
             {
                 currentTile.y++;
             }
@@ -121,6 +124,7 @@ public class InputManager : singleton<InputManager>
             Map.Instance.MAP[(int)currentTile.x, (int)currentTile.y].m_isSelected = false;
 
             if (Map.Instance.m_currentSelection.y - 1 >= 0)
+                //&& SelectionManager.Instance.PlayerTeam.SelectedCharacter.CheckMoveRange(new Vector2(Map.Instance.SelectedTile.x, Map.Instance.SelectedTile.y - 1)))
             {
                 currentTile.y--;
             }

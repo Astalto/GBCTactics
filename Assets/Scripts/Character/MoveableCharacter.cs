@@ -3,6 +3,7 @@ using System.Collections;
 
 public class MoveableCharacter : MonoBehaviour
 {
+    [Header("Movement Information")]
     public Vector2 m_CurrentLocation;
     public Vector2 m_SpawnCell;
     public Vector2 m_Destination;
@@ -11,11 +12,15 @@ public class MoveableCharacter : MonoBehaviour
     public Vector2[] m_surroundingTilePositions = new Vector2[4];
 
     public float m_speed;
+    public int m_moveRange;
+    public float m_tileSize;
     public Vector3 m_direction;
 
+    [Header("Selection Booleans")]
     public bool m_isSelectable;
     public bool m_isSelected;
 
+    [Header("Movement Booleans")]
     public bool m_hasMoved;
     public bool m_hasAttacked;
     public bool m_moving;
@@ -27,17 +32,7 @@ public class MoveableCharacter : MonoBehaviour
 
     public bool m_isEnemy;
 
-    //MonoBehavior
-    //private void Start()
-    //{
-    //    MoveToSpawn();
-    //}
-
-    public void Initialize()
-    {
-        MoveToSpawn();
-    }
-
+    //Monobehavior functions
     public void Update()
     {
         if (m_isSelected)
@@ -287,4 +282,47 @@ public class MoveableCharacter : MonoBehaviour
         }
     }
 
+    //Public functions
+    public void Initialize()
+    {
+        MoveToSpawn();
+    }
+
+    public bool CheckMoveRange(Vector2 index)
+    {
+        //if the new index is within range of movement from the player index, return true;
+        if (index.y == m_CurrentLocation.y)
+        {
+            if (index.x >= m_CurrentLocation.x - m_moveRange)
+            {
+                //within range left;
+                return true;
+            }
+
+            else if (index.x <= m_CurrentLocation.x + m_moveRange)
+            {
+                //within range right;
+                return true;
+            }
+        }
+
+        else if (index.y == m_CurrentLocation.y)
+        {
+            if (index.y <= m_CurrentLocation.y + m_moveRange)
+            {
+                //within range top
+                return true;
+            }
+
+            else if (index.y >= m_CurrentLocation.y - m_moveRange)
+            {
+                //within range bottom
+                return true;
+            }
+
+        }
+
+        //otherwise return false
+        return false;
+    }
 }

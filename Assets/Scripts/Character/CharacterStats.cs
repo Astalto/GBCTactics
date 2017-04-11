@@ -30,7 +30,12 @@ public class CharacterStats : MonoBehaviour
     private int m_MoveRange;
 
     public Slider HealthBar;
-    
+
+    [Header("Damage Indication Information Station")]
+    public Text DMGIndicator;
+    public Color ResetColor;
+    public float m_FadeSpeed;
+    public bool m_Fading;
 
     public int blockDistance = 4;
 
@@ -58,28 +63,49 @@ public class CharacterStats : MonoBehaviour
 
     public void Start()
     {
+        ResetColor = DMGIndicator.color;
+        DMGIndicator.gameObject.SetActive(false);
         EventLogger = SelectionManager.Instance.log;
         HealthBar.maxValue = MaxHP;
+        m_Fading = false;
     }
 
     public void Update()
     {
         HealthBar.value = m_HealthPoints;
+
+        if(m_Fading)
+        {
+            FadeText();
+
+            if(DMGIndicator.color.a <= 0)
+            {
+                m_Fading = false;
+                DMGIndicator.color = ResetColor;
+                DMGIndicator.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void AttackTarget(CharacterStats other, int attackType)
     {
         m_target = other.GetComponent<MoveableCharacter>();
+        CharacterStats target_stats;
 
         switch (attackType)
         {
             case 0:
-                if (other.HP > 0 && TargetInRange(attackType))
+                if (other.HP > 0 && TargetInRange(attackType, Vector2.zero))
                 {
                     print("Attacking with weapon");
                     other.HP -= CalculateDamage(ATTPOW, other.DEF);
 
                     //SET DMG TEXT TO CalculateDamage(ATTPOW, other.DEF);
+                    target_stats = other.GetComponent<CharacterStats>();
+                    target_stats.DMGIndicator.text = "" + CalculateDamage(ATTPOW, other.DEF);
+                    target_stats.DMGIndicator.gameObject.SetActive(true);
+                    target_stats.m_Fading = true;
+
                     EventLogger.AddEvent(this.gameObject.name + " hit " + other.gameObject.name + " for " + CalculateDamage(ATTPOW, other.DEF) + " damage.");
                     //animate taking damage && attacking;
 
@@ -104,7 +130,7 @@ public class CharacterStats : MonoBehaviour
 
                 break;
             case 1:
-                if (other.HP > 0 && TargetInRange(attackType))
+                if (other.HP > 0 && TargetInRange(attackType, Vector2.zero))
                 {
                     print("Attacking with ability");
                     //if this has enough ap, do the attack; otherwise let the user know that they don't have enough and go back to ability selection state;
@@ -113,6 +139,11 @@ public class CharacterStats : MonoBehaviour
                     other.HP -= CalculateDamage(ABPOW, other.MDEF);
 
                     //SET DMG TEXT TO CalculateDamage(ATTPOW, other.DEF);
+                    target_stats = other.GetComponent<CharacterStats>();
+                    target_stats.DMGIndicator.text = "" + CalculateDamage(ABPOW, other.MDEF);
+                    target_stats.DMGIndicator.gameObject.SetActive(true);
+                    target_stats.m_Fading = true;
+
                     EventLogger.AddEvent(this.gameObject.name + " hit " + other.gameObject.name + " for " + CalculateDamage(ABPOW, other.MDEF) + " damage.");
                     //animate taking damage && attacking;
 
@@ -138,6 +169,12 @@ public class CharacterStats : MonoBehaviour
 
     }
 
+    public void FadeText()
+    {
+        Color tempColor = DMGIndicator.color;
+        tempColor.a -= m_FadeSpeed * Time.deltaTime;
+        DMGIndicator.color = tempColor;
+    }
 
     public void Kill()
     {
@@ -153,25 +190,45 @@ public class CharacterStats : MonoBehaviour
         return Attack - EnemyDefense;
     }
 
-    private bool TargetInRange(int attackType)
+    public bool TargetInRange(int attackType, Vector2 index)
     {
 
         int RangeToCheck;
+        Vector2 TargetLocIndex = Vector2.zero;
+        Vector2 AttackerLocIndex = Vector2.zero;
 
-        if(attackType == 0)
+        Vector2 TargetLocation = Vector2.zero;
+        Vector2 AttackerLocation = Vector2.zero;
+
+        if (attackType == 0)
         {
             RangeToCheck = m_AttackRange;
         }
 
-        else
+        else if(attackType == 1)
         {
             RangeToCheck = m_AbilityRange;
         }
-        Vector2 TargetLocIndex = m_target.m_CurrentLocation;
-        Vector2 AttackerLocIndex = this.GetComponent<MoveableCharacter>().m_CurrentLocation;
 
-        Vector2 TargetLocation = Map.Instance.GetPosition(TargetLocIndex.x, TargetLocIndex.y);
-        Vector2 AttackerLocation = Map.Instance.GetPosition(AttackerLocIndex.x, AttackerLocIndex.y);
+        else
+        {
+            RangeToCheck = GetComponent<MoveableCharacter>().m_moveRange;
+
+            TargetLocIndex = index;
+            AttackerLocIndex = GetComponent<MoveableCharacter>().m_CurrentLocation;
+
+            TargetLocation = Map.Instance.GetPosition(TargetLocation.x, TargetLocation.y);
+            AttackerLocation = Map.Instance.GetPosition(AttackerLocation.x, AttackerLocation.y);
+        }
+
+        if (attackType != 2)
+        {
+            TargetLocIndex = m_target.m_CurrentLocation;
+            AttackerLocIndex = this.GetComponent<MoveableCharacter>().m_CurrentLocation;
+
+            TargetLocation = Map.Instance.GetPosition(TargetLocIndex.x, TargetLocIndex.y);
+            AttackerLocation = Map.Instance.GetPosition(AttackerLocIndex.x, AttackerLocIndex.y);
+        }
 
         if (TargetLocation.x == AttackerLocation.x)
         {
@@ -247,11 +304,31 @@ public class CharacterStats : MonoBehaviour
             }
         }
 
-        //print("NOT INRANGE");
-        EventLogger.AddEvent(m_target.gameObject.name + " is not in range of " + this.gameObject.name);
-        //EventLogger.AddEvent(this.gameObject.name + "'s turn is complete.");
-        m_target.m_isSelected = false;
-        GetComponent<MoveableCharacter>().m_isSelected = false;
+
+        if (attackType != 2)
+        {
+            //print("NOT INRANGE");
+            EventLogger.AddEvent(m_target.gameObject.name + " is not in range of " + this.gameObject.name);
+            //EventLogger.AddEvent(this.gameObject.name + "'s turn is complete.");
+            m_target.m_isSelected = false;
+            GetComponent<MoveableCharacter>().m_isSelected = false;
+        }
+
+        else
+        {
+            if (Map.Instance.m_currentSelection.x == AttackerLocIndex.x)
+            {
+                if (Map.Instance.m_currentSelection.y == AttackerLocIndex.y)
+                {
+                    print(true);
+                    return true;
+                }
+            }
+
+        }
+
+        print(index + " " + TargetLocIndex);
+        print(false);
         return false;
     }
 
