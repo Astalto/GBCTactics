@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Individual Characters")]
     public CharacterStats current;
+    public MoveableCharacter returnUnit = null;
 
     //Variables that hold the random X and Y coordinates
     //We use this to generate a random tile on the map to select
@@ -153,7 +154,8 @@ public class EnemyAI : MonoBehaviour
         {
             randNumX = (int)Random.Range(0, 8);
             randNumY = (int)Random.Range(0, 14);
-        } while (Map.Instance.MAP[randNumX, randNumY].m_isOccupied);
+            print("RandomIndex");
+        } while (Map.Instance.MAP[randNumX, randNumY].m_isOccupied || !Enemy.CheckMoveRange(new Vector2(randNumX, randNumY)));
 
         //Move the unit to Map[randNumX, randNumY]
         //Set the m_destination
@@ -163,12 +165,35 @@ public class EnemyAI : MonoBehaviour
         Enemy.m_moving = true;
     }
 
-    private MoveableCharacter FindClosestTarget(Vector2 StartLocation)
+    private MoveableCharacter FindClosetsTarget(Vector2 StartLocation, MoveableCharacter currentUnit)
     {
         //count the steps to each player character;
         //return the smallest value of steps;
+        returnUnit = null;
+        Vector3 temp = Vector3.zero;
+        float distance = 0, shortestDistance = 0;
+
+        for (int i = 0; i < Players.Count; i++)
+        {
+            temp = Map.Instance.GetPosition(Players[i].m_CurrentLocation.x, Players[i].m_CurrentLocation.y) - Map.Instance.GetPosition(currentUnit.m_CurrentLocation.x, currentUnit.m_CurrentLocation.y);
+            distance = temp.magnitude;
+
+            if (shortestDistance == 0)
+            {
+                shortestDistance = distance;
+                returnUnit = Players[i];
+            }
+
+            else if (distance < shortestDistance)
+            {
+                shortestDistance = distance;
+                returnUnit = Players[i];
+            }
+        }
 
 
-        return Players[0].GetComponent<MoveableCharacter>();
+
+        return returnUnit;
     }
+
 }

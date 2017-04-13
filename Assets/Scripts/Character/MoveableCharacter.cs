@@ -290,39 +290,22 @@ public class MoveableCharacter : MonoBehaviour
 
     public bool CheckMoveRange(Vector2 index)
     {
-        //if the new index is within range of movement from the player index, return true;
-        if (index.y == m_CurrentLocation.y)
-        {
-            if (index.x >= m_CurrentLocation.x - m_moveRange)
-            {
-                //within range left;
-                return true;
-            }
 
-            else if (index.x <= m_CurrentLocation.x + m_moveRange)
-            {
-                //within range right;
-                return true;
-            }
+        Vector2 currentVector = m_CurrentLocation - index;
+        int currentRange = (int)Mathf.Abs(currentVector.x) + (int)Mathf.Abs(currentVector.y);
+
+        if(currentRange <= m_moveRange)
+        {
+            //if within range, return true;
+            print(true);
+            return true;
         }
 
-        else if (index.y == m_CurrentLocation.y)
+        else
         {
-            if (index.y <= m_CurrentLocation.y + m_moveRange)
-            {
-                //within range top
-                return true;
-            }
-
-            else if (index.y >= m_CurrentLocation.y - m_moveRange)
-            {
-                //within range bottom
-                return true;
-            }
-
+            //otherwise return false
+            print(false);
+            return false;
         }
-
-        //otherwise return false
-        return false;
     }
 }

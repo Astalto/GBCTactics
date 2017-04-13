@@ -14,6 +14,8 @@ public class InputManager : singleton<InputManager>
     private bool m_selectingUnit, m_selectingTile, m_selectingAction;
     private Text m_stateText;
 
+    private GameManager.GameStates m_previousState;
+
     public Text StateText { get { return m_stateText; } }
 
     private void OnEnable()
@@ -86,8 +88,8 @@ public class InputManager : singleton<InputManager>
             //set x-- cell to selected; above
             Map.Instance.MAP[(int)currentTile.x, (int)currentTile.y].m_isSelected = false;
 
-            if (Map.Instance.SelectedTile.x - 1 >= 0)
-                //&& SelectionManager.Instance.PlayerTeam.SelectedCharacter.CheckMoveRange(new Vector2(Map.Instance.SelectedTile.x - 1, Map.Instance.SelectedTile.y)))
+            if (Map.Instance.SelectedTile.x - 1 >= 0
+                && SelectionManager.Instance.PlayerTeam.SelectedCharacter.CheckMoveRange(new Vector2(Map.Instance.SelectedTile.x - 1, Map.Instance.SelectedTile.y)))
             {
                 currentTile.x--;
             }
@@ -99,8 +101,8 @@ public class InputManager : singleton<InputManager>
             //Select x++ below
             Map.Instance.MAP[(int)currentTile.x, (int)currentTile.y].m_isSelected = false;
 
-            if (Map.Instance.m_currentSelection.x + 1 < Map.Instance.Rows)
-                //&& SelectionManager.Instance.PlayerTeam.SelectedCharacter.CheckMoveRange(new Vector2(Map.Instance.SelectedTile.x + 1, Map.Instance.SelectedTile.y)))
+            if (Map.Instance.m_currentSelection.x + 1 < Map.Instance.Rows
+                && SelectionManager.Instance.PlayerTeam.SelectedCharacter.CheckMoveRange(new Vector2(Map.Instance.SelectedTile.x + 1, Map.Instance.SelectedTile.y)))
             {
                 currentTile.x++;
             }
@@ -111,8 +113,8 @@ public class InputManager : singleton<InputManager>
             //y++ right
             Map.Instance.MAP[(int)currentTile.x, (int)currentTile.y].m_isSelected = false;
 
-            if (Map.Instance.m_currentSelection.y + 1 < Map.Instance.Columns)
-                //&& SelectionManager.Instance.PlayerTeam.SelectedCharacter.CheckMoveRange(new Vector2(Map.Instance.SelectedTile.x, Map.Instance.SelectedTile.y + 1)))
+            if (Map.Instance.m_currentSelection.y + 1 < Map.Instance.Columns
+                && SelectionManager.Instance.PlayerTeam.SelectedCharacter.CheckMoveRange(new Vector2(Map.Instance.SelectedTile.x, Map.Instance.SelectedTile.y + 1)))
             {
                 currentTile.y++;
             }
@@ -123,8 +125,8 @@ public class InputManager : singleton<InputManager>
             //y-- left
             Map.Instance.MAP[(int)currentTile.x, (int)currentTile.y].m_isSelected = false;
 
-            if (Map.Instance.m_currentSelection.y - 1 >= 0)
-                //&& SelectionManager.Instance.PlayerTeam.SelectedCharacter.CheckMoveRange(new Vector2(Map.Instance.SelectedTile.x, Map.Instance.SelectedTile.y - 1)))
+            if (Map.Instance.m_currentSelection.y - 1 >= 0
+                && SelectionManager.Instance.PlayerTeam.SelectedCharacter.CheckMoveRange(new Vector2(Map.Instance.SelectedTile.x, Map.Instance.SelectedTile.y - 1)))
             {
                 currentTile.y--;
             }
@@ -176,6 +178,8 @@ public class InputManager : singleton<InputManager>
                 pChars.CharacterSelected = false;
             }
 
+            m_previousState = GameManager.GameStates.Selecting;
+
         }
     }
 
@@ -212,12 +216,18 @@ public class InputManager : singleton<InputManager>
             {
                 //Attack enemy with ability dmg
                 attacker.AttackTarget(target, 1);
+
+                //Set prevous gamestate to Abilityselection
+                m_previousState = GameManager.GameStates.Ability;
             }
 
             else
             {
                 //Attack enemy with weapon dmg
                 attacker.AttackTarget(target, 0);
+
+                //set previous gamestate to actionselection
+                m_previousState = GameManager.GameStates.Action;
             }
 
             pChars.Team[pChars.SelectionIndex].m_hasAttacked = true;

@@ -56,33 +56,33 @@ public class SelectableCharacters : MonoBehaviour
                 if (i == 0)
                 {
                     List<Ability> abilityRef = Team[i].GetComponent<CharacterStats>().Abilities;
-                    abilityRef.Add(new Ability("Fire", 15, 15));
-                    abilityRef.Add(new Ability("Ice Lance", 15, 25));
-                    abilityRef.Add(new Ability("Gravity", 25, 50));
+                    abilityRef.Add(new Ability("Fireball", 15, 5));
+                    abilityRef.Add(new Ability("Ice Lance", 20, 20));
+                    abilityRef.Add(new Ability("Gravity", 35, 40));
                 }
 
                 else if (i == 1)
                 {
                     List<Ability> abilityRef = Team[i].GetComponent<CharacterStats>().Abilities;
                     abilityRef.Add(new Ability("Flaming Arrow", 15, 15));
-                    abilityRef.Add(new Ability("Head Shot", 25, 30));
-                    abilityRef.Add(new Ability("Piercing Shot", 20, 25));
+                    abilityRef.Add(new Ability("Piercing Shot", 25, 30));
+                    abilityRef.Add(new Ability("Headshot", 30, 50));
                 }
 
                 else if (i == 2)
                 {
                     List<Ability> abilityRef = Team[i].GetComponent<CharacterStats>().Abilities;
-                    abilityRef.Add(new Ability("Lance Thrust", 15, 15));
+                    abilityRef.Add(new Ability("Sword Bash", 15, 15));
                     abilityRef.Add(new Ability("Maim", 15, 25));
-                    abilityRef.Add(new Ability("Odin's Fury", 20, 50));
+                    abilityRef.Add(new Ability("Execute", 40, 50));
                 }
 
                 else if (i == 3)
                 {
                     List<Ability> abilityRef = Team[i].GetComponent<CharacterStats>().Abilities;
-                    abilityRef.Add(new Ability("BackStab", 15, 25));
-                    abilityRef.Add(new Ability("Juggulate", 25, 30));
-                    abilityRef.Add(new Ability("Bomb Toss", 30, 50));
+                    abilityRef.Add(new Ability("Flurry", 15, 25));
+                    abilityRef.Add(new Ability("Backstab", 25, 30));
+                    abilityRef.Add(new Ability("Eviserate", 35, 50));
                 }
             }
     }

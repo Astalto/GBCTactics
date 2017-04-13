@@ -7,12 +7,14 @@ public class EventLog : MonoBehaviour
 
     private List<string> listOfEvents = new List<string>();
     private string printOut = "";
-
     public int maxLines = 12;
 
     void OnGUI()
     {
-        GUI.Label(new Rect(0, Screen.height - (Screen.height / 4), Screen.width, Screen.height / 4), printOut, GUI.skin.textArea);
+        if (GameManager.Instance.GameState != (int)GameManager.GameStates.GameOver && GameManager.Instance.GameState != (int)GameManager.GameStates.Initialize)
+        {
+            GUI.Label(new Rect(0, Screen.height - (Screen.height / 4), Screen.width, Screen.height / 4), printOut, GUI.skin.textArea);
+        }
     }
 
     public void Initialize()

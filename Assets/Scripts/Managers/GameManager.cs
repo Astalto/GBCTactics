@@ -76,7 +76,7 @@ public class GameManager : singleton<GameManager>
         SelectionManager.Instance.EnemyTeam.GetComponent<EnemyAI>().Initialize();
 
         //Set the game state to 1 (selecting)
-        GameState = (int)GameStates.Selecting;
+        GameState = (int)GameStates.AIMove;
     }
 
 }

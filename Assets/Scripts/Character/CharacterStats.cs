@@ -26,16 +26,17 @@ public class CharacterStats : MonoBehaviour
     private int m_AttackRange;
     [SerializeField]
     private int m_AbilityRange;
-    [SerializeField]
-    private int m_MoveRange;
 
     public Slider HealthBar;
 
     [Header("Damage Indication Information Station")]
     public Text DMGIndicator;
+    public Text DMGTextBG;
     public Color ResetColor;
     public float m_FadeSpeed;
+    public float m_ScrollSpeed;
     public bool m_Fading;
+    public bool m_QueueKill;
 
     public int blockDistance = 4;
 
@@ -57,7 +58,6 @@ public class CharacterStats : MonoBehaviour
     public int DEF { get { return m_DefensePower; } }
     public int MDEF { get { return m_magicDefensePower; } }
     public int RANGE { get { return m_AttackRange; } }
-    public int MOVERANGE { get { return m_MoveRange; } }
 
     //could add crit, speed, weapon bonus
 
@@ -65,6 +65,7 @@ public class CharacterStats : MonoBehaviour
     {
         ResetColor = DMGIndicator.color;
         DMGIndicator.gameObject.SetActive(false);
+        DMGTextBG.gameObject.SetActive(false);
         EventLogger = SelectionManager.Instance.log;
         HealthBar.maxValue = MaxHP;
         m_Fading = false;
@@ -82,7 +83,14 @@ public class CharacterStats : MonoBehaviour
             {
                 m_Fading = false;
                 DMGIndicator.color = ResetColor;
+                DMGTextBG.color = Color.black;
                 DMGIndicator.gameObject.SetActive(false);
+                DMGTextBG.gameObject.SetActive(false);
+
+                if (HP <= 0 && m_QueueKill)
+                {
+                    Kill();
+                }
             }
         }
     }
@@ -102,8 +110,9 @@ public class CharacterStats : MonoBehaviour
 
                     //SET DMG TEXT TO CalculateDamage(ATTPOW, other.DEF);
                     target_stats = other.GetComponent<CharacterStats>();
-                    target_stats.DMGIndicator.text = "" + CalculateDamage(ATTPOW, other.DEF);
+                    target_stats.DMGTextBG.text = target_stats.DMGIndicator.text = "" + CalculateDamage(ATTPOW, other.DEF);
                     target_stats.DMGIndicator.gameObject.SetActive(true);
+                    target_stats.DMGTextBG.gameObject.SetActive(true);
                     target_stats.m_Fading = true;
 
                     EventLogger.AddEvent(this.gameObject.name + " hit " + other.gameObject.name + " for " + CalculateDamage(ATTPOW, other.DEF) + " damage.");
@@ -115,17 +124,12 @@ public class CharacterStats : MonoBehaviour
                     if (other.HP <= 0)
                     {
                         EventLogger.AddEvent(this.gameObject.name + " killed: " + other.gameObject.name);
-                        other.Kill();
+                        other.m_QueueKill = true;
                     }
                     else
                     {
                         EventLogger.AddEvent(other.gameObject.name + " has " + other.HP + " HP remaining!");
                     }
-                }
-
-                else
-                {
-
                 }
 
                 break;
@@ -140,8 +144,9 @@ public class CharacterStats : MonoBehaviour
 
                     //SET DMG TEXT TO CalculateDamage(ATTPOW, other.DEF);
                     target_stats = other.GetComponent<CharacterStats>();
-                    target_stats.DMGIndicator.text = "" + CalculateDamage(ABPOW, other.MDEF);
+                    target_stats.DMGTextBG.text = target_stats.DMGIndicator.text = "" + CalculateDamage(ABPOW, other.MDEF);
                     target_stats.DMGIndicator.gameObject.SetActive(true);
+                    target_stats.DMGTextBG.gameObject.SetActive(true);
                     target_stats.m_Fading = true;
 
                     EventLogger.AddEvent(this.gameObject.name + " hit " + other.gameObject.name + " for " + CalculateDamage(ABPOW, other.MDEF) + " damage.");
@@ -153,7 +158,7 @@ public class CharacterStats : MonoBehaviour
                     if (other.HP <= 0)
                     {
                         EventLogger.AddEvent(this.gameObject.name + " killed: " + other.gameObject.name);
-                        other.Kill();
+                        other.m_QueueKill = true;
                     }
                     else
                     {
@@ -174,6 +179,12 @@ public class CharacterStats : MonoBehaviour
         Color tempColor = DMGIndicator.color;
         tempColor.a -= m_FadeSpeed * Time.deltaTime;
         DMGIndicator.color = tempColor;
+
+        tempColor = DMGTextBG.color;
+        tempColor.a -= m_FadeSpeed * Time.deltaTime;
+        DMGTextBG.color = tempColor;
+
+        //DMGIndicator.transform.Translate((Vector3.left + Vector3.up)* m_ScrollSpeed * Time.deltaTime);
     }
 
     public void Kill()

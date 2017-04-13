@@ -55,6 +55,13 @@ public class AIMovement : MonoBehaviour
     {
         //count the steps to each player character;
         //return the smallest value of steps;
+        //float distance = 0, shortestDistance = 0;
+
+        //for (int i = 0; i < EnemyTeam.Team.Length; i++)
+        //{
+        //    distance = Map.Instance.GetPosition(EnemyTeam.Team[i].m_CurrentLocation) - Map.Instance.GetPosition()
+        //}
+
 
 
         return PlayerTeam.Team[0];
