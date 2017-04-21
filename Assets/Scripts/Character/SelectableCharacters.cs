@@ -156,7 +156,7 @@ public class SelectableCharacters : MonoBehaviour
         {
             for (int i = 0; i < TeamSize; i++)
             {
-                if (Team[i].m_hasMoved && Team[i].m_hasAttacked || Team[i].GetComponent<CharacterStats>().HP < 0)
+                if (Team[i].m_hasMoved && Team[i].m_hasAttacked && !Team[i].m_isEnemy || Team[i].GetComponent<CharacterStats>().HP < 0)
                 {
                     Team[i].GetComponent<SpriteRenderer>().color = Color.grey;
                     Team[i].m_isSelectable = false;

@@ -4,14 +4,15 @@ using System.Collections.Generic;
 
 /// <summary>
 /// This script will keep track of the gamestates:
+/// initializing stuffs during game Initialization (first round)
 /// Selecting character
 /// Moving character
 /// Doing action with character
 /// Attacking with character
-/// Animating character
-/// Executing AI turns
+/// Selecting Ability with character
+/// Casting ability with character
+/// Executing AI turn
 /// Displaying, resetting & executing game over
-/// initializing stuffs during game Initialization (first round)
 /// </summary>
 
 public class GameManager : singleton<GameManager>
@@ -45,6 +46,7 @@ public class GameManager : singleton<GameManager>
         for (int i = 0; i < EnemyTeam.Count; i++)
         {
             EnemyTeam[i].m_hasMoved = false;
+            EnemyTeam[i].m_hasAttacked = false;
         }
 
         //set gamestate to 1 (selecting)
@@ -76,7 +78,7 @@ public class GameManager : singleton<GameManager>
         SelectionManager.Instance.EnemyTeam.GetComponent<EnemyAI>().Initialize();
 
         //Set the game state to 1 (selecting)
-        GameState = (int)GameStates.AIMove;
+        GameState = (int)GameStates.Selecting;
     }
 
 }

@@ -28,6 +28,7 @@ public class CharacterStats : MonoBehaviour
     private int m_AbilityRange;
 
     public Slider HealthBar;
+    public Slider ManaBar;
 
     [Header("Damage Indication Information Station")]
     public Text DMGIndicator;
@@ -59,6 +60,9 @@ public class CharacterStats : MonoBehaviour
     public int MDEF { get { return m_magicDefensePower; } }
     public int RANGE { get { return m_AttackRange; } }
 
+    public int ATTRANGE { get { return m_AttackRange; } }
+    public int ABRANGE { get { return m_AbilityRange; } }
+
     //could add crit, speed, weapon bonus
 
     public void Start()
@@ -68,12 +72,22 @@ public class CharacterStats : MonoBehaviour
         DMGTextBG.gameObject.SetActive(false);
         EventLogger = SelectionManager.Instance.log;
         HealthBar.maxValue = MaxHP;
+
+        if(ManaBar != null)
+        {
+            ManaBar.maxValue = MaxAP;
+        }
+
         m_Fading = false;
     }
 
     public void Update()
     {
         HealthBar.value = m_HealthPoints;
+        if (!GetComponent<MoveableCharacter>().m_isEnemy)
+        {
+            ManaBar.value = m_AbilityPoints;
+        }
 
         if(m_Fading)
         {
@@ -98,8 +112,8 @@ public class CharacterStats : MonoBehaviour
     public void AttackTarget(CharacterStats other, int attackType)
     {
         m_target = other.GetComponent<MoveableCharacter>();
-        CharacterStats target_stats;
 
+        //print("AttackTarget EntryPoint " + +Time.timeSinceLevelLoad);
         switch (attackType)
         {
             case 0:
@@ -109,11 +123,10 @@ public class CharacterStats : MonoBehaviour
                     other.HP -= CalculateDamage(ATTPOW, other.DEF);
 
                     //SET DMG TEXT TO CalculateDamage(ATTPOW, other.DEF);
-                    target_stats = other.GetComponent<CharacterStats>();
-                    target_stats.DMGTextBG.text = target_stats.DMGIndicator.text = "" + CalculateDamage(ATTPOW, other.DEF);
-                    target_stats.DMGIndicator.gameObject.SetActive(true);
-                    target_stats.DMGTextBG.gameObject.SetActive(true);
-                    target_stats.m_Fading = true;
+                    other.DMGTextBG.text = other.DMGIndicator.text = "" + CalculateDamage(ATTPOW, other.DEF);
+                    other.DMGIndicator.gameObject.SetActive(true);
+                    other.DMGTextBG.gameObject.SetActive(true);
+                    other.m_Fading = true;
 
                     EventLogger.AddEvent(this.gameObject.name + " hit " + other.gameObject.name + " for " + CalculateDamage(ATTPOW, other.DEF) + " damage.");
                     //animate taking damage && attacking;
@@ -134,7 +147,7 @@ public class CharacterStats : MonoBehaviour
 
                 break;
             case 1:
-                if (other.HP > 0 && TargetInRange(attackType, Vector2.zero))
+                if (other.HP > 0 && TargetInRange(attackType, Vector2.zero) && m_AbilityPoints >= Abilities[ActionMenuManager.Instance.AbilityIndex].Cost)
                 {
                     print("Attacking with ability");
                     //if this has enough ap, do the attack; otherwise let the user know that they don't have enough and go back to ability selection state;
@@ -143,11 +156,10 @@ public class CharacterStats : MonoBehaviour
                     other.HP -= CalculateDamage(ABPOW, other.MDEF);
 
                     //SET DMG TEXT TO CalculateDamage(ATTPOW, other.DEF);
-                    target_stats = other.GetComponent<CharacterStats>();
-                    target_stats.DMGTextBG.text = target_stats.DMGIndicator.text = "" + CalculateDamage(ABPOW, other.MDEF);
-                    target_stats.DMGIndicator.gameObject.SetActive(true);
-                    target_stats.DMGTextBG.gameObject.SetActive(true);
-                    target_stats.m_Fading = true;
+                    other.DMGTextBG.text = other.DMGIndicator.text = "" + CalculateDamage(ABPOW, other.MDEF);
+                    other.DMGIndicator.gameObject.SetActive(true);
+                    other.DMGTextBG.gameObject.SetActive(true);
+                    other.m_Fading = true;
 
                     EventLogger.AddEvent(this.gameObject.name + " hit " + other.gameObject.name + " for " + CalculateDamage(ABPOW, other.MDEF) + " damage.");
                     //animate taking damage && attacking;
@@ -167,10 +179,13 @@ public class CharacterStats : MonoBehaviour
 
                     m_AbilityPoints -= Abilities[ActionMenuManager.Instance.AbilityIndex].Cost;
                 }
+
+                else
+                {
+                    print("Out of mana");
+                }
                 break;
         }
-
-        
 
     }
 
@@ -204,12 +219,9 @@ public class CharacterStats : MonoBehaviour
     public bool TargetInRange(int attackType, Vector2 index)
     {
 
-        int RangeToCheck;
+        int RangeToCheck = 0;
         Vector2 TargetLocIndex = Vector2.zero;
         Vector2 AttackerLocIndex = Vector2.zero;
-
-        Vector2 TargetLocation = Vector2.zero;
-        Vector2 AttackerLocation = Vector2.zero;
 
         if (attackType == 0)
         {
@@ -221,53 +233,50 @@ public class CharacterStats : MonoBehaviour
             RangeToCheck = m_AbilityRange;
         }
 
-        else
-        {
-            RangeToCheck = GetComponent<MoveableCharacter>().m_moveRange;
+        //else
+        //{
+        //    RangeToCheck = GetComponent<MoveableCharacter>().m_moveRange;
 
-            TargetLocIndex = index;
-            AttackerLocIndex = GetComponent<MoveableCharacter>().m_CurrentLocation;
+        //    TargetLocIndex = index;
+        //    AttackerLocIndex = GetComponent<MoveableCharacter>().m_CurrentLocation;
 
-            TargetLocation = Map.Instance.GetPosition(TargetLocation.x, TargetLocation.y);
-            AttackerLocation = Map.Instance.GetPosition(AttackerLocation.x, AttackerLocation.y);
-        }
+        //    TargetLocation = Map.Instance.GetPosition(TargetLocation.x, TargetLocation.y);
+        //    AttackerLocation = Map.Instance.GetPosition(AttackerLocation.x, AttackerLocation.y);
+        //}
 
         if (attackType != 2)
         {
             TargetLocIndex = m_target.m_CurrentLocation;
             AttackerLocIndex = this.GetComponent<MoveableCharacter>().m_CurrentLocation;
-
-            TargetLocation = Map.Instance.GetPosition(TargetLocIndex.x, TargetLocIndex.y);
-            AttackerLocation = Map.Instance.GetPosition(AttackerLocIndex.x, AttackerLocIndex.y);
         }
 
-        if (TargetLocation.x == AttackerLocation.x)
+        if (TargetLocIndex.x == AttackerLocIndex.x)
         {
-            if (TargetLocation.y < AttackerLocation.y + (blockDistance * RangeToCheck) && TargetLocation.y > AttackerLocation.y)
+            if (TargetLocIndex.y <= AttackerLocIndex.y + RangeToCheck && TargetLocIndex.y > AttackerLocIndex.y)
             {
                 //TOP
-                //print("INRANGE TOP");
+                print("INRANGE TOP");
                 return true;
             }
 
-            else if (TargetLocation.y > AttackerLocation.y - (blockDistance * RangeToCheck) && TargetLocation.y < AttackerLocation.y)
+            else if (TargetLocIndex.y >= AttackerLocIndex.y - RangeToCheck && TargetLocIndex.y < AttackerLocIndex.y)
             {
                 //Bottom
-                //print("INRANGE BOTTOM");
+                print("INRANGE BOTTOM");
                 return true;
             }
         }
 
-        else if (TargetLocation.y == AttackerLocation.y)
+        else if (TargetLocIndex.y == AttackerLocIndex.y)
         {
-            if (TargetLocation.x > AttackerLocation.x - (blockDistance * RangeToCheck) && TargetLocation.x < AttackerLocation.x)
+            if (TargetLocIndex.x >= AttackerLocIndex.x - RangeToCheck && TargetLocIndex.x < AttackerLocIndex.x)
             {
                 //left
-                //print("INRANGE LEFT");
+                print("INRANGE LEFT");
                 return true;
             }
 
-            else if (TargetLocation.x < AttackerLocation.x + (blockDistance * RangeToCheck) && TargetLocation.x > AttackerLocation.x)
+            else if (TargetLocIndex.x <= AttackerLocIndex.x + RangeToCheck && TargetLocIndex.x > AttackerLocIndex.x)
             {
                 //right
                 //print("INRANGE RIGHT");
@@ -280,34 +289,34 @@ public class CharacterStats : MonoBehaviour
         //(2)  Target is not aligned in the cardinal direction, possibly in a diagonal to the attacker
         //If the second case is true, its also true the Target X and Y will be different from the attacker
         //Hence why if the X AND Y don't match, we still none the less check if the target is in range horizontally AND vertically
-        else if (TargetLocation.x != AttackerLocation.x && TargetLocation.y != AttackerLocation.y)
+        else if (TargetLocIndex.x != AttackerLocIndex.x && TargetLocIndex.y != AttackerLocIndex.y)
         {
-            if (TargetLocation.x > AttackerLocation.x - (blockDistance * RangeToCheck) && TargetLocation.x < AttackerLocation.x
-                && TargetLocation.y < AttackerLocation.y + (blockDistance * RangeToCheck) && TargetLocation.y > AttackerLocation.y)
+            if (TargetLocIndex.x >= AttackerLocIndex.x - RangeToCheck && TargetLocIndex.x < AttackerLocIndex.x
+                && TargetLocIndex.y <= AttackerLocIndex.y + RangeToCheck && TargetLocIndex.y > AttackerLocIndex.y)
             {
                 //If it is in range left and in range top, we know diagonally its up left
                 //print("INRANGE TOP LEFT");
                 return true;
             }
 
-            else if (TargetLocation.x > AttackerLocation.x - (blockDistance * RangeToCheck) && TargetLocation.x < AttackerLocation.x
-                && TargetLocation.y > AttackerLocation.y - (blockDistance * RangeToCheck) && TargetLocation.y < AttackerLocation.y)
+            else if (TargetLocIndex.x >= AttackerLocIndex.x - RangeToCheck && TargetLocIndex.x < AttackerLocIndex.x
+                && TargetLocIndex.y >= AttackerLocIndex.y - RangeToCheck && TargetLocIndex.y < AttackerLocIndex.y)
             {
                 //Bottom left
                 //print("INRANGE BOTTOM LEFT");
                 return true;
             }
 
-            else if (TargetLocation.x < AttackerLocation.x + (blockDistance * RangeToCheck) && TargetLocation.x > AttackerLocation.x
-                && TargetLocation.y < AttackerLocation.y + (blockDistance * RangeToCheck) && TargetLocation.y > AttackerLocation.y)
+            else if (TargetLocIndex.x <= AttackerLocIndex.x + RangeToCheck && TargetLocIndex.x > AttackerLocIndex.x
+                && TargetLocIndex.y <= AttackerLocIndex.y + RangeToCheck && TargetLocIndex.y > AttackerLocIndex.y)
             {
                 //Top right
                 //print("INRANGE TOP RIGHT");
                 return true;
             }
 
-            else if (TargetLocation.x > AttackerLocation.x - (blockDistance * RangeToCheck) && TargetLocation.x < AttackerLocation.x
-                && TargetLocation.y > AttackerLocation.y - (blockDistance * RangeToCheck) && TargetLocation.y < AttackerLocation.y)
+            else if (TargetLocIndex.x >= AttackerLocIndex.x - RangeToCheck && TargetLocIndex.x < AttackerLocIndex.x
+                && TargetLocIndex.y >= AttackerLocIndex.y - RangeToCheck && TargetLocIndex.y < AttackerLocIndex.y)
             {
                 //Bottom right
                 //print("INRANGE BOTTOM RIGHT");
@@ -331,15 +340,15 @@ public class CharacterStats : MonoBehaviour
             {
                 if (Map.Instance.m_currentSelection.y == AttackerLocIndex.y)
                 {
-                    print(true);
+                    //print(true);
                     return true;
                 }
             }
 
         }
 
-        print(index + " " + TargetLocIndex);
-        print(false);
+        //print(index + " " + TargetLocIndex);
+        //print(false);
         return false;
     }
 

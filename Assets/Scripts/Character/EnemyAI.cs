@@ -79,32 +79,48 @@ public class EnemyAI : MonoBehaviour
                         {
                             if (!Enemies[i].m_moving && !Enemies[i].m_hasMoved)
                             {
-                                ExecuteMove(Enemies[i]);
+                                ExecuteMove(Enemies[i], i);
                             }
                         }
 
-                        else if (Enemies[i - 1].m_hasMoved)
+                        else if (Enemies[i - 1].m_hasMoved && Enemies[i - 1].m_hasAttacked)
                         {
                             if (!Enemies[i].m_moving && !Enemies[i].m_hasMoved)
                             {
-                                ExecuteMove(Enemies[i]);
+                                ExecuteMove(Enemies[i], i);
                             }
                         }
 
-                        if (i == Enemies.Count - 1 && Enemies[Enemies.Count - 1].m_hasMoved)
+                        if (Enemies[i].m_hasMoved && Enemies[i].GetComponent<CharacterStats>().m_target != null && !Enemies[i].m_hasAttacked)
+                        {
+                            DoAttack(Enemies[i]);
+                            //print("Attacking " + Time.timeSinceLevelLoad);
+                        }
+
+                        else if (Enemies[i].m_hasMoved && !Enemies[i].m_hasAttacked)
+                        {
+
+                            Enemies[i].m_hasAttacked = true;
+                            //print("End Turn " + Time.timeSinceLevelLoad);
+                            //Enemies[i].m_moving = false;
+                        }
+
+                        if (i == Enemies.Count - 1 && Enemies[Enemies.Count - 1].m_hasMoved && Enemies[Enemies.Count - 1].m_hasAttacked)
                         {
                             //TURN IS OVER
-                            print("Turn over!");
+                            //print("Turn over!");
                             GameManager.Instance.EndAITurn(Enemies);
                         }
                     }
+
                 }
             }
         }
     }
 
-    public void ExecuteMove(MoveableCharacter Enemy)
+    public void ExecuteMove(MoveableCharacter e, int index)
     {
+
         //FOR LATER
         //PseudoCode:
         //find the nearest player through a recursive function;
@@ -122,30 +138,52 @@ public class EnemyAI : MonoBehaviour
 
         else
         {
-            /*
             //if there are run the algorithm.
             //Set target for EnemyTeam.Team[i] to FindclosestTarget();
             //Move to (FindClosestTarget(Enemyteam.Team[i].m_currentPos;
             //Attaack target
-            for (int i = 0; i < PlayerTeam.Length; i++)
+            current = e.GetComponent<CharacterStats>();
+            current.m_target = FindClosestTarget(e.m_CurrentLocation, e.GetComponent<MoveableCharacter>());
+
+            if(current.m_target == null)
             {
-                //SET TARGET
-                current = EnemyTeam[i].GetComponent<CharacterStats>();
-                current.m_target = FindClosestTarget(EnemyTeam[i].m_CurrentLocation);
-
-                //MOVE TO TARGET
-                EnemyTeam[i].m_Destination = current.m_target.m_CurrentLocation;
-                EnemyTeam[i].m_isSelected = true;
-                EnemyTeam[i].m_moving = true;
-
-                //ATTACK TARGET
-                current.AttackTarget(current.m_target.GetComponent<CharacterStats>(), 0);
+                GetRandomMove(e);
             }
-            */
+                
+            else
+            {
+                //MOVE TO TARGET
+                Vector2 newDestination = new Vector2(current.m_target.m_CurrentLocation.x, current.m_target.m_CurrentLocation.y - current.ATTRANGE);
+                if(Map.Instance.MAP[(int)newDestination.x, (int)newDestination.y].m_isOccupied)
+                {
+                    newDestination = new Vector2(current.m_target.m_CurrentLocation.x + 1, current.m_target.m_CurrentLocation.y - current.ATTRANGE);
+                }
+                e.m_Destination = newDestination;
+                e.m_isSelected = true;
+                e.m_moving = true;
 
+            }
+
+            //e.m_moving = false;
+            //e.m_hasAttacked = true;
         }
 
+    }
 
+    void DoAttack(MoveableCharacter e)
+    {
+        current = e.GetComponent<CharacterStats>();
+
+        // ATTACK TARGET
+        //if has mana, use ability
+        //else use reg attack
+        current.AttackTarget(current.m_target.GetComponent<CharacterStats>(), 0);
+
+        e.m_hasAttacked = true;
+    }
+
+    void GetRandomMove(MoveableCharacter Enemy)
+    {
         //FOR NOW
         //Generate a random X and Y
         //Since the map is hardcoded as a 9x15 Map we generate an X from 0 - 8, and a Y from 0-14
@@ -154,7 +192,7 @@ public class EnemyAI : MonoBehaviour
         {
             randNumX = (int)Random.Range(0, 8);
             randNumY = (int)Random.Range(0, 14);
-            print("RandomIndex");
+            //print("RandomIndex");
         } while (Map.Instance.MAP[randNumX, randNumY].m_isOccupied || !Enemy.CheckMoveRange(new Vector2(randNumX, randNumY)));
 
         //Move the unit to Map[randNumX, randNumY]
@@ -165,7 +203,7 @@ public class EnemyAI : MonoBehaviour
         Enemy.m_moving = true;
     }
 
-    private MoveableCharacter FindClosetsTarget(Vector2 StartLocation, MoveableCharacter currentUnit)
+    private MoveableCharacter FindClosestTarget(Vector2 StartLocation, MoveableCharacter currentUnit)
     {
         //count the steps to each player character;
         //return the smallest value of steps;
@@ -175,20 +213,29 @@ public class EnemyAI : MonoBehaviour
 
         for (int i = 0; i < Players.Count; i++)
         {
-            temp = Map.Instance.GetPosition(Players[i].m_CurrentLocation.x, Players[i].m_CurrentLocation.y) - Map.Instance.GetPosition(currentUnit.m_CurrentLocation.x, currentUnit.m_CurrentLocation.y);
+            temp = PlayerTeam[i].m_CurrentLocation - currentUnit.m_CurrentLocation;
             distance = temp.magnitude;
+            //set the current units target to the current player to check;
+            currentUnit.GetComponent<CharacterStats>().m_target = PlayerTeam[i];
 
-            if (shortestDistance == 0)
-            {
-                shortestDistance = distance;
-                returnUnit = Players[i];
-            }
+            Vector2 check = new Vector2(current.m_target.m_CurrentLocation.x - current.ATTRANGE, current.m_target.m_CurrentLocation.y - current.ATTRANGE);
 
-            else if (distance < shortestDistance)
+            if (current.GetComponent<MoveableCharacter>().CheckMoveRange(check))
             {
-                shortestDistance = distance;
-                returnUnit = Players[i];
+                if (shortestDistance == 0)
+                {
+                    shortestDistance = distance;
+                    returnUnit = Players[i];
+                }
+
+                else if (distance < shortestDistance)
+                {
+                    shortestDistance = distance;
+                    returnUnit = Players[i];
+                }
             }
+            //reset the current units target to null;
+            currentUnit.GetComponent<CharacterStats>().m_target = null;
         }
 
 

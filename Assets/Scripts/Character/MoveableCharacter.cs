@@ -238,6 +238,7 @@ public class MoveableCharacter : MonoBehaviour
             //SelectionManager.Instance.DeSelectCharacter();
 
             //ARRIVED AT DESTINATION set hasmoved to tru
+            //print("Arrived" + Time.timeSinceLevelLoad);
             m_hasMoved = true;
 
             NewPosition = Map.Instance.GetPosition(m_Destination.x, m_Destination.y);
@@ -297,14 +298,14 @@ public class MoveableCharacter : MonoBehaviour
         if(currentRange <= m_moveRange)
         {
             //if within range, return true;
-            print(true);
+            //print(true);
             return true;
         }
 
         else
         {
             //otherwise return false
-            print(false);
+            //print(false);
             return false;
         }
     }
